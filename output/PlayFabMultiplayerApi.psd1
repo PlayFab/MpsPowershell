@@ -1,0 +1,24 @@
+@{
+  GUID = '69471dd5-a8a1-4905-ba20-c080d9b53ec9'
+  RootModule = './PlayFabMultiplayerApi.psm1'
+  ModuleVersion = '0.1.0'
+  CompatiblePSEditions = 'Core', 'Desktop'
+  Author = 'Microsoft Corporation'
+  CompanyName = 'Microsoft Corporation'
+  Copyright = 'Microsoft Corporation. All rights reserved.'
+  Description = 'PlayFab Multiplayer Servers cmdlets'
+  PowerShellVersion = '5.1'
+  DotNetFrameworkVersion = '4.7.2'
+  RequiredAssemblies = './bin/PlayFabMultiplayerApi.private.dll'
+  FormatsToProcess = './PlayFabMultiplayerApi.format.ps1xml'
+  FunctionsToExport = 'Enable-MultiplayerServer', 'Get-ArchivedMultiplayerServer', 'Get-AssetSummary', 'Get-AssetUploadUrl', 'Get-Build', 'Get-BuildAlias', 'Get-BuildSummaryV2', 'Get-CertificateSummary', 'Get-ContainerImage', 'Get-ContainerImageTag', 'Get-ContainerRegistryCredentials', 'Get-MultiplayerServer', 'Get-MultiplayerServerDetail', 'Get-MultiplayerServerLog', 'Get-MultiplayerSessionLog', 'Get-PartyQoServer', 'Get-QoServer', 'Get-RemoteLoginEndpoint', 'Get-TitleEnabled', 'Get-TitleMultiplayerServerQuota', 'Get-VirtualMachineSummary', 'Invoke-ImageUntagContainer', 'Invoke-RolloverContainerRegistryCredentials', 'Invoke-UploadCertificate', 'New-Build', 'New-BuildAlias', 'New-RemoteUser', 'Remove-Asset', 'Remove-Build', 'Remove-BuildAlias', 'Remove-BuildRegion', 'Remove-Certificate', 'Remove-ContainerImageRepository', 'Remove-RemoteUser', 'Request-MultiplayerServer', 'Set-TitleEntityToken', 'Stop-MultiplayerServer', 'Update-BuildAlias', 'Update-BuildRegion', '*'
+  AliasesToExport = '*'
+  PrivateData = @{
+    PSData = @{
+      Tags = ''
+      LicenseUri = 'https://github.com/PlayFab/MpsPowershell/blob/master/LICENSE'
+      ProjectUri = 'https://github.com/PlayFab/MpsPowershell'
+      ReleaseNotes = ''
+    }
+  }
+}
