@@ -1,0 +1,19 @@
+powershell: true
+clear-output-folder: true
+
+directive:
+    # autorest.powershell generates 2 variants for every operation, and we only want to keep
+    # the expanded variant (the un-expanded variant asks the user to input the request body
+    # as a string instead of asking for each argument separately)
+    - where:
+        variant: (.*)(?<!xpanded)$
+      remove: true
+
+metadata:
+  authors: Microsoft Corporation
+  owners: Microsoft Corporation
+  description: 'PlayFab Multiplayer Servers cmdlets'
+  copyright: Microsoft Corporation. All rights reserved.
+  companyName: Microsoft Corporation
+  projectUri: https://github.com/PlayFab/MpsPowershell
+  licenseUri: https://github.com/PlayFab/MpsPowershell/blob/master/LICENSE
