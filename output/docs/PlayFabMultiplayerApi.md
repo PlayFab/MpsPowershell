@@ -29,10 +29,6 @@ Gets a multiplayer server build.
 ### [Get-BuildAlias](Get-BuildAlias.md)
 Gets a multiplayer server build alias.
 
-### [Get-BuildSummaryV2](Get-BuildSummaryV2.md)
-Lists summarized details of all multiplayer server builds for a title.
-Accepts tokens for title and if game client access is enabled, allows game client to request list of builds with player entity token.
-
 ### [Get-CertificateSummary](Get-CertificateSummary.md)
 Lists multiplayer server game certificates for a title.
 
@@ -46,9 +42,6 @@ Lists the tags for a custom container image.
 Gets the credentials to the container registry.
 
 ### [Get-MultiplayerServer](Get-MultiplayerServer.md)
-Lists multiplayer server sessions for a build.
-
-### [Get-MultiplayerServerDetail](Get-MultiplayerServerDetail.md)
 Gets multiplayer server session details for a build.
 
 ### [Get-MultiplayerServerLog](Get-MultiplayerServerLog.md)
@@ -57,12 +50,15 @@ Gets multiplayer server logs after a server has terminated.
 ### [Get-MultiplayerSessionLog](Get-MultiplayerSessionLog.md)
 Gets multiplayer server logs after a server has terminated.
 
-### [Get-PartyQoServer](Get-PartyQoServer.md)
+### [Get-PartyQosServer](Get-PartyQosServer.md)
 Lists quality of service servers for party.
 
-### [Get-QoServer](Get-QoServer.md)
+### [Get-QosServer](Get-QosServer.md)
 Lists quality of service servers for the title.
 By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
+
+### [Get-QueueStatistics](Get-QueueStatistics.md)
+Get the statistics for a queue.
 
 ### [Get-RemoteLoginEndpoint](Get-RemoteLoginEndpoint.md)
 Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
@@ -72,6 +68,9 @@ Gets the status of whether a title is enabled for the multiplayer server feature
 
 ### [Get-TitleMultiplayerServerQuota](Get-TitleMultiplayerServerQuota.md)
 Gets the quotas for a title in relation to multiplayer servers.
+
+### [Get-TitleMultiplayerServerQuotaChange](Get-TitleMultiplayerServerQuotaChange.md)
+Gets a title's server quota change request.
 
 ### [Get-VirtualMachineSummary](Get-VirtualMachineSummary.md)
 Lists virtual machines for a title.
@@ -93,6 +92,9 @@ Creates a multiplayer server build alias.
 
 ### [New-RemoteUser](New-RemoteUser.md)
 Creates a remote user to log on to a VM for a multiplayer server build.
+
+### [New-TitleMultiplayerServerQuotaChange](New-TitleMultiplayerServerQuotaChange.md)
+Creates a request to change a title's multiplayer server quotas.
 
 ### [Remove-Asset](Remove-Asset.md)
 Deletes a multiplayer server game asset for a title.
@@ -127,6 +129,9 @@ Shuts down a multiplayer server session.
 
 ### [Update-BuildAlias](Update-BuildAlias.md)
 Creates a multiplayer server build alias.
+
+### [Update-BuildName](Update-BuildName.md)
+Updates a multiplayer server build's name.
 
 ### [Update-BuildRegion](Update-BuildRegion.md)
 Updates a multiplayer server build's region.

@@ -15,4 +15,8 @@ Describe 'Get-MultiplayerServer' {
     It 'ListExpanded' -skip {
         { throw [System.NotImplementedException] } | Should -Not -Throw
     }
+
+    It 'GetExpanded' -skip {
+        { throw [System.NotImplementedException] } | Should -Not -Throw
+    }
 }

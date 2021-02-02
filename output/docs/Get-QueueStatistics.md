@@ -1,25 +1,23 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-qoserver
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-queuestatistics
 schema: 2.0.0
 ---
 
-# Get-QoServer
+# Get-QueueStatistics
 
 ## SYNOPSIS
-Lists quality of service servers for the title.
-By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
+Get the statistics for a queue.
 
 ## SYNTAX
 
 ```
-Get-QoServer [-CustomTags <IAny>] [-IncludeAllRegions] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-QueueStatistics -QueueName <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Lists quality of service servers for the title.
-By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
+Get the statistics for a queue.
 
 ## EXAMPLES
 
@@ -59,15 +57,15 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IncludeAllRegions
-Indicates that the response should contain Qos servers for all regions, including those where there are no builds deployed for the title.
+### -QueueName
+The name of the queue.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -114,7 +112,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Sample.API.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1FqnmfdResponsesListqosserversfortitleresponseContentApplicationJsonSchema
+### Sample.API.Models.IComponents13LtcwuResponsesGetqueuestatisticsresultContentApplicationJsonSchema
 
 ## NOTES
 

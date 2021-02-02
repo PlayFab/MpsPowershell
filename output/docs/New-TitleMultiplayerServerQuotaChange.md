@@ -1,24 +1,25 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-multiplayerserverdetail
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/new-titlemultiplayerserverquotachange
 schema: 2.0.0
 ---
 
-# Get-MultiplayerServerDetail
+# New-TitleMultiplayerServerQuotaChange
 
 ## SYNOPSIS
-Gets multiplayer server session details for a build.
+Creates a request to change a title's multiplayer server quotas.
 
 ## SYNTAX
 
 ```
-Get-MultiplayerServerDetail -BuildId <String> -Region <String> -SessionId <String> [-CustomTags <IAny>]
- [-Confirm] [-WhatIf] [<CommonParameters>]
+New-TitleMultiplayerServerQuotaChange -Changes <ICoreCapacityChange[]> [-ChangeDescription <String>]
+ [-ContactEmail <String>] [-CustomTags <IAny>] [-Notes <String>] [-StartDate <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets multiplayer server session details for a build.
+Creates a request to change a title's multiplayer server quotas.
 
 ## EXAMPLES
 
@@ -42,15 +43,47 @@ PS C:\> {{ Add code here }}
 
 ## PARAMETERS
 
-### -BuildId
-The guid string build ID of the multiplayer server to get details for.
+### -ChangeDescription
+A brief description of the requested changes.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
 Aliases:
 
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Changes
+Changes to make to the titles cores quota.
+To construct, see NOTES section for CHANGES properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.ICoreCapacityChange[]
+Parameter Sets: (All)
+Aliases:
+
 Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ContactEmail
+Email to be contacted by our team about this request.
+Only required when a request is not approved.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -73,31 +106,31 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Region
-The region the multiplayer server is located in to get details for.
+### -Notes
+Additional information about this request that our team can use to better understand the requirements.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SessionId
-The title generated guid string session ID of the multiplayer server to get details for.
-This is to keep track of multiplayer server sessions.
+### -StartDate
+When these changes would need to be in effect.
+Only required when a request is not approved.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -144,11 +177,21 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Sample.API.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1P1Mp4RResponsesGetmultiplayerserverdetailsresponseContentApplicationJsonSchema
+### Sample.API.Models.IComponents1Sy6ReyResponsesCreatetitlemultiplayerserversquotachangeresponseContentApplicationJsonSchema
 
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+CHANGES <ICoreCapacityChange[]>: Changes to make to the titles cores quota.
+  - `NewCoreLimit <Single>`: New quota core limit for the given vm family/region.
+  - `Region <String>`: Region to change.
+  - `VMFamily <String>`: Virtual machine family to change.
 
 ## RELATED LINKS
 

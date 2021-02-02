@@ -1,26 +1,25 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-buildsummaryv2
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-qosserver
 schema: 2.0.0
 ---
 
-# Get-BuildSummaryV2
+# Get-QosServer
 
 ## SYNOPSIS
-Lists summarized details of all multiplayer server builds for a title.
-Accepts tokens for title and if game client access is enabled, allows game client to request list of builds with player entity token.
+Lists quality of service servers for the title.
+By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
 
 ## SYNTAX
 
 ```
-Get-BuildSummaryV2 [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
+Get-QosServer [-CustomTags <IAny>] [-IncludeAllRegions] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Lists summarized details of all multiplayer server builds for a title.
-Accepts tokens for title and if game client access is enabled, allows game client to request list of builds with player entity token.
+Lists quality of service servers for the title.
+By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
 
 ## EXAMPLES
 
@@ -60,26 +59,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PageSize
-The page size for the request.
+### -IncludeAllRegions
+Indicates that the response should contain Qos servers for all regions, including those where there are no builds deployed for the title.
 
 ```yaml
-Type: System.Single
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SkipToken
-The skip token for the paged request.
-
-```yaml
-Type: System.String
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -130,7 +114,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Sample.API.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents5B91ZxResponsesListbuildsummariesresponseContentApplicationJsonSchema
+### Sample.API.Models.IComponents1FqnmfdResponsesListqosserversfortitleresponseContentApplicationJsonSchema
 
 ## NOTES
 

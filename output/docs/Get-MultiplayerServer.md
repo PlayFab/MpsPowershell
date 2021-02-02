@@ -8,17 +8,24 @@ schema: 2.0.0
 # Get-MultiplayerServer
 
 ## SYNOPSIS
-Lists multiplayer server sessions for a build.
+Gets multiplayer server session details for a build.
 
 ## SYNTAX
 
+### ListExpanded (Default)
 ```
 Get-MultiplayerServer -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
  [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
+### GetExpanded
+```
+Get-MultiplayerServer -BuildId <String> -Region <String> -SessionId <String> [-CustomTags <IAny>] [-Confirm]
+ [-WhatIf] [<CommonParameters>]
+```
+
 ## DESCRIPTION
-Lists multiplayer server sessions for a build.
+Gets multiplayer server session details for a build.
 
 ## EXAMPLES
 
@@ -43,7 +50,7 @@ PS C:\> {{ Add code here }}
 ## PARAMETERS
 
 ### -BuildId
-The guid string build ID of the multiplayer servers to list.
+The guid string build ID of the multiplayer server to get details for.
 
 ```yaml
 Type: System.String
@@ -78,7 +85,7 @@ The page size for the request.
 
 ```yaml
 Type: System.Single
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -89,11 +96,27 @@ Accept wildcard characters: False
 ```
 
 ### -Region
-The region the multiplayer servers to list.
+The region the multiplayer server is located in to get details for.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SessionId
+The title generated guid string session ID of the multiplayer server to get details for.
+This is to keep track of multiplayer server sessions.
+
+```yaml
+Type: System.String
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: True
@@ -108,7 +131,7 @@ The skip token for the paged request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -159,6 +182,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### Sample.API.Models.IApiErrorWrapper
 
 ### Sample.API.Models.IComponents12QgathResponsesListmultiplayerserversresponseContentApplicationJsonSchema
+
+### Sample.API.Models.IComponents1P1Mp4RResponsesGetmultiplayerserverdetailsresponseContentApplicationJsonSchema
 
 ## NOTES
 

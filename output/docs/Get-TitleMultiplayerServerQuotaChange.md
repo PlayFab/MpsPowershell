@@ -1,23 +1,30 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-partyqoserver
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-titlemultiplayerserverquotachange
 schema: 2.0.0
 ---
 
-# Get-PartyQoServer
+# Get-TitleMultiplayerServerQuotaChange
 
 ## SYNOPSIS
-Lists quality of service servers for party.
+Gets a title's server quota change request.
 
 ## SYNTAX
 
+### ListExpanded (Default)
 ```
-Get-PartyQoServer [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-TitleMultiplayerServerQuotaChange [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### GetExpanded
+```
+Get-TitleMultiplayerServerQuotaChange -RequestId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Lists quality of service servers for party.
+Gets a title's server quota change request.
 
 ## EXAMPLES
 
@@ -51,6 +58,21 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RequestId
+Id of the change request to get.
+
+```yaml
+Type: System.String
+Parameter Sets: GetExpanded
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -97,7 +119,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Sample.API.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsAwzw9QResponsesListpartyqosserversresponseContentApplicationJsonSchema
+### Sample.API.Models.IComponents1Pfedf1ResponsesGettitlemultiplayerserversquotachangeresponseContentApplicationJsonSchema
+
+### Sample.API.Models.IComponents1Up6CpyResponsesListtitlemultiplayerserversquotachangesresponseContentApplicationJsonSchema
 
 ## NOTES
 

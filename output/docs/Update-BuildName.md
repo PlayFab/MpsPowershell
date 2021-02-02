@@ -1,30 +1,24 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-build
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/update-buildname
 schema: 2.0.0
 ---
 
-# Get-Build
+# Update-BuildName
 
 ## SYNOPSIS
-Gets a multiplayer server build.
+Updates a multiplayer server build's name.
 
 ## SYNTAX
 
-### ListExpanded (Default)
 ```
-Get-Build [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
+Update-BuildName -BuildId <String> -BuildName <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
-### GetExpanded
-```
-Get-Build -BuildId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
 ## DESCRIPTION
-Gets a multiplayer server build.
+Updates a multiplayer server build's name.
 
 ## EXAMPLES
 
@@ -49,11 +43,26 @@ PS C:\> {{ Add code here }}
 ## PARAMETERS
 
 ### -BuildId
-The guid string build ID of the build to get.
+The guid string ID of the build we want to update the name of.
 
 ```yaml
 Type: System.String
-Parameter Sets: GetExpanded
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -BuildName
+The build name.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -70,36 +79,6 @@ build number, external trace identifiers, etc.).
 ```yaml
 Type: Sample.API.Models.IAny
 Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PageSize
-The page size for the request.
-
-```yaml
-Type: System.Single
-Parameter Sets: ListExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SkipToken
-The skip token for the paged request.
-
-```yaml
-Type: System.String
-Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -149,9 +128,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Sample.API.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Ss7K7IResponsesGetbuildresponseContentApplicationJsonSchema
-
-### Sample.API.Models.IComponents5B91ZxResponsesListbuildsummariesresponseContentApplicationJsonSchema
+### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 
