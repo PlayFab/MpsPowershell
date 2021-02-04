@@ -9,7 +9,7 @@ param(
 
     [Parameter(HelpMessage='The output folder.')]
     [System.String]
-    ${Output-Folder} = ".\\output"
+    ${Output-Folder} = ".\\generated"
 )
 
 # Trim quotation marks from the input and output path
