@@ -1,6 +1,6 @@
 function Set-TitleEntityToken {
     # returns the object returned from Invoke-RestMethod
-    [OutputType('PSCustomObject')]
+    [OutputType([PSCustomObject])]
     [CmdletBinding(PositionalBinding=$false)]
     [Sample.API.Description('Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.')]
     param(
