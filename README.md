@@ -21,6 +21,7 @@ See [how-to.md](how-to.md)
     ```powershell
     .\generated\build-module.ps1 -run
     ```
+1. **optional** The CustomPsModule project contains internal cmdlet(s) that are written in C#. It has already been built and its output checked into [\generated\custom\CustomPsModule](generated/custom/CustomPsModule). If you need to make changes to that project, just build it in Visual Studio when you are finished and copy the build output there. 
 
 ## Contact Us
 We love to hear from our developer community!
