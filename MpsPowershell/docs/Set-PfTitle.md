@@ -1,11 +1,11 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/set-titleentitytoken
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/set-pftitle
 schema: 2.0.0
 ---
 
-# Set-TitleEntityToken
+# Set-PfTitle
 
 ## SYNOPSIS
 Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.
@@ -13,7 +13,7 @@ Requests a Title EntityToken and sets it to an environment variable that is used
 ## SYNTAX
 
 ```
-Set-TitleEntityToken -SecretKey <String> -TitleId <String> [-PlayFabApiHostName <String>] [<CommonParameters>]
+Set-PfTitle -SecretKey <String> -TitleId <String> [-PlayFabApiHostName <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

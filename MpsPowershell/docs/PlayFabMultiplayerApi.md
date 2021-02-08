@@ -84,7 +84,7 @@ Rolls over the credentials to the container registry.
 ### [Invoke-PfUploadCertificate](Invoke-PfUploadCertificate.md)
 Uploads a multiplayer server game certificate.
 
-### [New-Asset](New-Asset.md)
+### [New-PfAsset](New-PfAsset.md)
 Uploads an asset.
 
 ### [New-PfBuild](New-PfBuild.md)
@@ -124,7 +124,7 @@ Deletes a remote user to log on to a VM for a multiplayer server build.
 Request a multiplayer server session.
 Accepts tokens for title and if game client access is enabled, allows game client to request a server with player entity token.
 
-### [Set-TitleEntityToken](Set-TitleEntityToken.md)
+### [Set-PfTitle](Set-PfTitle.md)
 Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.
 
 ### [Stop-PfMultiplayerServer](Stop-PfMultiplayerServer.md)

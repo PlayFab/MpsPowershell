@@ -1,11 +1,11 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/new-asset
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/new-pfasset
 schema: 2.0.0
 ---
 
-# New-Asset
+# New-PfAsset
 
 ## SYNOPSIS
 Uploads an asset.
@@ -13,7 +13,7 @@ Uploads an asset.
 ## SYNTAX
 
 ```
-New-Asset -AssetName <String> -FilePath <String> [<CommonParameters>]
+New-PfAsset -AssetName <String> -FilePath <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
