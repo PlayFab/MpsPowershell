@@ -11,132 +11,132 @@ Locale: en-US
 PlayFab Multiplayer Servers cmdlets
 
 ## PlayFabMultiplayerApi Cmdlets
-### [Enable-MultiplayerServer](Enable-MultiplayerServer.md)
+### [Enable-PfMultiplayerServer](Enable-PfMultiplayerServer.md)
 Enables the multiplayer server feature for a title.
 
-### [Get-ArchivedMultiplayerServer](Get-ArchivedMultiplayerServer.md)
+### [Get-PfArchivedMultiplayerServer](Get-PfArchivedMultiplayerServer.md)
 Lists archived multiplayer server sessions for a build.
 
-### [Get-AssetSummary](Get-AssetSummary.md)
+### [Get-PfAssetSummary](Get-PfAssetSummary.md)
 Lists multiplayer server game assets for a title.
 
-### [Get-AssetUploadUrl](Get-AssetUploadUrl.md)
+### [Get-PfAssetUploadUrl](Get-PfAssetUploadUrl.md)
 Gets the URL to upload assets to.
 
-### [Get-Build](Get-Build.md)
+### [Get-PfBuild](Get-PfBuild.md)
 Gets a multiplayer server build.
 
-### [Get-BuildAlias](Get-BuildAlias.md)
+### [Get-PfBuildAlias](Get-PfBuildAlias.md)
 Gets a multiplayer server build alias.
 
-### [Get-CertificateSummary](Get-CertificateSummary.md)
+### [Get-PfCertificateSummary](Get-PfCertificateSummary.md)
 Lists multiplayer server game certificates for a title.
 
-### [Get-ContainerImage](Get-ContainerImage.md)
+### [Get-PfContainerImage](Get-PfContainerImage.md)
 Lists custom container images for a title.
 
-### [Get-ContainerImageTag](Get-ContainerImageTag.md)
+### [Get-PfContainerImageTag](Get-PfContainerImageTag.md)
 Lists the tags for a custom container image.
 
-### [Get-ContainerRegistryCredentials](Get-ContainerRegistryCredentials.md)
+### [Get-PfContainerRegistryCredentials](Get-PfContainerRegistryCredentials.md)
 Gets the credentials to the container registry.
 
-### [Get-MultiplayerServer](Get-MultiplayerServer.md)
+### [Get-PfMultiplayerServer](Get-PfMultiplayerServer.md)
 Gets multiplayer server session details for a build.
 
-### [Get-MultiplayerServerLog](Get-MultiplayerServerLog.md)
+### [Get-PfMultiplayerServerLog](Get-PfMultiplayerServerLog.md)
 Gets multiplayer server logs after a server has terminated.
 
-### [Get-MultiplayerSessionLog](Get-MultiplayerSessionLog.md)
+### [Get-PfMultiplayerSessionLog](Get-PfMultiplayerSessionLog.md)
 Gets multiplayer server logs after a server has terminated.
 
-### [Get-PartyQosServer](Get-PartyQosServer.md)
+### [Get-PfPartyQosServer](Get-PfPartyQosServer.md)
 Lists quality of service servers for party.
 
-### [Get-QosServer](Get-QosServer.md)
+### [Get-PfQosServer](Get-PfQosServer.md)
 Lists quality of service servers for the title.
 By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
 
-### [Get-QueueStatistics](Get-QueueStatistics.md)
+### [Get-PfQueueStatistics](Get-PfQueueStatistics.md)
 Get the statistics for a queue.
 
-### [Get-RemoteLoginEndpoint](Get-RemoteLoginEndpoint.md)
+### [Get-PfRemoteLoginEndpoint](Get-PfRemoteLoginEndpoint.md)
 Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
 
-### [Get-TitleEnabled](Get-TitleEnabled.md)
+### [Get-PfTitleEnabled](Get-PfTitleEnabled.md)
 Gets the status of whether a title is enabled for the multiplayer server feature.
 
-### [Get-TitleMultiplayerServerQuota](Get-TitleMultiplayerServerQuota.md)
+### [Get-PfTitleMultiplayerServerQuota](Get-PfTitleMultiplayerServerQuota.md)
 Gets the quotas for a title in relation to multiplayer servers.
 
-### [Get-TitleMultiplayerServerQuotaChange](Get-TitleMultiplayerServerQuotaChange.md)
+### [Get-PfTitleMultiplayerServerQuotaChange](Get-PfTitleMultiplayerServerQuotaChange.md)
 Gets a title's server quota change request.
 
-### [Get-VirtualMachineSummary](Get-VirtualMachineSummary.md)
+### [Get-PfVirtualMachineSummary](Get-PfVirtualMachineSummary.md)
 Lists virtual machines for a title.
 
-### [Invoke-ImageUntagContainer](Invoke-ImageUntagContainer.md)
+### [Invoke-PfImageUntagContainer](Invoke-PfImageUntagContainer.md)
 Untags a container image.
 
-### [Invoke-RolloverContainerRegistryCredentials](Invoke-RolloverContainerRegistryCredentials.md)
+### [Invoke-PfRolloverContainerRegistryCredentials](Invoke-PfRolloverContainerRegistryCredentials.md)
 Rolls over the credentials to the container registry.
 
-### [Invoke-UploadCertificate](Invoke-UploadCertificate.md)
+### [Invoke-PfUploadCertificate](Invoke-PfUploadCertificate.md)
 Uploads a multiplayer server game certificate.
 
 ### [New-Asset](New-Asset.md)
 Uploads an asset.
 
-### [New-Build](New-Build.md)
+### [New-PfBuild](New-PfBuild.md)
 Creates a multiplayer server build with a custom container.
 
-### [New-BuildAlias](New-BuildAlias.md)
+### [New-PfBuildAlias](New-PfBuildAlias.md)
 Creates a multiplayer server build alias.
 
-### [New-RemoteUser](New-RemoteUser.md)
+### [New-PfRemoteUser](New-PfRemoteUser.md)
 Creates a remote user to log on to a VM for a multiplayer server build.
 
-### [New-TitleMultiplayerServerQuotaChange](New-TitleMultiplayerServerQuotaChange.md)
+### [New-PfTitleMultiplayerServerQuotaChange](New-PfTitleMultiplayerServerQuotaChange.md)
 Creates a request to change a title's multiplayer server quotas.
 
-### [Remove-Asset](Remove-Asset.md)
+### [Remove-PfAsset](Remove-PfAsset.md)
 Deletes a multiplayer server game asset for a title.
 
-### [Remove-Build](Remove-Build.md)
+### [Remove-PfBuild](Remove-PfBuild.md)
 Deletes a multiplayer server build.
 
-### [Remove-BuildAlias](Remove-BuildAlias.md)
+### [Remove-PfBuildAlias](Remove-PfBuildAlias.md)
 Deletes a multiplayer server build alias.
 
-### [Remove-BuildRegion](Remove-BuildRegion.md)
+### [Remove-PfBuildRegion](Remove-PfBuildRegion.md)
 Removes a multiplayer server build's region.
 
-### [Remove-Certificate](Remove-Certificate.md)
+### [Remove-PfCertificate](Remove-PfCertificate.md)
 Deletes a multiplayer server game certificate.
 
-### [Remove-ContainerImageRepository](Remove-ContainerImageRepository.md)
+### [Remove-PfContainerImageRepository](Remove-PfContainerImageRepository.md)
 Deletes a container image repository.
 
-### [Remove-RemoteUser](Remove-RemoteUser.md)
+### [Remove-PfRemoteUser](Remove-PfRemoteUser.md)
 Deletes a remote user to log on to a VM for a multiplayer server build.
 
-### [Request-MultiplayerServer](Request-MultiplayerServer.md)
+### [Request-PfMultiplayerServer](Request-PfMultiplayerServer.md)
 Request a multiplayer server session.
 Accepts tokens for title and if game client access is enabled, allows game client to request a server with player entity token.
 
 ### [Set-TitleEntityToken](Set-TitleEntityToken.md)
 Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.
 
-### [Stop-MultiplayerServer](Stop-MultiplayerServer.md)
+### [Stop-PfMultiplayerServer](Stop-PfMultiplayerServer.md)
 Shuts down a multiplayer server session.
 
-### [Update-BuildAlias](Update-BuildAlias.md)
+### [Update-PfBuildAlias](Update-PfBuildAlias.md)
 Creates a multiplayer server build alias.
 
-### [Update-BuildName](Update-BuildName.md)
+### [Update-PfBuildName](Update-PfBuildName.md)
 Updates a multiplayer server build's name.
 
-### [Update-BuildRegion](Update-BuildRegion.md)
+### [Update-PfBuildRegion](Update-PfBuildRegion.md)
 Updates a multiplayer server build's region.
 If the region is not yet created, it will be created
 

@@ -2,10 +2,6 @@
 > see https://aka.ms/autorest
 
 ```yaml
-powershell: true
-
-clear-output-folder: true
-
 metadata:
   authors: Microsoft Corporation
   owners: Microsoft Corporation
@@ -14,6 +10,10 @@ metadata:
   companyName: Microsoft Corporation
   projectUri: https://github.com/PlayFab/MpsPowershell
   licenseUri: https://github.com/PlayFab/MpsPowershell/blob/master/LICENSE
+
+powershell: true
+clear-output-folder: true
+prefix: Pf
 
 directive:
   # autorest.powershell generates 2 variants for every operation, and we only want to keep
