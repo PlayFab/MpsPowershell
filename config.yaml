@@ -1,5 +1,7 @@
 powershell: true
 
+clear-output-folder: true
+
 metadata:
   authors: Microsoft Corporation
   owners: Microsoft Corporation
