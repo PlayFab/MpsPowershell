@@ -27,8 +27,3 @@ ${Input-File} = ${tempFile}
 # the default version (v2.1.401 as of this writing) is missing.
 #See https://github.com/Azure/autorest.powershell/issues/727
 autorest $PsScriptRoot\autorestConfig.md --use:@autorest/powershell@3.0.415 --module-version=${Module-Version} --input-file=${Input-File} --output-folder=${Output-Folder}
-
-& "${Output-Folder}\build-module.ps1" -pack
-
-Write-Host "Done."
-Write-Host "If all previous commands succeeded, the resulting .nupkg file can be found in ${Output-Folder}\bin."
