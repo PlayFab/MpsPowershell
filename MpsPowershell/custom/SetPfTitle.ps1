@@ -1,4 +1,4 @@
-function Set-TitleEntityToken {
+function Set-PfTitle {
     # returns the object returned from Invoke-RestMethod
     [OutputType([PSCustomObject])]
     [CmdletBinding(PositionalBinding=$false)]

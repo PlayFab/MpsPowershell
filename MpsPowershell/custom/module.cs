@@ -28,7 +28,7 @@ namespace Sample.API
 
             if (string.IsNullOrEmpty(titleId) || string.IsNullOrEmpty(entityToken) || string.IsNullOrEmpty(playFabApiHostName)) 
             {
-                throw new InvalidOperationException("Missing authentication. Call 'Set-TitleEntityToken' before making this request.");
+                throw new InvalidOperationException("Missing authentication. Call 'Set-PfTitle' before making this request.");
             }
 
             // replace the TitleId in the uri

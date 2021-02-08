@@ -1,4 +1,4 @@
-function New-Asset {
+function New-PfAsset {
     [OutputType('Sample.API.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema', 'Sample.API.Models.IApiErrorWrapper', 'Azure.Response')]
     [CmdletBinding(PositionalBinding=$false)]
     [Sample.API.Description('Uploads an asset.')]
@@ -15,7 +15,7 @@ function New-Asset {
     )
 
     process {
-        $getAssetUploadUrlResponse = PlayFabMultiplayerApi\Get-AssetUploadUrl -FileName ${AssetName}
+        $getAssetUploadUrlResponse = PlayFabMultiplayerApi\Get-PfAssetUploadUrl -FileName ${AssetName}
 
         if ($getAssetUploadUrlResponse.Code -ne 200) {
             return $getAssetUploadUrlResponse
