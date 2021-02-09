@@ -21,23 +21,20 @@ Rolls over the credentials to the container registry.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Roll over credentials to container registry
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Invoke-PfRolloverContainerRegistryCredentials | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "DataDnsName": "example.azurecr.io",
+  "DataPassword": "newPassword",
+  "DataUsername": "newUsername",
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 

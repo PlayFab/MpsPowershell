@@ -21,23 +21,45 @@ Lists quality of service servers for party.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: List all party qos servers
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Get-PfPartyQosServer | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "DataPageSize": 6.0,
+  "DataQosServers": [
+    {
+      "Region": "WestUs",
+      "ServerUrl": "example.cloudapp.azure.com"
+    },
+    {
+      "Region": "SouthCentralUs",
+      "ServerUrl": "example.cloudapp.net"
+    },
+    {
+      "Region": "CentralUs",
+      "ServerUrl": "example.cloudapp.net"
+    },
+    {
+      "Region": "NorthCentralUs",
+      "ServerUrl": "example.cloudapp.azure.com"
+    },
+    {
+      "Region": "EastUs",
+      "ServerUrl": "example.cloudapp.net"
+    },
+    {
+      "Region": "EastUs2",
+      "ServerUrl": "example.cloudapp.azure.com"
+    }
+  ],
+  "DataSkipToken": null,
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 

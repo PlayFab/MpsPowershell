@@ -22,23 +22,19 @@ Uploads a multiplayer server game certificate.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Upload a certificate from a pfx file
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> $base64string = [Convert]::ToBase64String([IO.File]::ReadAllBytes('.\certificate.pfx'))
+PS C:\> Invoke-PfUploadCertificate -GameCertificateBase64EncodedValue $base64string -GameCertificateName MyCert -GameCertificatePassword password | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 

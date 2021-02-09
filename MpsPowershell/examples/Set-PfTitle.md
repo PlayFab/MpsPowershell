@@ -10,3 +10,4 @@ code status data
 Obtain your title SecretKey from https://developer.playfab.com/en-US/r/t/{{TitleId}}/settings/secret-keys.
 This example doesn't use a real SecretKey. Always keep SecretKeys secure.
 The EntityToken in the response is set to an environment variable and is automatically read by future commands--you don't need to do anything with the output of this command.
+

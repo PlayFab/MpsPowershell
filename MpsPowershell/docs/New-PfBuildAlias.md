@@ -22,11 +22,19 @@ Creates a multiplayer server build alias.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Create a new build alias
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> New-PfBuildAlias -AliasName NewAliasName | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "DataAliasId": "b8369e7c-c6f0-45e9-b05f-596a07008a84",
+  "DataAliasName": "NewAliasName",
+  "DataBuildSelectionCriteria": null,
+  "DataPageSize": 0.0,
+  "DataSkipToken": null,
+  "Status": "OK"
+}
 ```
 
 {{ Add description here }}

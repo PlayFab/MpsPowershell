@@ -57,9 +57,6 @@ Lists quality of service servers for party.
 Lists quality of service servers for the title.
 By default, servers are only returned for regions where a Multiplayer Servers build has been deployed.
 
-### [Get-PfQueueStatistics](Get-PfQueueStatistics.md)
-Get the statistics for a queue.
-
 ### [Get-PfRemoteLoginEndpoint](Get-PfRemoteLoginEndpoint.md)
 Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
 

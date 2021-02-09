@@ -22,23 +22,18 @@ Untags a container image.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Remove a tag from a container image
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Invoke-PfImageUntagContainer -ImageName exampleContainerImage -Tag 0.1 | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 

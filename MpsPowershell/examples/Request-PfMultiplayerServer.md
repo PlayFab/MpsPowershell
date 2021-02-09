@@ -23,3 +23,4 @@ PS C:\> Request-PfMultiplayerServer -PreferredRegions @('AustraliaEast', 'WestEu
   "Status": "OK"
 }
 ```
+

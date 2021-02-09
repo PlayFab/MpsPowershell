@@ -21,23 +21,20 @@ Gets the credentials to the container registry.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Retrieve container registry credentials
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Get-PfContainerRegistryCredentials | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "DataDnsName": "example.azurecr.io",
+  "DataPassword": "redacted",
+  "DataUsername": "exampleUsername",
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 

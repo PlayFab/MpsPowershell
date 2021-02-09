@@ -9,3 +9,4 @@ PS C:\> Invoke-PfUploadCertificate -GameCertificateBase64EncodedValue $base64str
   "Status": "OK"
 }
 ```
+

@@ -22,23 +22,23 @@ Lists custom container images for a title.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: List all container images
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Get-PfContainerImage | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "DataImages": [
+    "openarena",
+    "sago007/openarena"
+  ],
+  "DataPageSize": 2.0,
+  "DataSkipToken": null,
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 
