@@ -38,7 +38,7 @@ directive:
   #       return undefined
   # but I can't get either of those solutions to work.
   - where:
-      subject: ^(.*)(Match|Ticket)(.*)$
+      subject: ^(.*)(Match|Ticket|Queue)(.*)$
     remove: true
 
   # For some reason Autorest renames "Qos" to "Qo", so this reverts that.

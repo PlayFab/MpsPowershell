@@ -1,18 +1,25 @@
-### Example 1: {{ Add title here }}
+### Example 1: List assets
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\>Get-PfAssetSummary | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "DataAssetSummaries": [
+    {
+      "FileName": "/mnt/c/projects/playfabmultiplayerserverscli/winrunnerSample.zip",
+      "Metadata": {}
+    },
+    {
+      "FileName": "/mnt/c/projects/playfabmultiplayerserverscli/winrunnerSample4.zip",
+      "Metadata": {}
+    },
+    {
+      "FileName": "/mnt/c/projects/playfabmultiplayerserverscli/winrunnerSample5.zip",
+      "Metadata": {}
+    }
+  ],
+  "DataPageSize": 3.0,
+  "DataSkipToken": null,
+  "Status": "OK"
+}
 ```
-
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
-
