@@ -24,29 +24,31 @@ Creates a multiplayer server build alias.
 
 ### Example 1: Create a new build alias
 ```powershell
-PS C:\> New-PfBuildAlias -AliasName NewAliasName | ConvertTo-Json -depth 5
+PS C:\> $buildWeightDistribution = @{
+>> "9968f71f-f3ec-49df-82d7-d00b12c92e12" = 2
+>> "0efadb18-8c62-42da-a7f9-4deec9bf47fd" = 3
+>> }
+PS C:\> New-PfBuildAlias -AliasName NewAliasName -BuildSelectionCriteria @(@{ "BuildWeightDistribution" = $buildWeightDistribution}) | ConvertTo-Json -depth 5
 
 {
   "Code": 200,
-  "DataAliasId": "b8369e7c-c6f0-45e9-b05f-596a07008a84",
+  "DataAliasId": "eebd660c-2c4e-4ec3-abd7-d639bb329ad0",
   "DataAliasName": "NewAliasName",
-  "DataBuildSelectionCriteria": null,
+  "DataBuildSelectionCriteria": [
+    {
+      "BuildWeightDistribution": {
+        "0efadb18-8c62-42da-a7f9-4deec9bf47fd": 3,
+        "9968f71f-f3ec-49df-82d7-d00b12c92e12": 2
+      }
+    }
+  ],
   "DataPageSize": 0.0,
   "DataSkipToken": null,
   "Status": "OK"
 }
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 
