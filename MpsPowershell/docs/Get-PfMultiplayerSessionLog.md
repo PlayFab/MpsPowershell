@@ -12,8 +12,16 @@ Gets multiplayer server logs after a server has terminated.
 
 ## SYNTAX
 
+### GetExpanded (Default)
 ```
 Get-PfMultiplayerSessionLog -SessionId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Get
+```
+Get-PfMultiplayerSessionLog
+ -GetMultiplayerSessionLogsBySessionIdRequest <IGetMultiplayerSessionLogsBySessionIdRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -47,7 +55,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: False
@@ -57,12 +65,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -GetMultiplayerSessionLogsBySessionIdRequest
+Gets multiplayer server logs for a specific server id in a region.
+The logs are available only after a server has terminated.
+To construct, see NOTES section for GETMULTIPLAYERSESSIONLOGSBYSESSIONIDREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IGetMultiplayerSessionLogsBySessionIdRequest
+Parameter Sets: Get
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -SessionId
 The server ID of multiplayer server to get logs for.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: True
@@ -108,6 +133,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IGetMultiplayerSessionLogsBySessionIdRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -117,6 +144,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+GETMULTIPLAYERSESSIONLOGSBYSESSIONIDREQUEST <IGetMultiplayerSessionLogsBySessionIdRequest>: Gets multiplayer server logs for a specific server id in a region. The logs are available only after a server has terminated.
+  - `SessionId <String>`: The server ID of multiplayer server to get logs for.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

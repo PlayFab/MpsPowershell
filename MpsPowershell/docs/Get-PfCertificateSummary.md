@@ -12,9 +12,16 @@ Lists multiplayer server game certificates for a title.
 
 ## SYNTAX
 
+### ListExpanded (Default)
 ```
 Get-PfCertificateSummary [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
+```
+
+### List
+```
+Get-PfCertificateSummary -ListCertificateSummariesRequest <IListCertificateSummariesRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -70,7 +77,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -80,12 +87,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ListCertificateSummariesRequest
+Returns a list of multiplayer server game certificates for a title.
+To construct, see NOTES section for LISTCERTIFICATESUMMARIESREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IListCertificateSummariesRequest
+Parameter Sets: List
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -PageSize
 The page size for the request.
 
 ```yaml
 Type: System.Single
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -100,7 +123,7 @@ The skip token for the paged request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -146,6 +169,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IListCertificateSummariesRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -155,6 +180,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+LISTCERTIFICATESUMMARIESREQUEST <IListCertificateSummariesRequest>: Returns a list of multiplayer server game certificates for a title.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 

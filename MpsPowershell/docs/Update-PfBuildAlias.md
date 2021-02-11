@@ -12,9 +12,16 @@ Creates a multiplayer server build alias.
 
 ## SYNTAX
 
+### UpdateExpanded (Default)
 ```
 Update-PfBuildAlias -AliasId <String> [-AliasName <String>]
  [-BuildSelectionCriteria <IBuildSelectionCriterion[]>] [-CustomTags <IAny>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+### Update
+```
+Update-PfBuildAlias -UpdateBuildAliasRequest <IUpdateBuildAliasRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -48,7 +55,7 @@ The guid string alias Id of the alias to be updated.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: True
@@ -63,7 +70,7 @@ The alias name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -79,7 +86,7 @@ To construct, see NOTES section for BUILDSELECTIONCRITERIA properties and create
 
 ```yaml
 Type: Sample.API.Models.IBuildSelectionCriterion[]
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -95,13 +102,29 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UpdateBuildAliasRequest
+Creates a multiplayer server build alias and returns the created alias.
+To construct, see NOTES section for UPDATEBUILDALIASREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IUpdateBuildAliasRequest
+Parameter Sets: Update
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -141,6 +164,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IUpdateBuildAliasRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -158,6 +183,13 @@ To create the parameters described below, construct a hash table containing the 
 
 BUILDSELECTIONCRITERIA <IBuildSelectionCriterion[]>: Array of build selection criteria.
   - `[BuildWeightDistribution <IAny>]`: Dictionary of build ids and their respective weights for distribution of allocation requests.
+
+UPDATEBUILDALIASREQUEST <IUpdateBuildAliasRequest>: Creates a multiplayer server build alias and returns the created alias.
+  - `AliasId <String>`: The guid string alias Id of the alias to be updated.
+  - `[AliasName <String>]`: The alias name.
+  - `[BuildSelectionCriteria <IBuildSelectionCriterion[]>]`: Array of build selection criteria.
+    - `[BuildWeightDistribution <IAny>]`: Dictionary of build ids and their respective weights for distribution of allocation requests.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

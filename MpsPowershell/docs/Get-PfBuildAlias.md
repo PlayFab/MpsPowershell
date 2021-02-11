@@ -17,9 +17,19 @@ Gets a multiplayer server build alias.
 Get-PfBuildAlias [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
+### Get
+```
+Get-PfBuildAlias -GetBuildAliasRequest <IGetBuildAliasRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
 ### GetExpanded
 ```
 Get-PfBuildAlias -AliasId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### List
+```
+Get-PfBuildAlias -MultiplayerEmptyRequest <IMultiplayerEmptyRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -115,13 +125,45 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GetBuildAliasRequest
+Returns the details about a multiplayer server build alias.
+To construct, see NOTES section for GETBUILDALIASREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IGetBuildAliasRequest
+Parameter Sets: Get
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -MultiplayerEmptyRequest
+Returns a list of summarized details of all multiplayer server builds for a title.
+To construct, see NOTES section for MULTIPLAYEREMPTYREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IMultiplayerEmptyRequest
+Parameter Sets: List
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -161,6 +203,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IGetBuildAliasRequest
+
+### Sample.API.Models.IMultiplayerEmptyRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -172,6 +218,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+GETBUILDALIASREQUEST <IGetBuildAliasRequest>: Returns the details about a multiplayer server build alias.
+  - `AliasId <String>`: The guid string alias ID of the alias to perform the action on.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+
+MULTIPLAYEREMPTYREQUEST <IMultiplayerEmptyRequest>: Returns a list of summarized details of all multiplayer server builds for a title.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

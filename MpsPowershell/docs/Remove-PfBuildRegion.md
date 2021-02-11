@@ -12,8 +12,15 @@ Removes a multiplayer server build's region.
 
 ## SYNTAX
 
+### DeleteExpanded (Default)
 ```
 Remove-PfBuildRegion -BuildId <String> -Region <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+### Delete
+```
+Remove-PfBuildRegion -DeleteBuildRegionRequest <IDeleteBuildRegionRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -47,7 +54,7 @@ The guid string ID of the build we want to update regions for.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -63,7 +70,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: False
@@ -73,12 +80,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -DeleteBuildRegionRequest
+Removes a multiplayer server build's region.
+To construct, see NOTES section for DELETEBUILDREGIONREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IDeleteBuildRegionRequest
+Parameter Sets: Delete
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -Region
 The build region to delete.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -124,6 +147,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IDeleteBuildRegionRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -133,6 +158,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+DELETEBUILDREGIONREQUEST <IDeleteBuildRegionRequest>: Removes a multiplayer server build's region.
+  - `BuildId <String>`: The guid string ID of the build we want to update regions for.
+  - `Region <String>`: The build region to delete.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

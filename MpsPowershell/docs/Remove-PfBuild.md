@@ -12,8 +12,14 @@ Deletes a multiplayer server build.
 
 ## SYNTAX
 
+### DeleteExpanded (Default)
 ```
 Remove-PfBuild -BuildId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Delete
+```
+Remove-PfBuild -DeleteBuildRequest <IDeleteBuildRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,7 +52,7 @@ The guid string build ID of the build to delete.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -62,13 +68,29 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DeleteBuildRequest
+Deletes a multiplayer server build.
+To construct, see NOTES section for DELETEBUILDREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IDeleteBuildRequest
+Parameter Sets: Delete
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -108,6 +130,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IDeleteBuildRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -117,6 +141,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+DELETEBUILDREQUEST <IDeleteBuildRequest>: Deletes a multiplayer server build.
+  - `BuildId <String>`: The guid string build ID of the build to delete.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

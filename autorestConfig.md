@@ -16,13 +16,6 @@ clear-output-folder: true
 prefix: Pf
 
 directive:
-  # autorest.powershell generates 2 variants for every operation, and we only want to keep
-  # the expanded variant (the un-expanded variant asks the user to input the request body
-  # as a string instead of asking for each argument separately)
-  - where:
-      variant: (.*)(?<!xpanded)$
-    remove: true
-  
   # This should remove all the Matchmaking APIs from being generated.
   # A more accurate way to do this would be to filter out all APIs that aren't tagged "MultiplayerServer"
   # like this:

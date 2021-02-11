@@ -12,9 +12,16 @@ Lists archived multiplayer server sessions for a build.
 
 ## SYNTAX
 
+### ListExpanded (Default)
 ```
 Get-PfArchivedMultiplayerServer -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
  [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### List
+```
+Get-PfArchivedMultiplayerServer -ListMultiplayerServersRequest <IListMultiplayerServersRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -63,7 +70,7 @@ The guid string build ID of the multiplayer servers to list.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: True
@@ -79,7 +86,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -89,12 +96,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ListMultiplayerServersRequest
+Returns a list of multiplayer servers for a build in a specific region.
+To construct, see NOTES section for LISTMULTIPLAYERSERVERSREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IListMultiplayerServersRequest
+Parameter Sets: List
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -PageSize
 The page size for the request.
 
 ```yaml
 Type: System.Single
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -109,7 +132,7 @@ The region the multiplayer servers to list.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: True
@@ -124,7 +147,7 @@ The skip token for the paged request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -170,6 +193,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IListMultiplayerServersRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -179,6 +204,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+LISTMULTIPLAYERSERVERSREQUEST <IListMultiplayerServersRequest>: Returns a list of multiplayer servers for a build in a specific region.
+  - `BuildId <String>`: The guid string build ID of the multiplayer servers to list.
+  - `Region <String>`: The region the multiplayer servers to list.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 

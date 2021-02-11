@@ -12,9 +12,16 @@ Deletes a container image repository.
 
 ## SYNTAX
 
+### DeleteExpanded (Default)
 ```
 Remove-PfContainerImageRepository [-CustomTags <IAny>] [-ImageName <String>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
+```
+
+### Delete
+```
+Remove-PfContainerImageRepository -DeleteContainerImageRequest <IDeleteContainerImageRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -48,7 +55,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: False
@@ -58,12 +65,30 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -DeleteContainerImageRequest
+Removes the specified container image repository.
+After this operation, a 'docker pull' will fail for all the tags of the specified image.
+Morever, ListContainerImages will not return the specified image.
+To construct, see NOTES section for DELETECONTAINERIMAGEREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IDeleteContainerImageRequest
+Parameter Sets: Delete
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -ImageName
 The container image repository we want to delete.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: False
@@ -109,6 +134,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IDeleteContainerImageRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -118,6 +145,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+DELETECONTAINERIMAGEREQUEST <IDeleteContainerImageRequest>: Removes the specified container image repository. After this operation, a 'docker pull' will fail for all the tags of the specified image. Morever, ListContainerImages will not return the specified image.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[ImageName <String>]`: The container image repository we want to delete.
 
 ## RELATED LINKS
 

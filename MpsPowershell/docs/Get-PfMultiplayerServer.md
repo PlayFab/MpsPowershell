@@ -18,10 +18,22 @@ Get-PfMultiplayerServer -BuildId <String> -Region <String> [-CustomTags <IAny>] 
  [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
+### Get
+```
+Get-PfMultiplayerServer -GetMultiplayerServerDetailsRequest <IGetMultiplayerServerDetailsRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
+```
+
 ### GetExpanded
 ```
 Get-PfMultiplayerServer -BuildId <String> -Region <String> -SessionId <String> [-CustomTags <IAny>] [-Confirm]
  [-WhatIf] [<CommonParameters>]
+```
+
+### List
+```
+Get-PfMultiplayerServer -ListMultiplayerServersRequest <IListMultiplayerServersRequest> [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -70,7 +82,7 @@ The guid string build ID of the multiplayer server to get details for.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
 Required: True
@@ -86,13 +98,45 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GetMultiplayerServerDetailsRequest
+Gets multiplayer server session details for a build in a specific region.
+To construct, see NOTES section for GETMULTIPLAYERSERVERDETAILSREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IGetMultiplayerServerDetailsRequest
+Parameter Sets: Get
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -ListMultiplayerServersRequest
+Returns a list of multiplayer servers for a build in a specific region.
+To construct, see NOTES section for LISTMULTIPLAYERSERVERSREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IListMultiplayerServersRequest
+Parameter Sets: List
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -116,7 +160,7 @@ The region the multiplayer server is located in to get details for.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
 Required: True
@@ -193,6 +237,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IGetMultiplayerServerDetailsRequest
+
+### Sample.API.Models.IListMultiplayerServersRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -204,6 +252,24 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+GETMULTIPLAYERSERVERDETAILSREQUEST <IGetMultiplayerServerDetailsRequest>: Gets multiplayer server session details for a build in a specific region.
+  - `BuildId <String>`: The guid string build ID of the multiplayer server to get details for.
+  - `Region <String>`: The region the multiplayer server is located in to get details for.
+  - `SessionId <String>`: The title generated guid string session ID of the multiplayer server to get details for. This is to keep track of multiplayer server sessions.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+
+LISTMULTIPLAYERSERVERSREQUEST <IListMultiplayerServersRequest>: Returns a list of multiplayer servers for a build in a specific region.
+  - `BuildId <String>`: The guid string build ID of the multiplayer servers to list.
+  - `Region <String>`: The region the multiplayer servers to list.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 

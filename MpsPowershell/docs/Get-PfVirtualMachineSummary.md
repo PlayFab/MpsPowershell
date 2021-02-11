@@ -12,9 +12,16 @@ Lists virtual machines for a title.
 
 ## SYNTAX
 
+### ListExpanded (Default)
 ```
 Get-PfVirtualMachineSummary -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
  [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### List
+```
+Get-PfVirtualMachineSummary -ListVirtualMachineSummariesRequest <IListVirtualMachineSummariesRequest>
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -55,7 +62,7 @@ The guid string build ID of the virtual machines to list.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: True
@@ -71,7 +78,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -81,12 +88,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ListVirtualMachineSummariesRequest
+Returns a list of virtual machines for a title.
+To construct, see NOTES section for LISTVIRTUALMACHINESUMMARIESREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IListVirtualMachineSummariesRequest
+Parameter Sets: List
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -PageSize
 The page size for the request.
 
 ```yaml
 Type: System.Single
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -101,7 +124,7 @@ The region of the virtual machines to list.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: True
@@ -116,7 +139,7 @@ The skip token for the paged request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -162,6 +185,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IListVirtualMachineSummariesRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -171,6 +196,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+LISTVIRTUALMACHINESUMMARIESREQUEST <IListVirtualMachineSummariesRequest>: Returns a list of virtual machines for a title.
+  - `BuildId <String>`: The guid string build ID of the virtual machines to list.
+  - `Region <String>`: The region of the virtual machines to list.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 

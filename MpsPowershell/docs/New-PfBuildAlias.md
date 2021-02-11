@@ -12,9 +12,15 @@ Creates a multiplayer server build alias.
 
 ## SYNTAX
 
+### CreateExpanded (Default)
 ```
 New-PfBuildAlias -AliasName <String> [-BuildSelectionCriteria <IBuildSelectionCriterion[]>]
  [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Create
+```
+New-PfBuildAlias -CreateBuildAliasRequest <ICreateBuildAliasRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,7 +63,7 @@ The alias name.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: True
@@ -73,7 +79,7 @@ To construct, see NOTES section for BUILDSELECTIONCRITERIA properties and create
 
 ```yaml
 Type: Sample.API.Models.IBuildSelectionCriterion[]
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -83,13 +89,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -CreateBuildAliasRequest
+Creates a multiplayer server build alias and returns the created alias.
+To construct, see NOTES section for CREATEBUILDALIASREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.ICreateBuildAliasRequest
+Parameter Sets: Create
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -CustomTags
 The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -135,6 +157,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.ICreateBuildAliasRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -152,6 +176,12 @@ To create the parameters described below, construct a hash table containing the 
 
 BUILDSELECTIONCRITERIA <IBuildSelectionCriterion[]>: Array of build selection criteria.
   - `[BuildWeightDistribution <IAny>]`: Dictionary of build ids and their respective weights for distribution of allocation requests.
+
+CREATEBUILDALIASREQUEST <ICreateBuildAliasRequest>: Creates a multiplayer server build alias and returns the created alias.
+  - `AliasName <String>`: The alias name.
+  - `[BuildSelectionCriteria <IBuildSelectionCriterion[]>]`: Array of build selection criteria.
+    - `[BuildWeightDistribution <IAny>]`: Dictionary of build ids and their respective weights for distribution of allocation requests.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

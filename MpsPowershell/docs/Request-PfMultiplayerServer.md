@@ -13,10 +13,17 @@ Accepts tokens for title and if game client access is enabled, allows game clien
 
 ## SYNTAX
 
+### RequestExpanded (Default)
 ```
 Request-PfMultiplayerServer -PreferredRegions <String[]> -SessionId <String>
  [-BuildAliasParamAliasId <String>] [-BuildId <String>] [-CustomTags <IAny>] [-InitialPlayers <String[]>]
  [-SessionCookie <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Request
+```
+Request-PfMultiplayerServer -RequestMultiplayerServerRequest <IRequestMultiplayerServerRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -60,7 +67,7 @@ The guid string alias ID to use for the request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: False
@@ -75,7 +82,7 @@ The guid string build ID of the multiplayer server to request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: False
@@ -91,7 +98,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: False
@@ -107,7 +114,7 @@ This list is passed to the game server when requested (via GSDK) and can be used
 
 ```yaml
 Type: System.String[]
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: False
@@ -123,7 +130,7 @@ The Multiplayer Service will iterate through the regions in the specified order 
 
 ```yaml
 Type: System.String[]
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: True
@@ -133,13 +140,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -RequestMultiplayerServerRequest
+Requests a multiplayer server session from a particular build in any of the given preferred regions.
+To construct, see NOTES section for REQUESTMULTIPLAYERSERVERREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IRequestMultiplayerServerRequest
+Parameter Sets: Request
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -SessionCookie
 Data encoded as a string that is passed to the game server when requested.
 This can be used to to communicate information such as game mode or map through the request flow.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: False
@@ -154,7 +177,7 @@ A guid string session ID created track the multiplayer server session over its l
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: RequestExpanded
 Aliases:
 
 Required: True
@@ -200,6 +223,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IRequestMultiplayerServerRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -209,6 +234,20 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+REQUESTMULTIPLAYERSERVERREQUEST <IRequestMultiplayerServerRequest>: Requests a multiplayer server session from a particular build in any of the given preferred regions.
+  - `PreferredRegions <String[]>`: The preferred regions to request a multiplayer server from. The Multiplayer Service will iterate through the regions in the specified order and allocate a server from the first one that has servers available.
+  - `SessionId <String>`: A guid string session ID created track the multiplayer server session over its life.
+  - `[BuildAliasParamAliasId <String>]`: The guid string alias ID to use for the request.
+  - `[BuildId <String>]`: The guid string build ID of the multiplayer server to request.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[InitialPlayers <String[]>]`: Initial list of players (potentially matchmade) allowed to connect to the game. This list is passed to the game server when requested (via GSDK) and can be used to validate players connecting to it.
+  - `[SessionCookie <String>]`: Data encoded as a string that is passed to the game server when requested. This can be used to to communicate information such as game mode or map through the request flow.
 
 ## RELATED LINKS
 

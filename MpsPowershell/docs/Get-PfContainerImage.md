@@ -12,8 +12,15 @@ Lists custom container images for a title.
 
 ## SYNTAX
 
+### ListExpanded (Default)
 ```
 Get-PfContainerImage [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+### List
+```
+Get-PfContainerImage -ListContainerImagesRequest <IListContainerImagesRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -48,7 +55,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -58,12 +65,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ListContainerImagesRequest
+Returns a list of the container images that have been uploaded to the container registry for a title.
+To construct, see NOTES section for LISTCONTAINERIMAGESREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IListContainerImagesRequest
+Parameter Sets: List
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -PageSize
 The page size for the request.
 
 ```yaml
 Type: System.Single
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -78,7 +101,7 @@ The skip token for the paged request.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -124,6 +147,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IListContainerImagesRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -133,6 +158,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+LISTCONTAINERIMAGESREQUEST <IListContainerImagesRequest>: Returns a list of the container images that have been uploaded to the container registry for a title.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 

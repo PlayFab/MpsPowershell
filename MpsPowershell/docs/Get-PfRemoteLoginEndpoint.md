@@ -12,9 +12,16 @@ Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
 
 ## SYNTAX
 
+### GetExpanded (Default)
 ```
 Get-PfRemoteLoginEndpoint -BuildId <String> -Region <String> -VMId <String> [-CustomTags <IAny>] [-Confirm]
  [-WhatIf] [<CommonParameters>]
+```
+
+### Get
+```
+Get-PfRemoteLoginEndpoint -GetRemoteLoginEndpointRequest <IGetRemoteLoginEndpointRequest> [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -43,7 +50,7 @@ The guid string build ID of the multiplayer server to get remote login informati
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: True
@@ -59,7 +66,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: False
@@ -69,12 +76,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -GetRemoteLoginEndpointRequest
+Gets a remote login endpoint to a VM that is hosting a multiplayer server build in a specific region.
+To construct, see NOTES section for GETREMOTELOGINENDPOINTREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IGetRemoteLoginEndpointRequest
+Parameter Sets: Get
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -Region
 The region of the multiplayer server to get remote login information for.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: True
@@ -89,7 +112,7 @@ The virtual machine ID the multiplayer server is located on.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: True
@@ -135,6 +158,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IGetRemoteLoginEndpointRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -144,6 +169,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+GETREMOTELOGINENDPOINTREQUEST <IGetRemoteLoginEndpointRequest>: Gets a remote login endpoint to a VM that is hosting a multiplayer server build in a specific region.
+  - `BuildId <String>`: The guid string build ID of the multiplayer server to get remote login information for.
+  - `Region <String>`: The region of the multiplayer server to get remote login information for.
+  - `VMId <String>`: The virtual machine ID the multiplayer server is located on.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

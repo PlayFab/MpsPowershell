@@ -12,9 +12,16 @@ Deletes a remote user to log on to a VM for a multiplayer server build.
 
 ## SYNTAX
 
+### DeleteExpanded (Default)
 ```
 Remove-PfRemoteUser -BuildId <String> -Region <String> -Username <String> -VMId <String> [-CustomTags <IAny>]
  [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Delete
+```
+Remove-PfRemoteUser -DeleteRemoteUserRequest <IDeleteRemoteUserRequest> [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -47,7 +54,7 @@ The guid string build ID of the multiplayer server where the remote user is to d
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -63,7 +70,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: False
@@ -73,12 +80,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -DeleteRemoteUserRequest
+Deletes a remote user to log on to a VM for a multiplayer server build in a specific region.
+Returns user credential information necessary to log on.
+To construct, see NOTES section for DELETEREMOTEUSERREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IDeleteRemoteUserRequest
+Parameter Sets: Delete
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -Region
 The region of the multiplayer server where the remote user is to delete.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -93,7 +117,7 @@ The username of the remote user to delete.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -108,7 +132,7 @@ The virtual machine ID the multiplayer server is located on.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -154,6 +178,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IDeleteRemoteUserRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -163,6 +189,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+DELETEREMOTEUSERREQUEST <IDeleteRemoteUserRequest>: Deletes a remote user to log on to a VM for a multiplayer server build in a specific region. Returns user credential information necessary to log on.
+  - `BuildId <String>`: The guid string build ID of the multiplayer server where the remote user is to delete.
+  - `Region <String>`: The region of the multiplayer server where the remote user is to delete.
+  - `Username <String>`: The username of the remote user to delete.
+  - `VMId <String>`: The virtual machine ID the multiplayer server is located on.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

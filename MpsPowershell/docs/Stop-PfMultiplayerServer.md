@@ -12,9 +12,16 @@ Shuts down a multiplayer server session.
 
 ## SYNTAX
 
+### ShutdownExpanded (Default)
 ```
 Stop-PfMultiplayerServer -BuildId <String> -Region <String> -SessionId <String> [-CustomTags <IAny>]
  [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Shutdown
+```
+Stop-PfMultiplayerServer -ShutdownMultiplayerServerRequest <IShutdownMultiplayerServerRequest> [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -47,7 +54,7 @@ The guid string build ID of the multiplayer server to delete.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ShutdownExpanded
 Aliases:
 
 Required: True
@@ -63,7 +70,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: ShutdownExpanded
 Aliases:
 
 Required: False
@@ -78,7 +85,7 @@ The region of the multiplayer server to shut down.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ShutdownExpanded
 Aliases:
 
 Required: True
@@ -93,13 +100,30 @@ A guid string session ID of the multiplayer server to shut down.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: ShutdownExpanded
 Aliases:
 
 Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ShutdownMultiplayerServerRequest
+Executes the shutdown callback from the GSDK and terminates the multiplayer server session.
+The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
+To construct, see NOTES section for SHUTDOWNMULTIPLAYERSERVERREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IShutdownMultiplayerServerRequest
+Parameter Sets: Shutdown
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -139,6 +163,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IShutdownMultiplayerServerRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -148,6 +174,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+SHUTDOWNMULTIPLAYERSERVERREQUEST <IShutdownMultiplayerServerRequest>: Executes the shutdown callback from the GSDK and terminates the multiplayer server session. The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
+  - `BuildId <String>`: The guid string build ID of the multiplayer server to delete.
+  - `Region <String>`: The region of the multiplayer server to shut down.
+  - `SessionId <String>`: A guid string session ID of the multiplayer server to shut down.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

@@ -12,8 +12,15 @@ Deletes a multiplayer server build alias.
 
 ## SYNTAX
 
+### DeleteExpanded (Default)
 ```
 Remove-PfBuildAlias -AliasId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Delete
+```
+Remove-PfBuildAlias -DeleteBuildAliasRequest <IDeleteBuildAliasRequest> [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -46,7 +53,7 @@ The guid string alias ID of the alias to perform the action on.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: True
@@ -62,13 +69,29 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: DeleteExpanded
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -DeleteBuildAliasRequest
+Deletes a multiplayer server build alias.
+To construct, see NOTES section for DELETEBUILDALIASREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.IDeleteBuildAliasRequest
+Parameter Sets: Delete
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -108,6 +131,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.IDeleteBuildAliasRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -117,6 +142,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+DELETEBUILDALIASREQUEST <IDeleteBuildAliasRequest>: Deletes a multiplayer server build alias.
+  - `AliasId <String>`: The guid string alias ID of the alias to perform the action on.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
 

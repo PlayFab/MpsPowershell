@@ -12,6 +12,14 @@ Creates a request to change a title's multiplayer server quotas.
 
 ## SYNTAX
 
+### Create (Default)
+```
+New-PfTitleMultiplayerServerQuotaChange
+ -CreateTitleMultiplayerServersQuotaChangeRequest <ICreateTitleMultiplayerServersQuotaChangeRequest>
+ [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### CreateExpanded
 ```
 New-PfTitleMultiplayerServerQuotaChange -Changes <ICoreCapacityChange[]> [-ChangeDescription <String>]
  [-ContactEmail <String>] [-CustomTags <IAny>] [-Notes <String>] [-StartDate <String>] [-Confirm] [-WhatIf]
@@ -48,7 +56,7 @@ A brief description of the requested changes.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -64,7 +72,7 @@ To construct, see NOTES section for CHANGES properties and create a hash table.
 
 ```yaml
 Type: Sample.API.Models.ICoreCapacityChange[]
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: True
@@ -80,7 +88,7 @@ Only required when a request is not approved.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -90,13 +98,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -CreateTitleMultiplayerServersQuotaChangeRequest
+Creates a request to change a title's multiplayer server quotas.
+To construct, see NOTES section for CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST properties and create a hash table.
+
+```yaml
+Type: Sample.API.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
+Parameter Sets: Create
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
 ### -CustomTags
 The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
 Type: Sample.API.Models.IAny
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -111,7 +135,7 @@ Additional information about this request that our team can use to better unders
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -127,7 +151,7 @@ Only required when a request is not approved.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -173,6 +197,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Sample.API.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
+
 ## OUTPUTS
 
 ### Sample.API.Models.IApiErrorWrapper
@@ -192,6 +218,17 @@ CHANGES <ICoreCapacityChange[]>: Changes to make to the titles cores quota.
   - `NewCoreLimit <Single>`: New quota core limit for the given vm family/region.
   - `Region <String>`: Region to change.
   - `VMFamily <String>`: Virtual machine family to change.
+
+CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST <ICreateTitleMultiplayerServersQuotaChangeRequest>: Creates a request to change a title's multiplayer server quotas.
+  - `Changes <ICoreCapacityChange[]>`: Changes to make to the titles cores quota.
+    - `NewCoreLimit <Single>`: New quota core limit for the given vm family/region.
+    - `Region <String>`: Region to change.
+    - `VMFamily <String>`: Virtual machine family to change.
+  - `[ChangeDescription <String>]`: A brief description of the requested changes.
+  - `[ContactEmail <String>]`: Email to be contacted by our team about this request. Only required when a request is not approved.
+  - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[Notes <String>]`: Additional information about this request that our team can use to better understand the requirements.
+  - `[StartDate <String>]`: When these changes would need to be in effect. Only required when a request is not approved.
 
 ## RELATED LINKS
 
