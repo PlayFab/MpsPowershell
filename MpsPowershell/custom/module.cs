@@ -25,6 +25,8 @@ namespace Sample.API
             string titleId = System.Environment.GetEnvironmentVariable("TitleId");
             string entityToken = System.Environment.GetEnvironmentVariable("EntityToken");
             string playFabApiHostName = System.Environment.GetEnvironmentVariable("PlayFabApiHostName");
+            string pfDebug = System.Environment.GetEnvironmentVariable("PF_DEBUG");
+            bool shouldOutputDebug = string.Equals(pfDebug, "true", StringComparison.OrdinalIgnoreCase);
 
             if (string.IsNullOrEmpty(titleId) || string.IsNullOrEmpty(entityToken) || string.IsNullOrEmpty(playFabApiHostName)) 
             {
@@ -41,7 +43,31 @@ namespace Sample.API
             request.Headers.Add("X-EntityToken", entityToken);
 
             // let the request go on.
-            return await next.SendAsync(request, callback);
+            HttpResponseMessage response = await next.SendAsync(request, callback);
+
+            if (shouldOutputDebug || !response.IsSuccessStatusCode) {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                
+                Console.Error.WriteLine($"{request.Method} {request.RequestUri}");
+                Console.Error.WriteLine();
+                foreach (KeyValuePair<string, IEnumerable<string>> header in request.Headers) {
+                    Console.Error.WriteLine($"{header.Key}: {string.Join(",", header.Value)}");
+                }
+                Console.Error.WriteLine();
+                Console.Error.WriteLine(await request.Content.ReadAsStringAsync());
+
+                Console.Error.WriteLine();
+                Console.Error.WriteLine();
+                foreach (KeyValuePair<string, IEnumerable<string>> header in response.Headers) {
+                    Console.Error.WriteLine($"{header.Key}: {string.Join(",", header.Value)}");
+                }
+                Console.Error.WriteLine();
+                Console.Error.WriteLine(await response.Content.ReadAsStringAsync());
+
+                Console.ResetColor();
+            }
+
+            return response;
         }
     }
 }
