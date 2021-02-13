@@ -1,18 +1,11 @@
-### Example 1: {{ Add title here }}
+### Example 1: Delete a region from a build
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Remove-PfBuildRegion -BuildId a024dc36-d922-4ae0-aeda-bae450aa4d8b -Region AustraliaEast | ConvertTo-Json
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
-
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 

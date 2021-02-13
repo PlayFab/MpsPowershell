@@ -27,20 +27,15 @@ Deletes a multiplayer server build.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Delete a build
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Remove-PfBuild -BuildId 24ed06cc-59f0-4e72-b6a0-cb2ae2b9ddd3 | ConvertTo-Json
 
-{{ Add output here }}
-```
-
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
 {{ Add description here }}

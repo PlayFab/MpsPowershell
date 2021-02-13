@@ -28,23 +28,18 @@ Deletes a multiplayer server game certificate.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Delete a certificate
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Remove-PfCertificate -Name MyCert | ConvertTo-Json
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
 ## PARAMETERS
 

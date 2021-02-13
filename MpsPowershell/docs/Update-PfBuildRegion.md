@@ -47,23 +47,32 @@ If the region is not yet created, it will be created
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Update a single region in a build
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Update-PfBuildRegion -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12 -BuildRegionMaxServers 2 -BuildRegionRegion AustraliaEast -BuildRegionStandbyServers 1 | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
 
-### Example 2: {{ Add title here }}
+
+### Example 2: Update all regions for a build
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> $buildRegions = @( @{ "MaxServers" = 2; "Region" = "AustraliaEast"; "StandbyServers" = 1; "ScheduledStandbySettings" = @{ "ScheduleList" = @() } }, @{ "MaxServers" = 2; "Region" = "WestUs"; "StandbyServers" = 1; "ScheduledStandbySettings" = @{ "ScheduleList" = @() } } )
+PS C:\> Update-PfBuildRegion -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12 -BuildRegions $buildRegions | ConvertTo-Json -depth 5
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
-{{ Add description here }}
+
 
 ## PARAMETERS
 

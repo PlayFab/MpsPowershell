@@ -28,20 +28,15 @@ Deletes a multiplayer server build alias.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Delete a build alias
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\> Remove-PfBuildAlias -AliasId 0500ae06-224f-45a9-a982-bc79c758aa0d | ConvertTo-Json
 
-{{ Add output here }}
-```
-
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
 
 {{ Add description here }}

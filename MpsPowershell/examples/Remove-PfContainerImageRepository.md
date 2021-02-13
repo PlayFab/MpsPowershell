@@ -1,18 +1,11 @@
-### Example 1: {{ Add title here }}
+### Example 1: Delete a container image repository
 ```powershell
-PS C:\> {{ Add code here }}
+PS C:\>  Remove-PfContainerImageRepository -ImageName myContainerImage | ConvertTo-Json
 
-{{ Add output here }}
+{
+  "Code": 200,
+  "Data": {},
+  "Status": "OK"
+}
 ```
-
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-PS C:\> {{ Add code here }}
-
-{{ Add output here }}
-```
-
-{{ Add description here }}
 
