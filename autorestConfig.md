@@ -15,6 +15,9 @@ powershell: true
 clear-output-folder: true
 prefix: Pf
 
+# This prevents Autorest from inlining/flattening any of our models.
+inlining-threshold: 0
+
 directive:
   # This should remove all the Matchmaking APIs from being generated.
   # A more accurate way to do this would be to filter out all APIs that aren't tagged "MultiplayerServer"

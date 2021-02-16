@@ -12,15 +12,15 @@ Uploads a multiplayer server game certificate.
 
 ## SYNTAX
 
-### UploadExpanded (Default)
-```
-Invoke-PfUploadCertificate -GameCertificateBase64EncodedValue <String> -GameCertificateName <String>
- [-CustomTags <IAny>] [-GameCertificatePassword <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
-### Upload
+### Upload (Default)
 ```
 Invoke-PfUploadCertificate -UploadCertificateRequest <IUploadCertificateRequest> [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+### UploadExpanded
+```
+Invoke-PfUploadCertificate -GameCertificate <ICertificate> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -61,46 +61,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -GameCertificateBase64EncodedValue
-Base64 encoded string contents of the certificate.
+### -GameCertificate
+The game certificate to upload.
+To construct, see NOTES section for GAMECERTIFICATE properties and create a hash table.
 
 ```yaml
-Type: System.String
+Type: Sample.API.Models.ICertificate
 Parameter Sets: UploadExpanded
 Aliases:
 
 Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -GameCertificateName
-A name for the certificate.
-This is used to reference certificates in build configurations.
-
-```yaml
-Type: System.String
-Parameter Sets: UploadExpanded
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -GameCertificatePassword
-If required for your PFX certificate, use this field to provide a password that will be used to install the certificate on the container.
-
-```yaml
-Type: System.String
-Parameter Sets: UploadExpanded
-Aliases:
-
-Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -176,11 +146,17 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
+GAMECERTIFICATE <ICertificate>: The game certificate to upload.
+  - `Base64EncodedValue <String>`: Base64 encoded string contents of the certificate.
+  - `Name <String>`: A name for the certificate. This is used to reference certificates in build configurations.
+  - `[Password <String>]`: If required for your PFX certificate, use this field to provide a password that will be used to install the certificate on the container.
+
 UPLOADCERTIFICATEREQUEST <IUploadCertificateRequest>: Uploads a multiplayer server game certificate.
-  - `GameCertificateBase64EncodedValue <String>`: Base64 encoded string contents of the certificate.
-  - `GameCertificateName <String>`: A name for the certificate. This is used to reference certificates in build configurations.
+  - `GameCertificate <ICertificate>`: The game certificate to upload.
+    - `Base64EncodedValue <String>`: Base64 encoded string contents of the certificate.
+    - `Name <String>`: A name for the certificate. This is used to reference certificates in build configurations.
+    - `[Password <String>]`: If required for your PFX certificate, use this field to provide a password that will be used to install the certificate on the container.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-  - `[GameCertificatePassword <String>]`: If required for your PFX certificate, use this field to provide a password that will be used to install the certificate on the container.
 
 ## RELATED LINKS
 

@@ -13,17 +13,7 @@ If the region is not yet created, it will be created
 
 ## SYNTAX
 
-### UpdateExpanded (Default)
-```
-Update-PfBuildRegion -BuildId <String> -BuildRegionMaxServers <Single> -BuildRegionRegion <String>
- -BuildRegionStandbyServers <Single> [-CustomTags <IAny>]
- [-DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]
- [-DynamicStandbySettingIsEnabled] [-DynamicStandbySettingRampDownSeconds <Single>]
- [-ScheduledStandbySettingIsEnabled] [-ScheduledStandbySettingScheduleList <ISchedule[]>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
-```
-
-### Update
+### Update (Default)
 ```
 Update-PfBuildRegion -UpdateBuildRegionRequest <IUpdateBuildRegionRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
@@ -33,6 +23,12 @@ Update-PfBuildRegion -UpdateBuildRegionRequest <IUpdateBuildRegionRequest> [-Con
 ```
 Update-PfBuildRegion -UpdateBuildRegionsRequest <IUpdateBuildRegionsRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
+```
+
+### UpdateExpanded
+```
+Update-PfBuildRegion -BuildId <String> -BuildRegion <IBuildRegionParams> [-CustomTags <IAny>] [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ### UpdateExpanded1
@@ -91,26 +87,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BuildRegionMaxServers
-The maximum number of multiplayer servers for the region.
+### -BuildRegion
+The updated region configuration that should be applied to the specified build.
+To construct, see NOTES section for BUILDREGION properties and create a hash table.
 
 ```yaml
-Type: System.Single
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -BuildRegionRegion
-The build region.
-
-```yaml
-Type: System.String
+Type: Sample.API.Models.IBuildRegionParams
 Parameter Sets: UpdateExpanded
 Aliases:
 
@@ -137,21 +119,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -BuildRegionStandbyServers
-The number of standby multiplayer servers for the region.
-
-```yaml
-Type: System.Single
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -CustomTags
 The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
@@ -159,85 +126,6 @@ build number, external trace identifiers, etc.).
 ```yaml
 Type: Sample.API.Models.IAny
 Parameter Sets: UpdateExpanded, UpdateExpanded1
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DynamicStandbySettingDynamicFloorMultiplierThresholds
-List of auto standing by trigger values and corresponding standing by multiplier.
-Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-To construct, see NOTES section for DYNAMICSTANDBYSETTINGDYNAMICFLOORMULTIPLIERTHRESHOLDS properties and create a hash table.
-
-```yaml
-Type: Sample.API.Models.IDynamicStandbyThreshold[]
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DynamicStandbySettingIsEnabled
-When true, dynamic standby will be enabled
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DynamicStandbySettingRampDownSeconds
-The time it takes to reduce target standing by to configured floor value after an increase.
-Defaults to 30 minutes
-
-```yaml
-Type: System.Single
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ScheduledStandbySettingIsEnabled
-When true, scheduled standby will be enabled
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ScheduledStandbySettingScheduleList
-A list of non-overlapping schedules
-To construct, see NOTES section for SCHEDULEDSTANDBYSETTINGSCHEDULELIST properties and create a hash table.
-
-```yaml
-Type: Sample.API.Models.ISchedule[]
-Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -334,55 +222,68 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
+BUILDREGION <IBuildRegionParams>: The updated region configuration that should be applied to the specified build.
+  - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
+  - `Region <String>`: The build region.
+  - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
+  - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+    - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+    - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+    - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+  - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+    - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+    - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+      - `IsDisabled <Boolean>`: Disables the schedule.
+      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+
 BUILDREGIONS <IBuildRegionParams[]>: The updated region configuration that should be applied to the specified build.
   - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
   - `Region <String>`: The build region.
   - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
-  - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-    - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-    - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-  - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-  - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-  - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-  - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-    - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-    - `IsDisabled <Boolean>`: Disables the schedule.
-    - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-    - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-    - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-    - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
-
-DYNAMICSTANDBYSETTINGDYNAMICFLOORMULTIPLIERTHRESHOLDS <IDynamicStandbyThreshold[]>: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-  - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-  - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-
-SCHEDULEDSTANDBYSETTINGSCHEDULELIST <ISchedule[]>: A list of non-overlapping schedules
-  - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-  - `IsDisabled <Boolean>`: Disables the schedule.
-  - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-  - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-  - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-  - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+  - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+    - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+    - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+    - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+  - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+    - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+    - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+      - `IsDisabled <Boolean>`: Disables the schedule.
+      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
 
 UPDATEBUILDREGIONREQUEST <IUpdateBuildRegionRequest>: Updates a multiplayer server build's region.
   - `BuildId <String>`: The guid string ID of the build we want to update regions for.
-  - `BuildRegionMaxServers <Single>`: The maximum number of multiplayer servers for the region.
-  - `BuildRegionRegion <String>`: The build region.
-  - `BuildRegionStandbyServers <Single>`: The number of standby multiplayer servers for the region.
+  - `BuildRegion <IBuildRegionParams>`: The updated region configuration that should be applied to the specified build.
+    - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
+    - `Region <String>`: The build region.
+    - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
+    - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+      - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+        - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+        - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+      - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+      - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+        - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+        - `IsDisabled <Boolean>`: Disables the schedule.
+        - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+        - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+        - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+        - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-  - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-    - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-    - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-  - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-  - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-  - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-  - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-    - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-    - `IsDisabled <Boolean>`: Disables the schedule.
-    - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-    - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-    - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-    - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
 
 UPDATEBUILDREGIONSREQUEST <IUpdateBuildRegionsRequest>: Updates a multiplayer server build's regions.
   - `BuildId <String>`: The guid string ID of the build we want to update regions for.
@@ -390,19 +291,21 @@ UPDATEBUILDREGIONSREQUEST <IUpdateBuildRegionsRequest>: Updates a multiplayer se
     - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
     - `Region <String>`: The build region.
     - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
-    - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-    - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-    - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-    - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-    - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-      - `IsDisabled <Boolean>`: Disables the schedule.
-      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+      - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+        - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+        - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+      - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+      - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+        - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+        - `IsDisabled <Boolean>`: Disables the schedule.
+        - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+        - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+        - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+        - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS

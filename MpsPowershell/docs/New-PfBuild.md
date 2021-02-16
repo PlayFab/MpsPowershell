@@ -34,11 +34,11 @@ New-PfBuild -CreateBuildWithProcessBasedServerRequest <ICreateBuildWithProcessBa
 ```
 New-PfBuild -BuildName <String> -MultiplayerServerCountPerVM <Single> -Ports <IPort[]>
  -RegionConfigurations <IBuildRegionParams[]> [-AreAssetsReadonly] [-ContainerFlavor <String>]
- [-ContainerImageReferenceImageName <String>] [-ContainerImageReferenceTag <String>]
- [-ContainerRunCommand <String>] [-CustomTags <IAny>] [-GameAssetReferences <IAssetReferenceParams[]>]
+ [-ContainerImageReference <IContainerImageReference>] [-ContainerRunCommand <String>] [-CustomTags <IAny>]
+ [-GameAssetReferences <IAssetReferenceParams[]>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
- [-LinuxInstrumentationConfigurationIsEnabled] [-Metadata <IAny>] [-UseStreamingForAssetDownloads]
- [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+ [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
+ [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### CreateExpanded1
@@ -47,7 +47,7 @@ New-PfBuild -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  -MultiplayerServerCountPerVM <Single> -Ports <IPort[]> -RegionConfigurations <IBuildRegionParams[]>
  -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-ContainerFlavor <String>] [-CustomTags <IAny>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
- [-InstrumentationConfigurationProcessesToMonitor <String[]>] [-Metadata <IAny>]
+ [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-Metadata <IAny>]
  [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -57,7 +57,7 @@ New-PfBuild -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  -MultiplayerServerCountPerVM <Single> -Ports <IPort[]> -RegionConfigurations <IBuildRegionParams[]>
  -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-CustomTags <IAny>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
- [-InstrumentationConfigurationProcessesToMonitor <String[]>] [-IsOSPreview] [-Metadata <IAny>]
+ [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview] [-Metadata <IAny>]
  [-OSPlatform <String>] [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
@@ -240,26 +240,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ContainerImageReferenceImageName
-The container image name.
+### -ContainerImageReference
+The container reference, consisting of the image name and tag.
+To construct, see NOTES section for CONTAINERIMAGEREFERENCE properties and create a hash table.
 
 ```yaml
-Type: System.String
-Parameter Sets: CreateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ContainerImageReferenceTag
-The container tag.
-
-```yaml
-Type: System.String
+Type: Sample.API.Models.IContainerImageReference
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -398,14 +384,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InstrumentationConfigurationProcessesToMonitor
-The list of processes to be monitored on a VM for this build.
-Providing processes will turn on performance metrics collection for this build.
-Process names should not include extensions.
-If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ]
+### -InstrumentationConfiguration
+The instrumentation configuration for the build.
+To construct, see NOTES section for INSTRUMENTATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
-Type: System.String[]
+Type: Sample.API.Models.IInstrumentationConfiguration
 Parameter Sets: CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -432,11 +416,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LinuxInstrumentationConfigurationIsEnabled
-Designates whether Linux instrumentation configuration will be enabled for this Build
+### -LinuxInstrumentationConfiguration
+The Linux instrumentation configuration for the build.
+To construct, see NOTES section for LINUXINSTRUMENTATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: Sample.API.Models.ILinuxInstrumentationConfiguration
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -632,6 +617,10 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
+CONTAINERIMAGEREFERENCE <IContainerImageReference>: The container reference, consisting of the image name and tag.
+  - `ImageName <String>`: The container image name.
+  - `[Tag <String>]`: The container tag.
+
 CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: Creates a multiplayer server build with a custom container and returns information about the build creation request.
   - `BuildName <String>`: The build name.
   - `MultiplayerServerCountPerVM <Single>`: The number of multiplayer servers to host on a single VM.
@@ -643,23 +632,26 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
     - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
     - `Region <String>`: The build region.
     - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
-    - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-    - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-    - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-    - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-    - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-      - `IsDisabled <Boolean>`: Disables the schedule.
-      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+      - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+        - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+        - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+      - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+      - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+        - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+        - `IsDisabled <Boolean>`: Disables the schedule.
+        - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+        - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+        - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+        - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[ContainerFlavor <String>]`: The flavor of container to create a build from.
-  - `[ContainerImageReferenceImageName <String>]`: The container image name.
-  - `[ContainerImageReferenceTag <String>]`: The container tag.
+  - `[ContainerImageReference <IContainerImageReference>]`: The container reference, consisting of the image name and tag.
+    - `ImageName <String>`: The container image name.
+    - `[Tag <String>]`: The container tag.
   - `[ContainerRunCommand <String>]`: The container command to run when the multiplayer server has been allocated, including any arguments.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[GameAssetReferences <IAssetReferenceParams[]>]`: The list of game assets related to the build.
@@ -668,7 +660,8 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
   - `[GameCertificateReferences <IGameCertificateReferenceParams[]>]`: The game certificates for the build.
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
-  - `[LinuxInstrumentationConfigurationIsEnabled <Boolean?>]`: Designates whether Linux instrumentation configuration will be enabled for this Build
+  - `[LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>]`: The Linux instrumentation configuration for the build.
+    - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
   - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
@@ -687,19 +680,21 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
     - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
     - `Region <String>`: The build region.
     - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
-    - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-    - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-    - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-    - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-    - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-      - `IsDisabled <Boolean>`: Disables the schedule.
-      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+      - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+        - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+        - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+      - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+      - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+        - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+        - `IsDisabled <Boolean>`: Disables the schedule.
+        - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+        - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+        - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+        - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `StartMultiplayerServerCommand <String>`: The command to run when the multiplayer server is started, including any arguments.
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[ContainerFlavor <String>]`: The flavor of container to create a build from.
@@ -708,7 +703,8 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
   - `[GameWorkingDirectory <String>]`: The directory containing the game executable. This would be the start path of the game assets that contain the main game server executable. If not provided, a best effort will be made to extract it from the start game command.
-  - `[InstrumentationConfigurationProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+  - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
+    - `[ProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
   - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
@@ -727,19 +723,21 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
     - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
     - `Region <String>`: The build region.
     - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
-    - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-    - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-    - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-    - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-    - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-      - `IsDisabled <Boolean>`: Disables the schedule.
-      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+      - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+        - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+        - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+      - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+      - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+        - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+        - `IsDisabled <Boolean>`: Disables the schedule.
+        - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+        - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+        - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+        - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `StartMultiplayerServerCommand <String>`: The command to run when the multiplayer server is started, including any arguments. The path to any executable should be relative to the root asset folder when unzipped.
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -747,7 +745,8 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
   - `[GameWorkingDirectory <String>]`: The working directory for the game process. If this is not provided, the working directory will be set based on the mount path of the game server executable.
-  - `[InstrumentationConfigurationProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+  - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
+    - `[ProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
   - `[IsOSPreview <Boolean?>]`: Indicates whether this build will be created using the OS Preview versionPreview OS is recommended for dev builds to detect any breaking changes before they are released to retail. Retail builds should set this value to false.
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
   - `[OSPlatform <String>]`: The OS platform used for running the game process.
@@ -762,6 +761,12 @@ GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certific
   - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
 
+INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>: The instrumentation configuration for the build.
+  - `[ProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+
+LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>: The Linux instrumentation configuration for the build.
+  - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
+
 PORTS <IPort[]>: The ports to map the build on.
   - `Name <String>`: The name for the port.
   - `Num <Single>`: The number for the port.
@@ -771,19 +776,21 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
   - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
   - `Region <String>`: The build region.
   - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
-  - `[DynamicStandbySettingDynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
-    - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
-    - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
-  - `[DynamicStandbySettingIsEnabled <Boolean?>]`: When true, dynamic standby will be enabled
-  - `[DynamicStandbySettingRampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
-  - `[ScheduledStandbySettingIsEnabled <Boolean?>]`: When true, scheduled standby will be enabled
-  - `[ScheduledStandbySettingScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
-    - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
-    - `IsDisabled <Boolean>`: Disables the schedule.
-    - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
-    - `StartTime <String>`: The date and time in UTC at which the schedule starts.
-    - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
-    - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+  - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
+    - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
+    - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+      - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
+      - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
+    - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+  - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
+    - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
+    - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+      - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
+      - `IsDisabled <Boolean>`: Disables the schedule.
+      - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
+      - `StartTime <String>`: The date and time in UTC at which the schedule starts.
+      - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
+      - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
 
 ## RELATED LINKS
 

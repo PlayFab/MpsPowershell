@@ -16,7 +16,7 @@ Accepts tokens for title and if game client access is enabled, allows game clien
 ### RequestExpanded (Default)
 ```
 Request-PfMultiplayerServer -PreferredRegions <String[]> -SessionId <String>
- [-BuildAliasParamAliasId <String>] [-BuildId <String>] [-CustomTags <IAny>] [-InitialPlayers <String[]>]
+ [-BuildAliasParams <IBuildAliasParams>] [-BuildId <String>] [-CustomTags <IAny>] [-InitialPlayers <String[]>]
  [-SessionCookie <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -62,11 +62,12 @@ PS C:\> Request-PfMultiplayerServer -PreferredRegions @('AustraliaEast', 'WestEu
 
 ## PARAMETERS
 
-### -BuildAliasParamAliasId
-The guid string alias ID to use for the request.
+### -BuildAliasParams
+The identifiers of the build alias to use for the request.
+To construct, see NOTES section for BUILDALIASPARAMS properties and create a hash table.
 
 ```yaml
-Type: System.String
+Type: Sample.API.Models.IBuildAliasParams
 Parameter Sets: RequestExpanded
 Aliases:
 
@@ -240,10 +241,14 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
+BUILDALIASPARAMS <IBuildAliasParams>: The identifiers of the build alias to use for the request.
+  - `AliasId <String>`: The guid string alias ID to use for the request.
+
 REQUESTMULTIPLAYERSERVERREQUEST <IRequestMultiplayerServerRequest>: Requests a multiplayer server session from a particular build in any of the given preferred regions.
   - `PreferredRegions <String[]>`: The preferred regions to request a multiplayer server from. The Multiplayer Service will iterate through the regions in the specified order and allocate a server from the first one that has servers available.
   - `SessionId <String>`: A guid string session ID created track the multiplayer server session over its life.
-  - `[BuildAliasParamAliasId <String>]`: The guid string alias ID to use for the request.
+  - `[BuildAliasParams <IBuildAliasParams>]`: The identifiers of the build alias to use for the request.
+    - `AliasId <String>`: The guid string alias ID to use for the request.
   - `[BuildId <String>]`: The guid string build ID of the multiplayer server to request.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[InitialPlayers <String[]>]`: Initial list of players (potentially matchmade) allowed to connect to the game. This list is passed to the game server when requested (via GSDK) and can be used to validate players connecting to it.
