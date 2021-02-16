@@ -44,86 +44,91 @@ PS C:\> Get-PfBuild | ConvertTo-Json -depth 7
 
 {
   "Code": 200,
-  "DataBuildSummaries": [
-    {
-      "BuildId": "0efadb18-8c62-42da-a7f9-4deec9bf47fd",
-      "BuildName": "xlensLinuxTest",
-      "CreationTime": "2020-08-13T16:32:46.749Z",
-      "Metadata": {},
-      "RegionConfigurations": [
-        {
-          "CurrentServerStatActive": 0.0,
-          "CurrentServerStatPropping": 0.0,
-          "CurrentServerStatStandingBy": 0.0,
-          "CurrentServerStatTotal": 0.0,
-          "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-          "DynamicStandbySettingIsEnabled": false,
-          "DynamicStandbySettingRampDownSeconds": null,
-          "MaxServers": 1.0,
-          "Region": "SouthCentralUs",
-          "ScheduledStandbySettingIsEnabled": false,
-          "ScheduledStandbySettingScheduleList": null,
-          "StandbyServers": 1.0,
-          "Status": "Unhealthy"
-        }
-      ]
-    },
-    {
-      "BuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12",
-      "BuildName": "NewBuildName",
-      "CreationTime": "2020-11-17T23:25:02.492Z",
-      "Metadata": {},
-      "RegionConfigurations": [
-        {
-          "CurrentServerStatActive": 0.0,
-          "CurrentServerStatPropping": 0.0,
-          "CurrentServerStatStandingBy": 0.0,
-          "CurrentServerStatTotal": 0.0,
-          "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-          "DynamicStandbySettingIsEnabled": false,
-          "DynamicStandbySettingRampDownSeconds": null,
-          "MaxServers": 0.0,
-          "Region": "BrazilSouth",
-          "ScheduledStandbySettingIsEnabled": false,
-          "ScheduledStandbySettingScheduleList": null,
-          "StandbyServers": 0.0,
-          "Status": "Initialized"
-        },
-        {
-          "CurrentServerStatActive": 0.0,
-          "CurrentServerStatPropping": 0.0,
-          "CurrentServerStatStandingBy": 0.0,
-          "CurrentServerStatTotal": 0.0,
-          "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-          "DynamicStandbySettingIsEnabled": false,
-          "DynamicStandbySettingRampDownSeconds": null,
-          "MaxServers": 0.0,
-          "Region": "WestEurope",
-          "ScheduledStandbySettingIsEnabled": false,
-          "ScheduledStandbySettingScheduleList": null,
-          "StandbyServers": 0.0,
-          "Status": "Initialized"
-        },
-        {
-          "CurrentServerStatActive": 0.0,
-          "CurrentServerStatPropping": 0.0,
-          "CurrentServerStatStandingBy": 1.0,
-          "CurrentServerStatTotal": 1.0,
-          "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-          "DynamicStandbySettingIsEnabled": false,
-          "DynamicStandbySettingRampDownSeconds": null,
-          "MaxServers": 3.0,
-          "Region": "AustraliaEast",
-          "ScheduledStandbySettingIsEnabled": false,
-          "ScheduledStandbySettingScheduleList": null,
-          "StandbyServers": 1.0,
-          "Status": "Deployed"
-        }
-      ]
-    }
-  ],
-  "DataPageSize": 2.0,
-  "DataSkipToken": null,
+  "Data": {
+    "BuildSummaries": [
+      {
+        "BuildId": "5861f6fe-bad6-40a2-87b6-9867bd0d6862",
+        "BuildName": "testLinuxBuildWithPerfMetrics3",
+        "CreationTime": "2020-07-22T00:12:53.674Z",
+        "Metadata": {},
+        "RegionConfigurations": [
+          {
+            "CurrentServerStats": {
+              "Active": 0.0,
+              "Propping": 0.0,
+              "StandingBy": 3.0,
+              "Total": 3.0
+            },
+            "DynamicStandbySettings": {
+              "DynamicFloorMultiplierThresholds": null,
+              "IsEnabled": false,
+              "RampDownSeconds": null
+            },
+            "MaxServers": 1.0,
+            "Region": "WestUs",
+            "ScheduledStandbySettings": {
+              "IsEnabled": false,
+              "ScheduleList": null
+            },
+            "StandbyServers": 1.0,
+            "Status": "Deployed"
+          }
+        ]
+      },
+      {
+        "BuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12",
+        "BuildName": "UpdatedBuildname",
+        "CreationTime": "2020-11-17T23:25:02.492Z",
+        "Metadata": {},
+        "RegionConfigurations": [
+          {
+            "CurrentServerStats": {
+              "Active": 0.0,
+              "Propping": 0.0,
+              "StandingBy": 1.0,
+              "Total": 1.0
+            },
+            "DynamicStandbySettings": {
+              "DynamicFloorMultiplierThresholds": null,
+              "IsEnabled": false,
+              "RampDownSeconds": null
+            },
+            "MaxServers": 2.0,
+            "Region": "WestUs",
+            "ScheduledStandbySettings": {
+              "IsEnabled": false,
+              "ScheduleList": null
+            },
+            "StandbyServers": 1.0,
+            "Status": "Deployed"
+          },
+          {
+            "CurrentServerStats": {
+              "Active": 0.0,
+              "Propping": 0.0,
+              "StandingBy": 1.0,
+              "Total": 1.0
+            },
+            "DynamicStandbySettings": {
+              "DynamicFloorMultiplierThresholds": null,
+              "IsEnabled": false,
+              "RampDownSeconds": null
+            },
+            "MaxServers": 2.0,
+            "Region": "AustraliaEast",
+            "ScheduledStandbySettings": {
+              "IsEnabled": false,
+              "ScheduleList": null
+            },
+            "StandbyServers": 1.0,
+            "Status": "Deployed"
+          }
+        ]
+      }
+    ]
+    "PageSize": 2.0,
+    "SkipToken": null
+  },
   "Status": "OK"
 }
 ```
@@ -136,84 +141,87 @@ PS C:\> Get-PfBuild -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12 | ConvertTo-Js
 
 {
   "Code": 200,
-  "CustomGameContainerImageName": "openarena",
-  "CustomGameContainerImageTag": "0.1",
-  "DataAreAssetsReadonly": false,
-  "DataBuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12",
-  "DataBuildName": "NewBuildName",
-  "DataBuildStatus": "Initialized",
-  "DataContainerFlavor": "CustomLinux",
-  "DataContainerRunCommand": "",
-  "DataCreationTime": "2020-11-17T23:25:02.492Z",
-  "DataGameAssetReferences": [],
-  "DataGameCertificateReferences": [],
-  "DataMetadata": {},
-  "DataMultiplayerServerCountPerVM": 1.0,
-  "DataOSPlatform": "Linux",
-  "DataPorts": [
-    {
-      "Name": "udp",
-      "Num": 27960.0,
-      "Protocol": "UDP"
-    }
-  ],
-  "DataRegionConfigurations": [
-    {
-      "CurrentServerStatActive": 0.0,
-      "CurrentServerStatPropping": 0.0,
-      "CurrentServerStatStandingBy": 0.0,
-      "CurrentServerStatTotal": 0.0,
-      "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-      "DynamicStandbySettingIsEnabled": false,
-      "DynamicStandbySettingRampDownSeconds": null,
-      "MaxServers": 0.0,
-      "Region": "BrazilSouth",
-      "ScheduledStandbySettingIsEnabled": false,
-      "ScheduledStandbySettingScheduleList": null,
-      "StandbyServers": 0.0,
-      "Status": "Initialized"
+  "Data": {
+    "AreAssetsReadonly": false,
+    "BuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12",
+    "BuildName": "UpdatedBuildname",
+    "BuildStatus": "Deployed",
+    "ContainerFlavor": "CustomLinux",
+    "ContainerRunCommand": "",
+    "CreationTime": "2020-11-17T23:25:02.492Z",
+    "CustomGameContainerImage": {
+      "ImageName": "openarena",
+      "Tag": "0.1"
     },
-    {
-      "CurrentServerStatActive": 0.0,
-      "CurrentServerStatPropping": 0.0,
-      "CurrentServerStatStandingBy": 0.0,
-      "CurrentServerStatTotal": 0.0,
-      "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-      "DynamicStandbySettingIsEnabled": false,
-      "DynamicStandbySettingRampDownSeconds": null,
-      "MaxServers": 0.0,
-      "Region": "WestEurope",
-      "ScheduledStandbySettingIsEnabled": false,
-      "ScheduledStandbySettingScheduleList": null,
-      "StandbyServers": 0.0,
-      "Status": "Initialized"
+    "GameAssetReferences": [],
+    "GameCertificateReferences": [],
+    "InstrumentationConfiguration": {
+      "ProcessesToMonitor": null
     },
-    {
-      "CurrentServerStatActive": 0.0,
-      "CurrentServerStatPropping": 0.0,
-      "CurrentServerStatStandingBy": 1.0,
-      "CurrentServerStatTotal": 1.0,
-      "DynamicStandbySettingDynamicFloorMultiplierThresholds": null,
-      "DynamicStandbySettingIsEnabled": false,
-      "DynamicStandbySettingRampDownSeconds": null,
-      "MaxServers": 3.0,
-      "Region": "AustraliaEast",
-      "ScheduledStandbySettingIsEnabled": false,
-      "ScheduledStandbySettingScheduleList": null,
-      "StandbyServers": 1.0,
-      "Status": "Deployed"
-    }
-  ],
-  "DataServerType": "Container",
-  "DataStartMultiplayerServerCommand": null,
-  "DataUseStreamingForAssetDownloads": false,
-  "DataVMSize": "Standard_D2_v2",
-  "InstrumentationConfigurationProcessesToMonitor": null,
+    "Metadata": {},
+    "MultiplayerServerCountPerVM": 1.0,
+    "OSPlatform": "Linux",
+    "Ports": [
+      {
+        "Name": "udp",
+        "Num": 27960.0,
+        "Protocol": "UDP"
+      }
+    ],
+    "RegionConfigurations": [
+      {
+        "CurrentServerStats": {
+          "Active": 0.0,
+          "Propping": 0.0,
+          "StandingBy": 1.0,
+          "Total": 1.0
+        },
+        "DynamicStandbySettings": {
+          "DynamicFloorMultiplierThresholds": null,
+          "IsEnabled": false,
+          "RampDownSeconds": null
+        },
+        "MaxServers": 2.0,
+        "Region": "WestUs",
+        "ScheduledStandbySettings": {
+          "IsEnabled": false,
+          "ScheduleList": null
+        },
+        "StandbyServers": 1.0,
+        "Status": "Deployed"
+      },
+      {
+        "CurrentServerStats": {
+          "Active": 0.0,
+          "Propping": 0.0,
+          "StandingBy": 1.0,
+          "Total": 1.0
+        },
+        "DynamicStandbySettings": {
+          "DynamicFloorMultiplierThresholds": null,
+          "IsEnabled": false,
+          "RampDownSeconds": null
+        },
+        "MaxServers": 2.0,
+        "Region": "AustraliaEast",
+        "ScheduledStandbySettings": {
+          "IsEnabled": false,
+          "ScheduleList": null
+        },
+        "StandbyServers": 1.0,
+        "Status": "Deployed"
+      }
+    ],
+    "ServerType": "Container",
+    "StartMultiplayerServerCommand": null,
+    "UseStreamingForAssetDownloads": false,
+    "VMSize": "Standard_D2_v2"
+  },
   "Status": "OK"
 }
 ```
 
-If `-buildId` is specified, this command returns a single build.
+If `-BuildId` is specified, this command returns a single build.
 
 ## PARAMETERS
 

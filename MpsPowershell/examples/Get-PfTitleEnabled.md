@@ -4,7 +4,9 @@ PS C:\> Get-PfTitleEnabled | ConvertTo-Json -depth 5
 
 {
   "Code": 200,
-  "DataStatus": "Enabled",
+  "Data": {
+    "Status": "Enabled"
+  },
   "Status": "OK"
 }
 ```

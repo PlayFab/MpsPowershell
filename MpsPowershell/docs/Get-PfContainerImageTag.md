@@ -34,12 +34,14 @@ PS C:\> Get-PfContainerImageTag -ImageName exampleContainer | ConvertTo-Json -de
 
 {
   "Code": 200,
-  "DataTags": [
-    "0.1",
-    "0.2",
-    "0.3",
-    "0.4"
-  ],
+  "Data": {
+    "Tags": [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.4"
+    ]
+  },
   "Status": "OK"
 }
 ```

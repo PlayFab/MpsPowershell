@@ -4,9 +4,11 @@ PS C:\> New-PfRemoteUser -BuildId a7d19066-cea0-42ce-a324-0bad473d3798 -Region A
 
 {
   "Code": 200,
-  "DataExpirationTime": "2021-02-13T20:02:01.022Z",
-  "DataPassword": "3GmY+VnuDTZnHoP&ZC)VhUH#),wnlSMzm9ABSBqZYwW6!17zUR5kCQPn!o*0p09Y6q0x.dgob6#Y'A'+V$GIMr#JydCtJqzXn#!N1OLGAV9kT8+",
-  "DataUsername": "example",
+  "Data": {
+    "ExpirationTime": "2021-02-13T20:02:01.022Z",
+    "Password": "3GmY+VnuDTZnHoP&ZC)VhUH#),wnlSMzm9ABSBqZYwW6!17zUR5kCQPn!o*0p09Y6q0x.dgob6#Y'A'+V$GIMr#JydCtJqzXn#!N1OLGAV9kT8+",
+    "Username": "example"
+  },
   "Status": "OK"
 }
 ```

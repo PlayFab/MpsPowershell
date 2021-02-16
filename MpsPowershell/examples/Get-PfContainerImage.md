@@ -4,12 +4,14 @@ PS C:\> Get-PfContainerImage | ConvertTo-Json -depth 5
 
 {
   "Code": 200,
-  "DataImages": [
-    "openarena",
-    "sago007/openarena"
-  ],
-  "DataPageSize": 2.0,
-  "DataSkipToken": null,
+  "Data": {
+    "Images": [
+      "openarena",
+      "sago007/openarena"
+    ],
+    "PageSize": 2.0,
+    "SkipToken": null
+  },
   "Status": "OK"
 }
 ```

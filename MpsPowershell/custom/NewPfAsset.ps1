@@ -25,7 +25,7 @@ function New-PfAsset {
             Import-Module $PSScriptRoot\CustomPsModule\CustomPsModule.psd1
         }
 
-        $uploadBlobResponse = CustomPsModule\Send-FileToBlobSasUri -FilePath ${FilePath} -AssetUploadUrl $getAssetUploadUrlResponse.DataAssetUploadUrl
+        $uploadBlobResponse = CustomPsModule\Send-FileToBlobSasUri -FilePath ${FilePath} -AssetUploadUrl $getAssetUploadUrlResponse.Data.AssetUploadUrl
         return $uploadBlobResponse.GetRawResponse()
     }
 }

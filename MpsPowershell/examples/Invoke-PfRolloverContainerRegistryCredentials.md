@@ -4,9 +4,11 @@ PS C:\> Invoke-PfRolloverContainerRegistryCredentials | ConvertTo-Json -depth 5
 
 {
   "Code": 200,
-  "DataDnsName": "example.azurecr.io",
-  "DataPassword": "newPassword",
-  "DataUsername": "newUsername",
+  "Data": {
+    "DnsName": "example.azurecr.io",
+    "Password": "newPassword",
+    "Username": "newUsername"
+  },
   "Status": "OK"
 }
 ```

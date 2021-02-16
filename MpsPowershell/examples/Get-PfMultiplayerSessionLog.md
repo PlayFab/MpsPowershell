@@ -4,7 +4,9 @@ PS C:\> Get-PfMultiplayerSessionLog -SessionId 02bdef0e-e01e-4b29-8efe-ff9f47a06
 
 {
   "Code": 200,
-  "DataLogDownloadUrl": "https://example.blob.core.windows.net/gamelogs/example",
+  "Data": {
+    "LogDownloadUrl": "https://example.blob.core.windows.net/gamelogs/example"
+  },
   "Status": "OK"
 }
 ```

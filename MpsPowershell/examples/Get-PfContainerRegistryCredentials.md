@@ -4,9 +4,11 @@ PS C:\> Get-PfContainerRegistryCredentials | ConvertTo-Json -depth 5
 
 {
   "Code": 200,
-  "DataDnsName": "example.azurecr.io",
-  "DataPassword": "redacted",
-  "DataUsername": "exampleUsername",
+  "Data": {
+    "DnsName": "example.azurecr.io",
+    "Password": "password",
+    "Username": "exampleUsername"
+  },
   "Status": "OK"
 }
 ```

@@ -38,7 +38,7 @@ PS C:\> Remove-PfBuild -BuildId 24ed06cc-59f0-4e72-b6a0-cb2ae2b9ddd3 | ConvertTo
 }
 ```
 
-{{ Add description here }}
+
 
 ## PARAMETERS
 
