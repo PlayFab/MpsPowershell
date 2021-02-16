@@ -20,6 +20,13 @@ Most commands allow you to specify the request body as either a json string or a
 > Get-PfBuild -GetBuildRequest @{ BuildId = "9968f71f-f3ec-49df-82d7-d00b12c92e12" }
 ```
 
+## Debugging
+
+Whenever PlayFab sends a non-2xx response, the request and response are both printed to stderr. If you want the request and response printed to stderr even on a success, set the PF_DEBUG environment variable to "true", like this:
+```powershell
+> $env:PF_DEBUG = 'true'
+```
+
 ## Migrating from MultiplayerPowershell
 
 Here are the commands found in MultiplayerPowershell and their equivalent commands in MpsPowershell:
