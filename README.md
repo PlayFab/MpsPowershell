@@ -8,7 +8,9 @@ Most of the contents of the [MpsPowershell](\MpsPowershell) folder are autogener
 
 ## How to Use
 
-See [docs](\MpsPowershell\docs) for a list of cmdlets in the module. `Set-PfTitle` must be called before any other cmdlets in order to set up auth. See [how-to.md](how-to.md) for more detailed instructions.
+See [docs](\MpsPowershell\docs) for a list of cmdlets in the module. `Set-PfTitle` must be called before any other cmdlets in order to set up auth. 
+
+See [how-to.md](how-to.md) for more detailed instructions.
 
 ## Building
 1. Install [Autorest](https://github.com/Azure/AutoRest)
