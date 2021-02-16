@@ -11,20 +11,20 @@ Most commands allow you to specify the request body as either a json string or a
 # All 3 of these examples do the same thing.
 
 # This uses the Autorest generated parameter 'BuildId':
-> Get-PfBuild -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12
+PS > Get-PfBuild -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12
 
 # You can also craft your own request body as json (the cmdlet will still validate your json against the request schema):
-> Get-PfBuild -GetBuildRequest '{ "BuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12" }'
+PS > Get-PfBuild -GetBuildRequest '{ "BuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12" }'
 
 # Or instead of json you can use Powershell objects:
-> Get-PfBuild -GetBuildRequest @{ BuildId = "9968f71f-f3ec-49df-82d7-d00b12c92e12" }
+PS > Get-PfBuild -GetBuildRequest @{ BuildId = "9968f71f-f3ec-49df-82d7-d00b12c92e12" }
 ```
 
 ## Debugging
 
 Whenever a command receives a non-2xx response, the request and response are both printed to stderr. If you want the request and response printed to stderr even on a success, set the PF_DEBUG environment variable to "true", like this:
 ```powershell
-> $env:PF_DEBUG = 'true'
+PS > $env:PF_DEBUG = 'true'
 ```
 
 ## Migrating from MultiplayerPowershell
