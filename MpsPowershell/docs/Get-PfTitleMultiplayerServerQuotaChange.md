@@ -67,7 +67,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
@@ -83,7 +83,7 @@ Gets a title's server quota change request.
 To construct, see NOTES section for GETTITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetTitleMultiplayerServersQuotaChangeRequest
+Type: PlayFab.Multiplayer.Models.IGetTitleMultiplayerServersQuotaChangeRequest
 Parameter Sets: Get
 Aliases:
 
@@ -99,7 +99,7 @@ List all server quota change requests for a title.
 To construct, see NOTES section for LISTTITLEMULTIPLAYERSERVERSQUOTACHANGESREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListTitleMultiplayerServersQuotaChangesRequest
+Type: PlayFab.Multiplayer.Models.IListTitleMultiplayerServersQuotaChangesRequest
 Parameter Sets: List
 Aliases:
 
@@ -161,17 +161,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetTitleMultiplayerServersQuotaChangeRequest
+### PlayFab.Multiplayer.Models.IGetTitleMultiplayerServersQuotaChangeRequest
 
-### Sample.API.Models.IListTitleMultiplayerServersQuotaChangesRequest
+### PlayFab.Multiplayer.Models.IListTitleMultiplayerServersQuotaChangesRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Pfedf1ResponsesGettitlemultiplayerserversquotachangeresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Pfedf1ResponsesGettitlemultiplayerserversquotachangeresponseContentApplicationJsonSchema
 
-### Sample.API.Models.IComponents1Up6CpyResponsesListtitlemultiplayerserversquotachangesresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Up6CpyResponsesListtitlemultiplayerserversquotachangesresponseContentApplicationJsonSchema
 
 ## NOTES
 

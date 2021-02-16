@@ -67,7 +67,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: ListExpanded
 Aliases:
 
@@ -98,7 +98,7 @@ Returns a list of quality of service servers for a title.
 To construct, see NOTES section for LISTQOSSERVERSFORTITLEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListQosServersForTitleRequest
+Type: PlayFab.Multiplayer.Models.IListQosServersForTitleRequest
 Parameter Sets: List
 Aliases:
 
@@ -145,13 +145,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IListQosServersForTitleRequest
+### PlayFab.Multiplayer.Models.IListQosServersForTitleRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1FqnmfdResponsesListqosserversfortitleresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1FqnmfdResponsesListqosserversfortitleresponseContentApplicationJsonSchema
 
 ## NOTES
 

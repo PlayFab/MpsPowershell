@@ -68,7 +68,7 @@ Returns user credential information necessary to log on.
 To construct, see NOTES section for CREATEREMOTEUSERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICreateRemoteUserRequest
+Type: PlayFab.Multiplayer.Models.ICreateRemoteUserRequest
 Parameter Sets: Create
 Aliases:
 
@@ -84,7 +84,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -192,13 +192,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.ICreateRemoteUserRequest
+### PlayFab.Multiplayer.Models.ICreateRemoteUserRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Lwh4J6ResponsesCreateremoteuserresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Lwh4J6ResponsesCreateremoteuserresponseContentApplicationJsonSchema
 
 ## NOTES
 

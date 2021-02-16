@@ -55,7 +55,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: ListExpanded
 Aliases:
 
@@ -86,7 +86,7 @@ Returns a list of the tags for a particular container image that exists in the c
 To construct, see NOTES section for LISTCONTAINERIMAGETAGSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListContainerImageTagsRequest
+Type: PlayFab.Multiplayer.Models.IListContainerImageTagsRequest
 Parameter Sets: List
 Aliases:
 
@@ -133,13 +133,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IListContainerImageTagsRequest
+### PlayFab.Multiplayer.Models.IListContainerImageTagsRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Y9Ri2TResponsesListcontainerimagetagsresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Y9Ri2TResponsesListcontainerimagetagsresponseContentApplicationJsonSchema
 
 ## NOTES
 

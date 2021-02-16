@@ -53,7 +53,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded
 Aliases:
 
@@ -69,7 +69,7 @@ Gets credentials to the container registry where game developers can upload cust
 To construct, see NOTES section for GETCONTAINERREGISTRYCREDENTIALSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetContainerRegistryCredentialsRequest
+Type: PlayFab.Multiplayer.Models.IGetContainerRegistryCredentialsRequest
 Parameter Sets: Get
 Aliases:
 
@@ -116,13 +116,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetContainerRegistryCredentialsRequest
+### PlayFab.Multiplayer.Models.IGetContainerRegistryCredentialsRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents14N65SuResponsesGetcontainerregistrycredentialsresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents14N65SuResponsesGetcontainerregistrycredentialsresponseContentApplicationJsonSchema
 
 ## NOTES
 

@@ -1,7 +1,7 @@
 using System.Collections;
-using static Sample.API.Runtime.Extensions;
+using static PlayFab.Multiplayer.Runtime.Extensions;
 
-namespace Sample.API.Models
+namespace PlayFab.Multiplayer.Models
 {
     // This file is a workaround to make Any behave like a Hashtable--without this file,
     // the Any class always serializes/deserializes to "{}".
@@ -17,7 +17,7 @@ namespace Sample.API.Models
             }
         }
 
-        partial void AfterToJson(ref Sample.API.Runtime.Json.JsonObject container)
+        partial void AfterToJson(ref PlayFab.Multiplayer.Runtime.Json.JsonObject container)
         {
             foreach (var key in this.Keys)
             {
@@ -27,7 +27,7 @@ namespace Sample.API.Models
             }
         }
 
-        partial void AfterFromJson(Sample.API.Runtime.Json.JsonObject json)
+        partial void AfterFromJson(PlayFab.Multiplayer.Runtime.Json.JsonObject json)
         {
             foreach (var key in json.Keys)
             {

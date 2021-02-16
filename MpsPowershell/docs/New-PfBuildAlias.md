@@ -77,7 +77,7 @@ Array of build selection criteria.
 To construct, see NOTES section for BUILDSELECTIONCRITERIA properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IBuildSelectionCriterion[]
+Type: PlayFab.Multiplayer.Models.IBuildSelectionCriterion[]
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -93,7 +93,7 @@ Creates a multiplayer server build alias and returns the created alias.
 To construct, see NOTES section for CREATEBUILDALIASREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICreateBuildAliasRequest
+Type: PlayFab.Multiplayer.Models.ICreateBuildAliasRequest
 Parameter Sets: Create
 Aliases:
 
@@ -109,7 +109,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -156,13 +156,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.ICreateBuildAliasRequest
+### PlayFab.Multiplayer.Models.ICreateBuildAliasRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Ola4KgResponsesBuildaliasdetailsresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Ola4KgResponsesBuildaliasdetailsresponseContentApplicationJsonSchema
 
 ## NOTES
 

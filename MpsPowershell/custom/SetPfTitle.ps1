@@ -2,7 +2,7 @@ function Set-PfTitle {
     # returns the object returned from Invoke-RestMethod
     [OutputType([PSCustomObject])]
     [CmdletBinding(PositionalBinding=$false)]
-    [Sample.API.Description('Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.')]
+    [PlayFab.Multiplayer.Description('Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.')]
     param(
         [Parameter(Mandatory, HelpMessage='The PlayFab TitleId')]
         [System.String]

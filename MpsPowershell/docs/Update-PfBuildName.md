@@ -78,7 +78,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: UpdateExpanded
 Aliases:
 
@@ -94,7 +94,7 @@ Updates a multiplayer server build's name.
 To construct, see NOTES section for UPDATEBUILDNAMEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IUpdateBuildNameRequest
+Type: PlayFab.Multiplayer.Models.IUpdateBuildNameRequest
 Parameter Sets: Update
 Aliases:
 
@@ -141,13 +141,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IUpdateBuildNameRequest
+### PlayFab.Multiplayer.Models.IUpdateBuildNameRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

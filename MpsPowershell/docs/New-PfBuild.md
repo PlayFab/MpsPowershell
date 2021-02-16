@@ -268,7 +268,7 @@ The container reference, consisting of the image name and tag.
 To construct, see NOTES section for CONTAINERIMAGEREFERENCE properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IContainerImageReference
+Type: PlayFab.Multiplayer.Models.IContainerImageReference
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -299,7 +299,7 @@ Creates a multiplayer server build with a custom container and returns informati
 To construct, see NOTES section for CREATEBUILDWITHCUSTOMCONTAINERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICreateBuildWithCustomContainerRequest
+Type: PlayFab.Multiplayer.Models.ICreateBuildWithCustomContainerRequest
 Parameter Sets: Create
 Aliases:
 
@@ -315,7 +315,7 @@ Creates a multiplayer server build with a managed container and returns informat
 To construct, see NOTES section for CREATEBUILDWITHMANAGEDCONTAINERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICreateBuildWithManagedContainerRequest
+Type: PlayFab.Multiplayer.Models.ICreateBuildWithManagedContainerRequest
 Parameter Sets: Create1
 Aliases:
 
@@ -331,7 +331,7 @@ Creates a multiplayer server build with the game server running as a process and
 To construct, see NOTES section for CREATEBUILDWITHPROCESSBASEDSERVERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICreateBuildWithProcessBasedServerRequest
+Type: PlayFab.Multiplayer.Models.ICreateBuildWithProcessBasedServerRequest
 Parameter Sets: Create2
 Aliases:
 
@@ -347,7 +347,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -363,7 +363,7 @@ The list of game assets related to the build.
 To construct, see NOTES section for GAMEASSETREFERENCES properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IAssetReferenceParams[]
+Type: PlayFab.Multiplayer.Models.IAssetReferenceParams[]
 Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -379,7 +379,7 @@ The game certificates for the build.
 To construct, see NOTES section for GAMECERTIFICATEREFERENCES properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGameCertificateReferenceParams[]
+Type: PlayFab.Multiplayer.Models.IGameCertificateReferenceParams[]
 Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -412,7 +412,7 @@ The instrumentation configuration for the build.
 To construct, see NOTES section for INSTRUMENTATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IInstrumentationConfiguration
+Type: PlayFab.Multiplayer.Models.IInstrumentationConfiguration
 Parameter Sets: CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -444,7 +444,7 @@ The Linux instrumentation configuration for the build.
 To construct, see NOTES section for LINUXINSTRUMENTATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ILinuxInstrumentationConfiguration
+Type: PlayFab.Multiplayer.Models.ILinuxInstrumentationConfiguration
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -461,7 +461,7 @@ The keys are case insensitive.
 The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -507,7 +507,7 @@ The ports to map the build on.
 To construct, see NOTES section for PORTS properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IPort[]
+Type: PlayFab.Multiplayer.Models.IPort[]
 Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -523,7 +523,7 @@ The region configurations for the build.
 To construct, see NOTES section for REGIONCONFIGURATIONS properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IBuildRegionParams[]
+Type: PlayFab.Multiplayer.Models.IBuildRegionParams[]
 Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
 Aliases:
 
@@ -615,21 +615,21 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.ICreateBuildWithCustomContainerRequest
+### PlayFab.Multiplayer.Models.ICreateBuildWithCustomContainerRequest
 
-### Sample.API.Models.ICreateBuildWithManagedContainerRequest
+### PlayFab.Multiplayer.Models.ICreateBuildWithManagedContainerRequest
 
-### Sample.API.Models.ICreateBuildWithProcessBasedServerRequest
+### PlayFab.Multiplayer.Models.ICreateBuildWithProcessBasedServerRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsJeulq8ResponsesCreatebuildwithmanagedcontainerresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsJeulq8ResponsesCreatebuildwithmanagedcontainerresponseContentApplicationJsonSchema
 
-### Sample.API.Models.IComponentsTqyqe4ResponsesCreatebuildwithprocessbasedserverresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsTqyqe4ResponsesCreatebuildwithprocessbasedserverresponseContentApplicationJsonSchema
 
-### Sample.API.Models.IComponentsXnbwy4ResponsesCreatebuildwithcustomcontainerresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsXnbwy4ResponsesCreatebuildwithcustomcontainerresponseContentApplicationJsonSchema
 
 ## NOTES
 

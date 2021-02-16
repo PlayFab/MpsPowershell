@@ -245,7 +245,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
@@ -261,7 +261,7 @@ Returns the details about a multiplayer server build.
 To construct, see NOTES section for GETBUILDREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetBuildRequest
+Type: PlayFab.Multiplayer.Models.IGetBuildRequest
 Parameter Sets: Get
 Aliases:
 
@@ -277,7 +277,7 @@ Returns a list of summarized details of all multiplayer server builds for a titl
 To construct, see NOTES section for LISTBUILDSUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListBuildSummariesRequest
+Type: PlayFab.Multiplayer.Models.IListBuildSummariesRequest
 Parameter Sets: List
 Aliases:
 
@@ -354,17 +354,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetBuildRequest
+### PlayFab.Multiplayer.Models.IGetBuildRequest
 
-### Sample.API.Models.IListBuildSummariesRequest
+### PlayFab.Multiplayer.Models.IListBuildSummariesRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Ss7K7IResponsesGetbuildresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Ss7K7IResponsesGetbuildresponseContentApplicationJsonSchema
 
-### Sample.API.Models.IComponents5B91ZxResponsesListbuildsummariesresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents5B91ZxResponsesListbuildsummariesresponseContentApplicationJsonSchema
 
 ## NOTES
 

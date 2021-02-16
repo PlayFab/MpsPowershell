@@ -62,7 +62,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: ListExpanded
 Aliases:
 
@@ -78,7 +78,7 @@ Returns a list of multiplayer server game asset summaries for a title.
 To construct, see NOTES section for LISTASSETSUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListAssetSummariesRequest
+Type: PlayFab.Multiplayer.Models.IListAssetSummariesRequest
 Parameter Sets: List
 Aliases:
 
@@ -155,13 +155,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IListAssetSummariesRequest
+### PlayFab.Multiplayer.Models.IListAssetSummariesRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents73Gb1RResponsesListassetsummariesresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents73Gb1RResponsesListassetsummariesresponseContentApplicationJsonSchema
 
 ## NOTES
 

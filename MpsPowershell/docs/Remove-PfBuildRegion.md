@@ -64,7 +64,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: DeleteExpanded
 Aliases:
 
@@ -80,7 +80,7 @@ Removes a multiplayer server build's region.
 To construct, see NOTES section for DELETEBUILDREGIONREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IDeleteBuildRegionRequest
+Type: PlayFab.Multiplayer.Models.IDeleteBuildRegionRequest
 Parameter Sets: Delete
 Aliases:
 
@@ -142,13 +142,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IDeleteBuildRegionRequest
+### PlayFab.Multiplayer.Models.IDeleteBuildRegionRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

@@ -78,7 +78,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: ListExpanded
 Aliases:
 
@@ -94,7 +94,7 @@ Returns a list of multiplayer server game certificates for a title.
 To construct, see NOTES section for LISTCERTIFICATESUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListCertificateSummariesRequest
+Type: PlayFab.Multiplayer.Models.IListCertificateSummariesRequest
 Parameter Sets: List
 Aliases:
 
@@ -171,13 +171,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IListCertificateSummariesRequest
+### PlayFab.Multiplayer.Models.IListCertificateSummariesRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsZfufn7ResponsesListcertificatesummariesresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsZfufn7ResponsesListcertificatesummariesresponseContentApplicationJsonSchema
 
 ## NOTES
 

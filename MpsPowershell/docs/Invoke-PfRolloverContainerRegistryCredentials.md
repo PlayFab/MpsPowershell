@@ -53,7 +53,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: RolloverExpanded
 Aliases:
 
@@ -69,7 +69,7 @@ Gets new credentials to the container registry where game developers can upload 
 To construct, see NOTES section for ROLLOVERCONTAINERREGISTRYCREDENTIALSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IRolloverContainerRegistryCredentialsRequest
+Type: PlayFab.Multiplayer.Models.IRolloverContainerRegistryCredentialsRequest
 Parameter Sets: Rollover
 Aliases:
 
@@ -116,13 +116,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IRolloverContainerRegistryCredentialsRequest
+### PlayFab.Multiplayer.Models.IRolloverContainerRegistryCredentialsRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Xbtl3TResponsesRollovercontainerregistrycredentialsresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Xbtl3TResponsesRollovercontainerregistrycredentialsresponseContentApplicationJsonSchema
 
 ## NOTES
 

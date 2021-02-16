@@ -1,7 +1,7 @@
 function New-PfAsset {
-    [OutputType('Sample.API.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema', 'Sample.API.Models.IApiErrorWrapper', 'Azure.Response')]
+    [OutputType('PlayFab.Multiplayer.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema', 'PlayFab.Multiplayer.Models.IApiErrorWrapper', 'Azure.Response')]
     [CmdletBinding(PositionalBinding=$false)]
-    [Sample.API.Description('Uploads an asset.')]
+    [PlayFab.Multiplayer.Description('Uploads an asset.')]
     param(
         [Parameter(Mandatory, HelpMessage='The path to the local file to upload.')]
         [System.String]

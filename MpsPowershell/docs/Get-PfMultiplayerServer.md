@@ -99,7 +99,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded, ListExpanded
 Aliases:
 
@@ -115,7 +115,7 @@ Gets multiplayer server session details for a build in a specific region.
 To construct, see NOTES section for GETMULTIPLAYERSERVERDETAILSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetMultiplayerServerDetailsRequest
+Type: PlayFab.Multiplayer.Models.IGetMultiplayerServerDetailsRequest
 Parameter Sets: Get
 Aliases:
 
@@ -131,7 +131,7 @@ Returns a list of multiplayer servers for a build in a specific region.
 To construct, see NOTES section for LISTMULTIPLAYERSERVERSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListMultiplayerServersRequest
+Type: PlayFab.Multiplayer.Models.IListMultiplayerServersRequest
 Parameter Sets: List
 Aliases:
 
@@ -239,17 +239,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetMultiplayerServerDetailsRequest
+### PlayFab.Multiplayer.Models.IGetMultiplayerServerDetailsRequest
 
-### Sample.API.Models.IListMultiplayerServersRequest
+### PlayFab.Multiplayer.Models.IListMultiplayerServersRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents12QgathResponsesListmultiplayerserversresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents12QgathResponsesListmultiplayerserversresponseContentApplicationJsonSchema
 
-### Sample.API.Models.IComponents1P1Mp4RResponsesGetmultiplayerserverdetailsresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1P1Mp4RResponsesGetmultiplayerserverdetailsresponseContentApplicationJsonSchema
 
 ## NOTES
 

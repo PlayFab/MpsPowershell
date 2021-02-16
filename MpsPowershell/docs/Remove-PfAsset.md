@@ -47,7 +47,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: DeleteExpanded
 Aliases:
 
@@ -63,7 +63,7 @@ Deletes a multiplayer server game asset for a title.
 To construct, see NOTES section for DELETEASSETREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IDeleteAssetRequest
+Type: PlayFab.Multiplayer.Models.IDeleteAssetRequest
 Parameter Sets: Delete
 Aliases:
 
@@ -125,13 +125,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IDeleteAssetRequest
+### PlayFab.Multiplayer.Models.IDeleteAssetRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

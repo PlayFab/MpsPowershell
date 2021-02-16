@@ -69,7 +69,7 @@ The identifiers of the build alias to use for the request.
 To construct, see NOTES section for BUILDALIASPARAMS properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IBuildAliasParams
+Type: PlayFab.Multiplayer.Models.IBuildAliasParams
 Parameter Sets: RequestExpanded
 Aliases:
 
@@ -100,7 +100,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: RequestExpanded
 Aliases:
 
@@ -148,7 +148,7 @@ Requests a multiplayer server session from a particular build in any of the give
 To construct, see NOTES section for REQUESTMULTIPLAYERSERVERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IRequestMultiplayerServerRequest
+Type: PlayFab.Multiplayer.Models.IRequestMultiplayerServerRequest
 Parameter Sets: Request
 Aliases:
 
@@ -226,13 +226,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IRequestMultiplayerServerRequest
+### PlayFab.Multiplayer.Models.IRequestMultiplayerServerRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsGlu3TjResponsesRequestmultiplayerserverresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsGlu3TjResponsesRequestmultiplayerserverresponseContentApplicationJsonSchema
 
 ## NOTES
 

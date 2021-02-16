@@ -79,7 +79,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: ListExpanded
 Aliases:
 
@@ -95,7 +95,7 @@ Returns a list of virtual machines for a title.
 To construct, see NOTES section for LISTVIRTUALMACHINESUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IListVirtualMachineSummariesRequest
+Type: PlayFab.Multiplayer.Models.IListVirtualMachineSummariesRequest
 Parameter Sets: List
 Aliases:
 
@@ -187,13 +187,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IListVirtualMachineSummariesRequest
+### PlayFab.Multiplayer.Models.IListVirtualMachineSummariesRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Oxvs1QResponsesListvirtualmachinesummariesresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Oxvs1QResponsesListvirtualmachinesummariesresponseContentApplicationJsonSchema
 
 ## NOTES
 

@@ -92,7 +92,7 @@ The updated region configuration that should be applied to the specified build.
 To construct, see NOTES section for BUILDREGION properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IBuildRegionParams
+Type: PlayFab.Multiplayer.Models.IBuildRegionParams
 Parameter Sets: UpdateExpanded
 Aliases:
 
@@ -108,7 +108,7 @@ The updated region configuration that should be applied to the specified build.
 To construct, see NOTES section for BUILDREGIONS properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IBuildRegionParams[]
+Type: PlayFab.Multiplayer.Models.IBuildRegionParams[]
 Parameter Sets: UpdateExpanded1
 Aliases:
 
@@ -124,7 +124,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: UpdateExpanded, UpdateExpanded1
 Aliases:
 
@@ -140,7 +140,7 @@ Updates a multiplayer server build's region.
 To construct, see NOTES section for UPDATEBUILDREGIONREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IUpdateBuildRegionRequest
+Type: PlayFab.Multiplayer.Models.IUpdateBuildRegionRequest
 Parameter Sets: Update
 Aliases:
 
@@ -156,7 +156,7 @@ Updates a multiplayer server build's regions.
 To construct, see NOTES section for UPDATEBUILDREGIONSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IUpdateBuildRegionsRequest
+Type: PlayFab.Multiplayer.Models.IUpdateBuildRegionsRequest
 Parameter Sets: Update1
 Aliases:
 
@@ -203,15 +203,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IUpdateBuildRegionRequest
+### PlayFab.Multiplayer.Models.IUpdateBuildRegionRequest
 
-### Sample.API.Models.IUpdateBuildRegionsRequest
+### PlayFab.Multiplayer.Models.IUpdateBuildRegionsRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

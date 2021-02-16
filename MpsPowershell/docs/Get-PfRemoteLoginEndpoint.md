@@ -67,7 +67,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded
 Aliases:
 
@@ -83,7 +83,7 @@ Gets a remote login endpoint to a VM that is hosting a multiplayer server build 
 To construct, see NOTES section for GETREMOTELOGINENDPOINTREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetRemoteLoginEndpointRequest
+Type: PlayFab.Multiplayer.Models.IGetRemoteLoginEndpointRequest
 Parameter Sets: Get
 Aliases:
 
@@ -160,13 +160,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetRemoteLoginEndpointRequest
+### PlayFab.Multiplayer.Models.IGetRemoteLoginEndpointRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsVicviwResponsesGetremoteloginendpointresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsVicviwResponsesGetremoteloginendpointresponseContentApplicationJsonSchema
 
 ## NOTES
 

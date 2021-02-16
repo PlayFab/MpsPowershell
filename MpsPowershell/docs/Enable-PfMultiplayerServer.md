@@ -53,7 +53,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: EnableExpanded
 Aliases:
 
@@ -72,7 +72,7 @@ On average, it can take up to 20 minutes for the title to be enabled for the fea
 To construct, see NOTES section for ENABLEMULTIPLAYERSERVERSFORTITLEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IEnableMultiplayerServersForTitleRequest
+Type: PlayFab.Multiplayer.Models.IEnableMultiplayerServersForTitleRequest
 Parameter Sets: Enable
 Aliases:
 
@@ -119,13 +119,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IEnableMultiplayerServersForTitleRequest
+### PlayFab.Multiplayer.Models.IEnableMultiplayerServersForTitleRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Lop7EgResponsesEnablemultiplayerserversfortitleresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Lop7EgResponsesEnablemultiplayerserversfortitleresponseContentApplicationJsonSchema
 
 ## NOTES
 

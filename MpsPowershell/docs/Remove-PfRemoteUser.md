@@ -64,7 +64,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: DeleteExpanded
 Aliases:
 
@@ -81,7 +81,7 @@ Returns user credential information necessary to log on.
 To construct, see NOTES section for DELETEREMOTEUSERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IDeleteRemoteUserRequest
+Type: PlayFab.Multiplayer.Models.IDeleteRemoteUserRequest
 Parameter Sets: Delete
 Aliases:
 
@@ -173,13 +173,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IDeleteRemoteUserRequest
+### PlayFab.Multiplayer.Models.IDeleteRemoteUserRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

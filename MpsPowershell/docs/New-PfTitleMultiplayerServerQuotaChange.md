@@ -71,7 +71,7 @@ Changes to make to the titles cores quota.
 To construct, see NOTES section for CHANGES properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICoreCapacityChange[]
+Type: PlayFab.Multiplayer.Models.ICoreCapacityChange[]
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -103,7 +103,7 @@ Creates a request to change a title's multiplayer server quotas.
 To construct, see NOTES section for CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
+Type: PlayFab.Multiplayer.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
 Parameter Sets: Create
 Aliases:
 
@@ -119,7 +119,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -197,13 +197,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
+### PlayFab.Multiplayer.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1Sy6ReyResponsesCreatetitlemultiplayerserversquotachangeresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1Sy6ReyResponsesCreatetitlemultiplayerserversquotachangeresponseContentApplicationJsonSchema
 
 ## NOTES
 

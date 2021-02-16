@@ -51,7 +51,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: UploadExpanded
 Aliases:
 
@@ -67,7 +67,7 @@ The game certificate to upload.
 To construct, see NOTES section for GAMECERTIFICATE properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.ICertificate
+Type: PlayFab.Multiplayer.Models.ICertificate
 Parameter Sets: UploadExpanded
 Aliases:
 
@@ -83,7 +83,7 @@ Uploads a multiplayer server game certificate.
 To construct, see NOTES section for UPLOADCERTIFICATEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IUploadCertificateRequest
+Type: PlayFab.Multiplayer.Models.IUploadCertificateRequest
 Parameter Sets: Upload
 Aliases:
 
@@ -130,13 +130,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IUploadCertificateRequest
+### PlayFab.Multiplayer.Models.IUploadCertificateRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

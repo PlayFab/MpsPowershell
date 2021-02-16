@@ -51,7 +51,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded
 Aliases:
 
@@ -82,7 +82,7 @@ Gets the URL to upload assets to.
 To construct, see NOTES section for GETASSETUPLOADURLREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetAssetUploadUrlRequest
+Type: PlayFab.Multiplayer.Models.IGetAssetUploadUrlRequest
 Parameter Sets: Get
 Aliases:
 
@@ -129,13 +129,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetAssetUploadUrlRequest
+### PlayFab.Multiplayer.Models.IGetAssetUploadUrlRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema
 
 ## NOTES
 

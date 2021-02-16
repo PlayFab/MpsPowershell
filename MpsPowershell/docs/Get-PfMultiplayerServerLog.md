@@ -50,7 +50,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded
 Aliases:
 
@@ -67,7 +67,7 @@ The logs are available only after a server has terminated.
 To construct, see NOTES section for GETMULTIPLAYERSERVERLOGSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetMultiplayerServerLogsRequest
+Type: PlayFab.Multiplayer.Models.IGetMultiplayerServerLogsRequest
 Parameter Sets: Get
 Aliases:
 
@@ -129,13 +129,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetMultiplayerServerLogsRequest
+### PlayFab.Multiplayer.Models.IGetMultiplayerServerLogsRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsZjlt10ResponsesGetmultiplayerserverlogsresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsZjlt10ResponsesGetmultiplayerserverlogsresponseContentApplicationJsonSchema
 
 ## NOTES
 

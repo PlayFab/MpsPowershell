@@ -14,6 +14,7 @@ metadata:
 powershell: true
 clear-output-folder: true
 prefix: Pf
+namespace: PlayFab.Multiplayer
 
 # This prevents Autorest from inlining/flattening any of our models.
 inlining-threshold: 0

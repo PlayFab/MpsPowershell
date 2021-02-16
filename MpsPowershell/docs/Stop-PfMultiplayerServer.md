@@ -64,7 +64,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: ShutdownExpanded
 Aliases:
 
@@ -111,7 +111,7 @@ The callback in the GSDK will allow for graceful shutdown with a 15 minute timeo
 To construct, see NOTES section for SHUTDOWNMULTIPLAYERSERVERREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IShutdownMultiplayerServerRequest
+Type: PlayFab.Multiplayer.Models.IShutdownMultiplayerServerRequest
 Parameter Sets: Shutdown
 Aliases:
 
@@ -158,13 +158,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IShutdownMultiplayerServerRequest
+### PlayFab.Multiplayer.Models.IShutdownMultiplayerServerRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

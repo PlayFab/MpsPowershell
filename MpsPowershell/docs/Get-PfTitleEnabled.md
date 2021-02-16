@@ -51,7 +51,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: GetExpanded
 Aliases:
 
@@ -68,7 +68,7 @@ The enabled status can be Initializing, Enabled, and Disabled.
 To construct, see NOTES section for GETTITLEENABLEDFORMULTIPLAYERSERVERSSTATUSREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IGetTitleEnabledForMultiplayerServersStatusRequest
+Type: PlayFab.Multiplayer.Models.IGetTitleEnabledForMultiplayerServersStatusRequest
 Parameter Sets: Get
 Aliases:
 
@@ -115,13 +115,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IGetTitleEnabledForMultiplayerServersStatusRequest
+### PlayFab.Multiplayer.Models.IGetTitleEnabledForMultiplayerServersStatusRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponents1J8KyqoResponsesGettitleenabledformultiplayerserversstatusresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents1J8KyqoResponsesGettitleenabledformultiplayerserversstatusresponseContentApplicationJsonSchema
 
 ## NOTES
 

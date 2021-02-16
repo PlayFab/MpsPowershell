@@ -49,7 +49,7 @@ The optional custom tags associated with the request (e.g.
 build number, external trace identifiers, etc.).
 
 ```yaml
-Type: Sample.API.Models.IAny
+Type: PlayFab.Multiplayer.Models.IAny
 Parameter Sets: DeleteExpanded
 Aliases:
 
@@ -67,7 +67,7 @@ Morever, ListContainerImages will not return the specified image.
 To construct, see NOTES section for DELETECONTAINERIMAGEREQUEST properties and create a hash table.
 
 ```yaml
-Type: Sample.API.Models.IDeleteContainerImageRequest
+Type: PlayFab.Multiplayer.Models.IDeleteContainerImageRequest
 Parameter Sets: Delete
 Aliases:
 
@@ -129,13 +129,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Sample.API.Models.IDeleteContainerImageRequest
+### PlayFab.Multiplayer.Models.IDeleteContainerImageRequest
 
 ## OUTPUTS
 
-### Sample.API.Models.IApiErrorWrapper
+### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### Sample.API.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
 
 ## NOTES
 

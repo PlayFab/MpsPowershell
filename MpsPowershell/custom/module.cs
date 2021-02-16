@@ -1,4 +1,4 @@
-namespace Sample.API
+namespace PlayFab.Multiplayer
 {
     using Runtime;
     using System;
