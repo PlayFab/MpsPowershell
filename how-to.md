@@ -2,7 +2,7 @@
 
 Before running any other command you need to run `Set-PfTitle`. This uses your TitleId and your title's SecretKey to get an EntityToken that will be used to authenticate all future requests (the EntityToken is automatically set to an environment variable that is read by all cmdlets). 
 
-All the commands return an object containing the response body. This means that in order to use the response, you have to either
+All the commands return an object containing the response body, which doesn't get printed to the console by default. This means that in order to use the response, you have to either
 1. Store the response in a variable: `$resp = Get-PfBuild`
 1. Print the response to the console as json: `Get-PfBuild | ConvertTo-Json -depth 5`
 
@@ -22,7 +22,7 @@ Most commands allow you to specify the request body as either a json string or a
 
 ## Debugging
 
-Whenever PlayFab sends a non-2xx response, the request and response are both printed to stderr. If you want the request and response printed to stderr even on a success, set the PF_DEBUG environment variable to "true", like this:
+Whenever a command receives a non-2xx response, the request and response are both printed to stderr. If you want the request and response printed to stderr even on a success, set the PF_DEBUG environment variable to "true", like this:
 ```powershell
 > $env:PF_DEBUG = 'true'
 ```
