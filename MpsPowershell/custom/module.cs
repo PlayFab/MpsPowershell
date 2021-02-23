@@ -42,6 +42,10 @@ namespace PlayFab.Multiplayer
             // add the X-EntityToken header
             request.Headers.Add("X-EntityToken", entityToken);
 
+            // Apparently the body gets disposed after being sent when running in Windows Powershell (but doesn't get
+            // disposed in Powershell Core) so we store it now
+            string requestContent = await request.Content.ReadAsStringAsync();
+
             // let the request go on.
             HttpResponseMessage response = await next.SendAsync(request, callback);
 
@@ -54,7 +58,7 @@ namespace PlayFab.Multiplayer
                     Console.Error.WriteLine($"{header.Key}: {string.Join(",", header.Value)}");
                 }
                 Console.Error.WriteLine();
-                Console.Error.WriteLine(await request.Content.ReadAsStringAsync());
+                Console.Error.WriteLine(requestContent);
 
                 Console.Error.WriteLine();
                 Console.Error.WriteLine();
