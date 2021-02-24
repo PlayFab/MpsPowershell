@@ -17,18 +17,22 @@ PS > Get-PfBuild -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12
 PS > Get-PfBuild -GetBuildRequest '{ "BuildId": "9968f71f-f3ec-49df-82d7-d00b12c92e12" }'
 
 # Or instead of json you can use Powershell objects:
-PS > Get-PfBuild -GetBuildRequest @{ BuildId = "9968f71f-f3ec-49df-82d7-d00b12c92e12" }
+PS> Get-PfBuild -GetBuildRequest @{ BuildId = "9968f71f-f3ec-49df-82d7-d00b12c92e12" }
 ```
 
 ## Debugging
 
 Whenever a command receives a non-2xx response, the request and response are both printed to stderr. If you want the request and response printed to stderr even on a success, set the PF_DEBUG environment variable to "true", like this:
 ```powershell
-PS > $env:PF_DEBUG = 'true'
+PS> $env:PF_DEBUG = 'true'
 ```
 
 ## Migrating from MultiplayerPowershell
 
+Make sure to uninstall MultiplayerPowershell before installing MpsPowershell, because some of the cmdlet names overlap:
+```powershell
+PS> Uninstall-Package MultiplayerApi
+```
 Here are the commands found in MultiplayerPowershell and their equivalent commands in MpsPowershell:
 
 | MultiplayerPowershell command (old) | MpsPowershell command (new) |
