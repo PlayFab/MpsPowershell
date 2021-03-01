@@ -1,4 +1,4 @@
-# MpsPowershell
+# MpsPowershell Preview
 [![PlayFabMultiplayerApi](https://img.shields.io/powershellgallery/v/PlayFabMultiplayerApi.svg?style=flat-square&label=PlayFabMultiplayerApi)](https://www.powershellgallery.com/packages/PlayFabMultiplayerApi/)
 
 ## Overview
