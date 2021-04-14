@@ -14,7 +14,8 @@ Gets a multiplayer server build alias.
 
 ### ListExpanded (Default)
 ```
-Get-PfBuildAlias [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfBuildAlias [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ### Get
@@ -29,7 +30,7 @@ Get-PfBuildAlias -AliasId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<C
 
 ### List
 ```
-Get-PfBuildAlias -MultiplayerEmptyRequest <IMultiplayerEmptyRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfBuildAlias -ListBuildAliasesRequest <IListBuildAliasesRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -155,12 +156,12 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -MultiplayerEmptyRequest
+### -ListBuildAliasesRequest
 Returns a list of summarized details of all multiplayer server builds for a title.
-To construct, see NOTES section for MULTIPLAYEREMPTYREQUEST properties and create a hash table.
+To construct, see NOTES section for LISTBUILDALIASESREQUEST properties and create a hash table.
 
 ```yaml
-Type: PlayFab.Multiplayer.Models.IMultiplayerEmptyRequest
+Type: PlayFab.Multiplayer.Models.IListBuildAliasesRequest
 Parameter Sets: List
 Aliases:
 
@@ -168,6 +169,36 @@ Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -PageSize
+The page size for the request.
+
+```yaml
+Type: System.Single
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipToken
+The skip token for the paged request.
+
+```yaml
+Type: System.String
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -209,7 +240,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### PlayFab.Multiplayer.Models.IGetBuildAliasRequest
 
-### PlayFab.Multiplayer.Models.IMultiplayerEmptyRequest
+### PlayFab.Multiplayer.Models.IListBuildAliasesRequest
 
 ## OUTPUTS
 
@@ -217,7 +248,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### PlayFab.Multiplayer.Models.IComponents1Ola4KgResponsesBuildaliasdetailsresponseContentApplicationJsonSchema
 
-### PlayFab.Multiplayer.Models.IComponentsV0Uza5ResponsesListbuildaliasesfortitleresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsAf3SjfResponsesListbuildaliasesresponseContentApplicationJsonSchema
 
 ## NOTES
 
@@ -232,8 +263,10 @@ GETBUILDALIASREQUEST <IGetBuildAliasRequest>: Returns the details about a multip
   - `AliasId <String>`: The guid string alias ID of the alias to perform the action on.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
-MULTIPLAYEREMPTYREQUEST <IMultiplayerEmptyRequest>: Returns a list of summarized details of all multiplayer server builds for a title.
+LISTBUILDALIASESREQUEST <IListBuildAliasesRequest>: Returns a list of summarized details of all multiplayer server builds for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 
