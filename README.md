@@ -1,4 +1,4 @@
-# MpsPowershell Preview
+# MpsPowershell
 [![PlayFabMultiplayerApi](https://img.shields.io/powershellgallery/v/PlayFabMultiplayerApi.svg?style=flat-square&label=PlayFabMultiplayerApi)](https://www.powershellgallery.com/packages/PlayFabMultiplayerApi/)
 
 ## Overview
@@ -32,7 +32,6 @@ See [how-to.md](how-to.md) for more detailed instructions.
 
     # If everything succeeded, there will now be a .nupkg file in \MpsPowershell\bin that you can publish to PowerShell Gallery.
     ```
-1. **optional** There is a C# project, CustomPsModule, that is used to manually generate some cmdlets that were easier to write in C# than in Powershell. That project is found in  [\MpsPowershell\resources\CustomPsModule](MpsPowershell/resources/CustomPsModule), and its build output is checked into [\MpsPowershell\custom\CustomPsModule](MpsPowershell/custom/CustomPsModule). If you need to make changes to that project, just build it in Visual Studio and copy the build output there. 
 
 ## Contact Us
 We love to hear from our developer community!
