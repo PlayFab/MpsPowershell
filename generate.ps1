@@ -23,7 +23,4 @@ ${tempFile} = "$env:TEMP\$(${Input-File} | Split-Path -Leaf)"
 (Get-Content -Path ${Input-File}) -replace "x-ms-", "x-" | Set-Content -Path $tempFile
 ${Input-File} = ${tempFile}
 
-# This is hardcoded to use autorest.powershell v3.0.415 because it contains a bugfix that 
-# the default version (v2.1.401 as of this writing) is missing.
-#See https://github.com/Azure/autorest.powershell/issues/727
-autorest $PsScriptRoot\autorestConfig.md --use:@autorest/powershell@3.0.415 --module-version=${Module-Version} --input-file=${Input-File} --output-folder=${Output-Folder}
+autorest $PsScriptRoot\autorestConfig.md --module-version=${Module-Version} --input-file=${Input-File} --output-folder=${Output-Folder}

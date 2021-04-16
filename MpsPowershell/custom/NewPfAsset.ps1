@@ -1,5 +1,5 @@
 function New-PfAsset {
-    [OutputType('PlayFab.Multiplayer.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema', 'PlayFab.Multiplayer.Models.IApiErrorWrapper', 'Azure.Response')]
+    [OutputType('PlayFab.Multiplayer.Models.IComponentsHvu8TvResponsesGetassetuploadurlresponseContentApplicationJsonSchema', 'PlayFab.Multiplayer.Models.IApiErrorWrapper', 'PSObject')]
     [CmdletBinding(PositionalBinding=$false)]
     [PlayFab.Multiplayer.Description('Uploads an asset.')]
     param(
@@ -21,11 +21,14 @@ function New-PfAsset {
             return $getAssetUploadUrlResponse
         }
 
-        if ((Get-Module CustomPsModule) -eq $null) {
-            Import-Module $PSScriptRoot\CustomPsModule\CustomPsModule.psd1
-        }
+        $response = Invoke-RestMethod `
+            -method PUT `
+            -URI $getAssetUploadUrlResponse.Data.AssetUploadUrl `
+            -headers @{ "x-ms-blob-type" = "BlockBlob" } `
+            -InFile ${FilePath}
 
-        $uploadBlobResponse = CustomPsModule\Send-FileToBlobSasUri -FilePath ${FilePath} -AssetUploadUrl $getAssetUploadUrlResponse.Data.AssetUploadUrl
-        return $uploadBlobResponse.GetRawResponse()
+        Write-Host "Success"
+
+        return $response
     }
 }
