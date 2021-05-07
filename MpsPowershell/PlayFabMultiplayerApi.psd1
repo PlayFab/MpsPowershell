@@ -1,7 +1,7 @@
 @{
   GUID = '31171fb3-b53e-45b6-bd41-96e4ddf9afe3'
   RootModule = './PlayFabMultiplayerApi.psm1'
-  ModuleVersion = '1.0.0'
+  ModuleVersion = '1.1.0'
   CompatiblePSEditions = 'Core', 'Desktop'
   Author = 'Microsoft Corporation'
   CompanyName = 'Microsoft Corporation'
