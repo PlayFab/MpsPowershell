@@ -9,6 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 Gets the URL to upload assets to.
+A sample pre-authenticated url - https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
 
 ## SYNTAX
 
@@ -25,6 +26,7 @@ Get-PfAssetUploadUrl -GetAssetUploadUrlRequest <IGetAssetUploadUrlRequest> [-Con
 
 ## DESCRIPTION
 Gets the URL to upload assets to.
+A sample pre-authenticated url - https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
 
 ## EXAMPLES
 
