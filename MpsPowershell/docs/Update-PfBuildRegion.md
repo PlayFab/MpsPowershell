@@ -232,6 +232,7 @@ BUILDREGION <IBuildRegionParams>: The updated region configuration that should b
       - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
       - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
     - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+  - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
   - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
     - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
     - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -241,6 +242,7 @@ BUILDREGION <IBuildRegionParams>: The updated region configuration that should b
       - `StartTime <String>`: The date and time in UTC at which the schedule starts.
       - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+  - `[VMSize <String>]`: Regional override for the VM size the build was created on.
 
 BUILDREGIONS <IBuildRegionParams[]>: The updated region configuration that should be applied to the specified build.
   - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
@@ -252,6 +254,7 @@ BUILDREGIONS <IBuildRegionParams[]>: The updated region configuration that shoul
       - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
       - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
     - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+  - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
   - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
     - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
     - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -261,6 +264,7 @@ BUILDREGIONS <IBuildRegionParams[]>: The updated region configuration that shoul
       - `StartTime <String>`: The date and time in UTC at which the schedule starts.
       - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+  - `[VMSize <String>]`: Regional override for the VM size the build was created on.
 
 UPDATEBUILDREGIONREQUEST <IUpdateBuildRegionRequest>: Updates a multiplayer server build's region.
   - `BuildId <String>`: The guid string ID of the build we want to update regions for.
@@ -274,6 +278,7 @@ UPDATEBUILDREGIONREQUEST <IUpdateBuildRegionRequest>: Updates a multiplayer serv
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
       - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -283,6 +288,7 @@ UPDATEBUILDREGIONREQUEST <IUpdateBuildRegionRequest>: Updates a multiplayer serv
         - `StartTime <String>`: The date and time in UTC at which the schedule starts.
         - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
         - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[VMSize <String>]`: Regional override for the VM size the build was created on.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 UPDATEBUILDREGIONSREQUEST <IUpdateBuildRegionsRequest>: Updates a multiplayer server build's regions.
@@ -297,6 +303,7 @@ UPDATEBUILDREGIONSREQUEST <IUpdateBuildRegionsRequest>: Updates a multiplayer se
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
       - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -306,6 +313,7 @@ UPDATEBUILDREGIONSREQUEST <IUpdateBuildRegionsRequest>: Updates a multiplayer se
         - `StartTime <String>`: The date and time in UTC at which the schedule starts.
         - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
         - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[VMSize <String>]`: Regional override for the VM size the build was created on.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS

@@ -38,6 +38,7 @@ New-PfBuild -BuildName <String> -MultiplayerServerCountPerVM <Single> -Ports <IP
  [-GameAssetReferences <IAssetReferenceParams[]>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
  [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
+ [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
  [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -48,6 +49,7 @@ New-PfBuild -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-ContainerFlavor <String>] [-CustomTags <IAny>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
  [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-Metadata <IAny>]
+ [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
  [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -58,8 +60,8 @@ New-PfBuild -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-CustomTags <IAny>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
  [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview] [-Metadata <IAny>]
- [-OSPlatform <String>] [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
+ [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>] [-OSPlatform <String>]
+ [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -472,6 +474,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -MonitoringApplicationConfiguration
+The configuration for the monitoring application on the build
+To construct, see NOTES section for MONITORINGAPPLICATIONCONFIGURATION properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IMonitoringApplicationConfigurationParams
+Parameter Sets: CreateExpanded, CreateExpanded1, CreateExpanded2
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -MultiplayerServerCountPerVM
 The number of multiplayer servers to host on a single VM.
 
@@ -661,6 +679,7 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
       - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -670,6 +689,7 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
         - `StartTime <String>`: The date and time in UTC at which the schedule starts.
         - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
         - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[VMSize <String>]`: Regional override for the VM size the build was created on.
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[ContainerFlavor <String>]`: The flavor of container to create a build from.
   - `[ContainerImageReference <IContainerImageReference>]`: The container reference, consisting of the image name and tag.
@@ -686,6 +706,11 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
   - `[LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>]`: The Linux instrumentation configuration for the build.
     - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
+  - `[MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]`: The configuration for the monitoring application on the build
+    - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
+    - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
+    - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
+    - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
   - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
 
@@ -709,6 +734,7 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
       - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -718,6 +744,7 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
         - `StartTime <String>`: The date and time in UTC at which the schedule starts.
         - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
         - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[VMSize <String>]`: Regional override for the VM size the build was created on.
   - `StartMultiplayerServerCommand <String>`: The command to run when the multiplayer server is started, including any arguments.
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[ContainerFlavor <String>]`: The flavor of container to create a build from.
@@ -727,8 +754,14 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
   - `[GameWorkingDirectory <String>]`: The directory containing the game executable. This would be the start path of the game assets that contain the main game server executable. If not provided, a best effort will be made to extract it from the start game command.
   - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
-    - `[ProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+    - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
+    - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
+  - `[MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]`: The configuration for the monitoring application on the build
+    - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
+    - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
+    - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
+    - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
   - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
 
@@ -752,6 +785,7 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+    - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
       - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -761,6 +795,7 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
         - `StartTime <String>`: The date and time in UTC at which the schedule starts.
         - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
         - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+    - `[VMSize <String>]`: Regional override for the VM size the build was created on.
   - `StartMultiplayerServerCommand <String>`: The command to run when the multiplayer server is started, including any arguments. The path to any executable should be relative to the root asset folder when unzipped.
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -769,9 +804,15 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
   - `[GameWorkingDirectory <String>]`: The working directory for the game process. If this is not provided, the working directory will be set based on the mount path of the game server executable.
   - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
-    - `[ProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+    - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
+    - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
   - `[IsOSPreview <Boolean?>]`: Indicates whether this build will be created using the OS Preview versionPreview OS is recommended for dev builds to detect any breaking changes before they are released to retail. Retail builds should set this value to false.
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
+  - `[MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]`: The configuration for the monitoring application on the build
+    - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
+    - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
+    - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
+    - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
   - `[OSPlatform <String>]`: The OS platform used for running the game process.
   - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
@@ -785,10 +826,19 @@ GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certific
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
 
 INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>: The instrumentation configuration for the build.
-  - `[ProcessesToMonitor <String[]>]`: The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+  - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
+  - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
 
 LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>: The Linux instrumentation configuration for the build.
   - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
+
+MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>: The configuration for the monitoring application on the build
+  - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
+    - `FileName <String>`: The asset's file name.
+    - `[MountPath <String>]`: The asset's mount path.
+  - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
+  - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
+  - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
 
 PORTS <IPort[]>: The ports to map the build on.
   - `Name <String>`: The name for the port.
@@ -805,6 +855,7 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
       - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
     - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
+  - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
   - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
     - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
     - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
@@ -814,6 +865,7 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `StartTime <String>`: The date and time in UTC at which the schedule starts.
       - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
+  - `[VMSize <String>]`: Regional override for the VM size the build was created on.
 
 ## RELATED LINKS
 

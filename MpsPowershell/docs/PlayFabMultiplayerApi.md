@@ -17,11 +17,16 @@ Enables the multiplayer server feature for a title.
 ### [Get-PfArchivedMultiplayerServer](Get-PfArchivedMultiplayerServer.md)
 Lists archived multiplayer server sessions for a build.
 
+### [Get-PfAssetDownloadUrl](Get-PfAssetDownloadUrl.md)
+Gets a URL that can be used to download the specified asset.
+A sample pre-authenticated url - https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
+
 ### [Get-PfAssetSummary](Get-PfAssetSummary.md)
 Lists multiplayer server game assets for a title.
 
 ### [Get-PfAssetUploadUrl](Get-PfAssetUploadUrl.md)
 Gets the URL to upload assets to.
+A sample pre-authenticated url - https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
 
 ### [Get-PfBuild](Get-PfBuild.md)
 Gets a multiplayer server build.

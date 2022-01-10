@@ -1,45 +1,52 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/stop-pfmultiplayerserver
+online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfassetdownloadurl
 schema: 2.0.0
 ---
 
-# Stop-PfMultiplayerServer
+# Get-PfAssetDownloadUrl
 
 ## SYNOPSIS
-Shuts down a multiplayer server session.
+Gets a URL that can be used to download the specified asset.
+A sample pre-authenticated url - https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
 
 ## SYNTAX
 
-### ShutdownExpanded (Default)
+### GetExpanded (Default)
 ```
-Stop-PfMultiplayerServer -SessionId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfAssetDownloadUrl -FileName <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### Shutdown
+### Get
 ```
-Stop-PfMultiplayerServer -ShutdownMultiplayerServerRequest <IShutdownMultiplayerServerRequest> [-Confirm]
- [-WhatIf] [<CommonParameters>]
+Get-PfAssetDownloadUrl -GetAssetDownloadUrlRequest <IGetAssetDownloadUrlRequest> [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Shuts down a multiplayer server session.
+Gets a URL that can be used to download the specified asset.
+A sample pre-authenticated url - https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
 
 ## EXAMPLES
 
-### Example 1: Stop a multiplayer server
+### Example 1: {{ Add title here }}
 ```powershell
-PS C:\> Stop-PfMultiplayerServer -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12 -Region AustraliaEast -SessionId 0352cf0f-2e7a-4aee-801d-7f27f8344c77 | ConvertTo-Json -depth 5
+PS C:\> {{ Add code here }}
 
-{
-  "Code": 200,
-  "Data": {},
-  "Status": "OK"
-}
+{{ Add output here }}
 ```
 
+{{ Add description here }}
 
+### Example 2: {{ Add title here }}
+```powershell
+PS C:\> {{ Add code here }}
+
+{{ Add output here }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
@@ -49,7 +56,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IAny
-Parameter Sets: ShutdownExpanded
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: False
@@ -59,12 +66,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SessionId
-A guid string session ID of the multiplayer server to shut down.
+### -FileName
+The asset's file name to get the download URL for.
 
 ```yaml
 Type: System.String
-Parameter Sets: ShutdownExpanded
+Parameter Sets: GetExpanded
 Aliases:
 
 Required: True
@@ -74,14 +81,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ShutdownMultiplayerServerRequest
-Executes the shutdown callback from the GSDK and terminates the multiplayer server session.
-The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
-To construct, see NOTES section for SHUTDOWNMULTIPLAYERSERVERREQUEST properties and create a hash table.
+### -GetAssetDownloadUrlRequest
+Gets a URL that can be used to download the specified asset.
+To construct, see NOTES section for GETASSETDOWNLOADURLREQUEST properties and create a hash table.
 
 ```yaml
-Type: PlayFab.Multiplayer.Models.IShutdownMultiplayerServerRequest
-Parameter Sets: Shutdown
+Type: PlayFab.Multiplayer.Models.IGetAssetDownloadUrlRequest
+Parameter Sets: Get
 Aliases:
 
 Required: True
@@ -127,13 +133,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### PlayFab.Multiplayer.Models.IShutdownMultiplayerServerRequest
+### PlayFab.Multiplayer.Models.IGetAssetDownloadUrlRequest
 
 ## OUTPUTS
 
 ### PlayFab.Multiplayer.Models.IApiErrorWrapper
 
-### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponentsC35LhoResponsesGetassetdownloadurlresponseContentApplicationJsonSchema
 
 ## NOTES
 
@@ -144,8 +150,8 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-SHUTDOWNMULTIPLAYERSERVERREQUEST <IShutdownMultiplayerServerRequest>: Executes the shutdown callback from the GSDK and terminates the multiplayer server session. The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
-  - `SessionId <String>`: A guid string session ID of the multiplayer server to shut down.
+GETASSETDOWNLOADURLREQUEST <IGetAssetDownloadUrlRequest>: Gets a URL that can be used to download the specified asset.
+  - `FileName <String>`: The asset's file name to get the download URL for.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
