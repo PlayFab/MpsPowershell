@@ -50,7 +50,8 @@ New-PfBuild -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
  [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-Metadata <IAny>]
  [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
- [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+ [-UseStreamingForAssetDownloads] [-VMSize <String>]
+ [-WindowsCrashDumpConfiguration <IWindowsCrashDumpConfiguration>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### CreateExpanded2
@@ -597,6 +598,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -WindowsCrashDumpConfiguration
+The crash dump configuration for the build.
+To construct, see NOTES section for WINDOWSCRASHDUMPCONFIGURATION properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IWindowsCrashDumpConfiguration
+Parameter Sets: CreateExpanded1
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Confirm
 Prompts you for confirmation before running the cmdlet.
 
@@ -764,6 +781,10 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
     - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
   - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
+  - `[WindowsCrashDumpConfiguration <IWindowsCrashDumpConfiguration>]`: The crash dump configuration for the build.
+    - `IsEnabled <Boolean>`: Designates whether automatic crash dump capturing will be enabled for this Build.
+    - `[CustomDumpFlags <Single?>]`: See https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps for valid values.
+    - `[DumpType <Single?>]`: See https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps for valid values.
 
 CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequest>: Creates a multiplayer server build with the game server running as a process and returns information about the build creation request.
   - `BuildName <String>`: The build name.
@@ -866,6 +887,11 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[VMSize <String>]`: Regional override for the VM size the build was created on.
+
+WINDOWSCRASHDUMPCONFIGURATION <IWindowsCrashDumpConfiguration>: The crash dump configuration for the build.
+  - `IsEnabled <Boolean>`: Designates whether automatic crash dump capturing will be enabled for this Build.
+  - `[CustomDumpFlags <Single?>]`: See https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps for valid values.
+  - `[DumpType <Single?>]`: See https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps for valid values.
 
 ## RELATED LINKS
 
