@@ -1,6 +1,6 @@
 ---
 Module Name: PlayFabMultiplayerApi
-Module Guid: 31171fb3-b53e-45b6-bd41-96e4ddf9afe3
+Module Guid: 6348811f-9e9e-4e9c-af4b-d59304561887
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi
 Help Version: 1.0.0.0
 Locale: en-US
