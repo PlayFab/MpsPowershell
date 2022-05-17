@@ -49,5 +49,25 @@ directive:
   - from: swagger-document
     where-operation: GetMultiplayerServerDetails
     transform: $["operationId"] = "GetMultiplayerServer"
-
+  - select: command
+    where:
+      verb: new
+      subject: build
+      variant: ^(create|createExpanded)$
+    set:
+      subject: BuildWithCustomContainer
+  - select: command
+    where:
+      verb: new
+      subject: build
+      variant: ^(create1|createExpanded1)$
+    set:
+      subject: BuildWithManagedContainer
+  - select: command
+    where:
+      verb: new
+      subject: build
+      variant: ^(create2|createExpanded2)$
+    set:
+      subject: BuildWithProcess
 ```
