@@ -360,8 +360,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### PlayFab.Multiplayer.Models.IApiErrorWrapper
-
 ### PlayFab.Multiplayer.Models.IComponents1Ss7K7IResponsesGetbuildresponseContentApplicationJsonSchema
 
 ### PlayFab.Multiplayer.Models.IComponents5B91ZxResponsesListbuildsummariesresponseContentApplicationJsonSchema
