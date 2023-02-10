@@ -13,7 +13,7 @@ function New-PfAsset {
 
         [Parameter(HelpMessage='The size of the buffer used for uploading (in bytes).')]
         [int]
-        ${BufferSize} = 4 * 1024 * 1024
+        ${BufferSize} = 4 * 1024 * 1024 # 4MiB
 
         # Common parameters omitted
     )
@@ -37,19 +37,51 @@ function New-PfAsset {
             $base64BlockIds = [System.Collections.ArrayList]::new();
             
             $numBytesRead = $fileStream.Read($buffer, 0, ${BufferSize});
-            while ($numBytesRead -gt 0) { 
+            while ($numBytesRead -gt 0) {
                 $blockId = $blockNum.ToString().PadLeft(15, "0");
                 $base64BlockId = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($blockId));
                 $null = $base64BlockIds.Add($base64BlockId);
 
                 $uri = "$($getAssetUploadUrlResponse.Data.AssetUploadUrl)&comp=block&blockId=$([System.Net.WebUtility]::UrlEncode(${base64BlockId}))";
                 $body = [System.Net.Http.ByteArrayContent]::new($buffer, 0, $numBytesRead);
-                $putBlockResponse = $httpClient.PutAsync($uri, $body).GetAwaiter().GetResult();
 
-                $null = $putBlockResponse.EnsureSuccessStatusCode();
+                $numFailures = 0;
+                $maxRetries = 5;
+                $lastError = $null;
 
-                $numBytesRead = $fileStream.Read($buffer, 0, $bufferSize);
-                $blockNum += 1;
+                while ($numFailures -lt $maxRetries) {
+                    try {
+                        if ($Env:PF_DEBUG) {
+                            [Console]::ForegroundColor = [ConsoleColor]::DarkGray;
+                            [Console]::Error.WriteLine("Uploading block ${blockId} with size ${numBytesRead}...");
+                            [Console]::ResetColor();
+                        }
+
+                        $putBlockResponse = $httpClient.PutAsync($uri, $body).GetAwaiter().GetResult();
+
+                        $null = $putBlockResponse.EnsureSuccessStatusCode();
+
+                        $numBytesRead = $fileStream.Read($buffer, 0, $bufferSize);
+                        $blockNum += 1;
+
+                        break;
+                    } catch {
+                        $numFailures += 1;
+
+                        if ($Env:PF_DEBUG) {
+                            $lastError = $_;
+
+                            [Console]::ForegroundColor = [ConsoleColor]::DarkGray;
+                            [Console]::Error.WriteLine("$lastError");
+                            [Console]::ResetColor();
+                        }
+                    }
+                }
+
+                if ($numFailures -eq $maxRetries) {
+                    Write-Error "Failed to upload block ${blockId} after ${numFailures} retries. Last error: $lastError";
+                    return;
+                }
             }
 
             $putBlockListBody = [System.Text.StringBuilder]::new();
