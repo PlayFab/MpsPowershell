@@ -20,23 +20,21 @@ namespace: PlayFab.Multiplayer
 inlining-threshold: 0
 
 directive:
-  # This should remove all the Matchmaking APIs from being generated.
-  # A more accurate way to do this would be to filter out all APIs that aren't tagged "MultiplayerServer"
-  # like this:
-  #   - from: swagger-document
-  #     where: $..paths[?(@..tags.indexOf("MultiplayerServer") == -1)].post
-  #     transform: >-
-  #       return undefined
-  # or to filter out all paths that start with "/Match/"
-  # like this:
-  #   - from: swagger-document
-  #     where: $..paths["/Match/*"].post
-  #     transform: >-
-  #       return undefined
-  # but I can't get either of those solutions to work.
-  - where:
-      subject: ^(.*)(Match|Ticket|Queue|Lobby|PubSub|Member|Negotiate)(.*)$
-    remove: true
+  # Remove all non-MPS operations
+  - from: swagger-document
+    where: $.paths[*]
+    debug: true
+    transform: >
+      for (const verbProperty in $) {
+        if (!$[verbProperty].tags.includes("MultiplayerServer")) {
+          // $lib.log("Removing " + $[verbProperty].operationId);
+          delete $[verbProperty];
+        }
+      }
+
+      if (Object.keys($).length == 0) {
+        return undefined;
+      }
 
   # For some reason Autorest renames "Qos" to "Qo", so this reverts that.
   - where:
@@ -51,4 +49,25 @@ directive:
   - from: swagger-document
     where-operation: GetMultiplayerServerDetails
     transform: $["operationId"] = "GetMultiplayerServer"
+  - select: command
+    where:
+      verb: new
+      subject: build
+      variant: ^(create|createExpanded)$
+    set:
+      subject: BuildWithCustomContainer
+  - select: command
+    where:
+      verb: new
+      subject: build
+      variant: ^(create1|createExpanded1)$
+    set:
+      subject: BuildWithManagedContainer
+  - select: command
+    where:
+      verb: new
+      subject: build
+      variant: ^(create2|createExpanded2)$
+    set:
+      subject: BuildWithProcess
 ```

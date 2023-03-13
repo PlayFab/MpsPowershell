@@ -1,6 +1,6 @@
 ---
 Module Name: PlayFabMultiplayerApi
-Module Guid: 31171fb3-b53e-45b6-bd41-96e4ddf9afe3
+Module Guid: 6348811f-9e9e-4e9c-af4b-d59304561887
 Download Help Link: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi
 Help Version: 1.0.0.0
 Locale: en-US
@@ -89,11 +89,17 @@ Uploads a multiplayer server game certificate.
 ### [New-PfAsset](New-PfAsset.md)
 Uploads an asset.
 
-### [New-PfBuild](New-PfBuild.md)
-Creates a multiplayer server build with a custom container.
-
 ### [New-PfBuildAlias](New-PfBuildAlias.md)
 Creates a multiplayer server build alias.
+
+### [New-PfBuildWithCustomContainer](New-PfBuildWithCustomContainer.md)
+Creates a multiplayer server build with a custom container.
+
+### [New-PfBuildWithManagedContainer](New-PfBuildWithManagedContainer.md)
+Creates a multiplayer server build with a managed container.
+
+### [New-PfBuildWithProcess](New-PfBuildWithProcess.md)
+Creates a multiplayer server build with the server running as a process.
 
 ### [New-PfRemoteUser](New-PfRemoteUser.md)
 Creates a remote user to log on to a VM for a multiplayer server build.
