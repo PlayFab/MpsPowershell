@@ -38,11 +38,6 @@ function New-PfAsset {
             
             $numBytesRead = $fileStream.Read($buffer, 0, ${BufferSize});
             while ($numBytesRead -gt 0) {
-                $blockId = $blockNum.ToString().PadLeft(15, "0");
-                $base64BlockId = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($blockId));
-                $null = $base64BlockIds.Add($base64BlockId);
-
-                $uri = "$($getAssetUploadUrlResponse.Data.AssetUploadUrl)&comp=block&blockId=$([System.Net.WebUtility]::UrlEncode(${base64BlockId}))";
                 $body = [System.Net.Http.ByteArrayContent]::new($buffer, 0, $numBytesRead);
 
                 $numFailures = 0;
@@ -51,17 +46,23 @@ function New-PfAsset {
 
                 while ($numFailures -lt $maxRetries) {
                     try {
+                        # include numFailures in the blockId so that we never attempt to reupload an existing blockId
+                        $blockId = "${blockNum}_${numFailures}".PadLeft(15, "0");
+                        $base64BlockId = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($blockId));
                         if ($Env:PF_DEBUG) {
                             [Console]::ForegroundColor = [ConsoleColor]::DarkGray;
                             [Console]::Error.WriteLine("Uploading block ${blockId} with size ${numBytesRead}...");
                             [Console]::ResetColor();
                         }
 
+                        $uri = "$($getAssetUploadUrlResponse.Data.AssetUploadUrl)&comp=block&blockId=$([System.Net.WebUtility]::UrlEncode(${base64BlockId}))";
+
                         $putBlockResponse = $httpClient.PutAsync($uri, $body).GetAwaiter().GetResult();
 
                         $null = $putBlockResponse.EnsureSuccessStatusCode();
 
                         $numBytesRead = $fileStream.Read($buffer, 0, $bufferSize);
+                        $null = $base64BlockIds.Add($base64BlockId);
                         $blockNum += 1;
 
                         break;
@@ -79,7 +80,7 @@ function New-PfAsset {
                 }
 
                 if ($numFailures -eq $maxRetries) {
-                    Write-Error "Failed to upload block ${blockId} after ${numFailures} retries. Last error: $lastError";
+                    Write-Error "Failed to upload block ${blockNum} after ${numFailures} retries. Last error: $lastError";
                     return;
                 }
             }
