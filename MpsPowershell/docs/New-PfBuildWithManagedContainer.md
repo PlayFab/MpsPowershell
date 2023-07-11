@@ -27,7 +27,8 @@ New-PfBuildWithManagedContainer -BuildName <String> -GameAssetReferences <IAsset
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
  [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-Metadata <IAny>]
  [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
- [-UseStreamingForAssetDownloads] [-VMSize <String>]
+ [-ServerResourceConstraints <IServerResourceConstraintParams>] [-VMSize <String>]
+ [-VMStartupScriptConfiguration <IVMStartupScriptParams>]
  [-WindowsCrashDumpConfiguration <IWindowsCrashDumpConfiguration>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -364,6 +365,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ServerResourceConstraints
+The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
+To construct, see NOTES section for SERVERRESOURCECONSTRAINTS properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IServerResourceConstraintParams
+Parameter Sets: CreateExpanded1
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -StartMultiplayerServerCommand
 The command to run when the multiplayer server is started, including any arguments.
 
@@ -379,11 +396,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseStreamingForAssetDownloads
-When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
+### -VMSize
+The VM size to create the build on.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: System.String
 Parameter Sets: CreateExpanded1
 Aliases:
 
@@ -394,11 +411,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -VMSize
-The VM size to create the build on.
+### -VMStartupScriptConfiguration
+The configuration for the VmStartupScript for the build
+To construct, see NOTES section for VMSTARTUPSCRIPTCONFIGURATION properties and create a hash table.
 
 ```yaml
-Type: System.String
+Type: PlayFab.Multiplayer.Models.IVMStartupScriptParams
 Parameter Sets: CreateExpanded1
 Aliases:
 
@@ -524,8 +542,15 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
     - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
     - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
     - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
-  - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
+  - `[ServerResourceConstraints <IServerResourceConstraintParams>]`: The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
+    - `CpuLimit <Single>`: The maximum number of cores that each server is allowed to use.
+    - `MemoryLimitGb <Single>`: The maximum number of GiB of memory that each server is allowed to use. WARNING: After exceeding this limit, the server will be killed
   - `[VMSize <String>]`: The VM size to create the build on.
+  - `[VMStartupScriptConfiguration <IVMStartupScriptParams>]`: The configuration for the VmStartupScript for the build
+    - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
+    - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+      - `Name <String>`: The name for the port.
+      - `Protocol <String>`: The protocol for the port.
   - `[WindowsCrashDumpConfiguration <IWindowsCrashDumpConfiguration>]`: The crash dump configuration for the build.
     - `IsEnabled <Boolean>`: Designates whether automatic crash dump capturing will be enabled for this Build.
     - `[CustomDumpFlags <Single?>]`: See https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps for valid values.
@@ -577,6 +602,18 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[VMSize <String>]`: Regional override for the VM size the build was created on.
+
+SERVERRESOURCECONSTRAINTS <IServerResourceConstraintParams>: The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
+  - `CpuLimit <Single>`: The maximum number of cores that each server is allowed to use.
+  - `MemoryLimitGb <Single>`: The maximum number of GiB of memory that each server is allowed to use. WARNING: After exceeding this limit, the server will be killed
+
+VMSTARTUPSCRIPTCONFIGURATION <IVMStartupScriptParams>: The configuration for the VmStartupScript for the build
+  - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
+    - `FileName <String>`: The asset's file name.
+    - `[MountPath <String>]`: The asset's mount path.
+  - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+    - `Name <String>`: The name for the port.
+    - `Protocol <String>`: The protocol for the port.
 
 WINDOWSCRASHDUMPCONFIGURATION <IWindowsCrashDumpConfiguration>: The crash dump configuration for the build.
   - `IsEnabled <Boolean>`: Designates whether automatic crash dump capturing will be enabled for this Build.

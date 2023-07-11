@@ -12,10 +12,9 @@ Gets multiplayer server session details for a build.
 
 ## SYNTAX
 
-### ListExpanded (Default)
+### GetExpanded (Default)
 ```
-Get-PfMultiplayerServer -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
- [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfMultiplayerServer -SessionId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Get
@@ -24,16 +23,16 @@ Get-PfMultiplayerServer -GetMultiplayerServerDetailsRequest <IGetMultiplayerServ
  [-WhatIf] [<CommonParameters>]
 ```
 
-### GetExpanded
-```
-Get-PfMultiplayerServer -BuildId <String> -Region <String> -SessionId <String> [-CustomTags <IAny>] [-Confirm]
- [-WhatIf] [<CommonParameters>]
-```
-
 ### List
 ```
 Get-PfMultiplayerServer -ListMultiplayerServersRequest <IListMultiplayerServersRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
+```
+
+### ListExpanded
+```
+Get-PfMultiplayerServer -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
+ [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -80,11 +79,11 @@ PS C:\> Get-PfMultiplayerServer -BuildId 9968f71f-f3ec-49df-82d7-d00b12c92e12 -R
 ## PARAMETERS
 
 ### -BuildId
-The guid string build ID of the multiplayer server to get details for.
+The guid string build ID of the multiplayer servers to list.
 
 ```yaml
 Type: System.String
-Parameter Sets: GetExpanded, ListExpanded
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: True
@@ -158,11 +157,11 @@ Accept wildcard characters: False
 ```
 
 ### -Region
-The region the multiplayer server is located in to get details for.
+The region the multiplayer servers to list.
 
 ```yaml
 Type: System.String
-Parameter Sets: GetExpanded, ListExpanded
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: True
@@ -259,8 +258,6 @@ To create the parameters described below, construct a hash table containing the 
 
 
 GETMULTIPLAYERSERVERDETAILSREQUEST <IGetMultiplayerServerDetailsRequest>: Gets multiplayer server session details for a build in a specific region.
-  - `BuildId <String>`: The guid string build ID of the multiplayer server to get details for.
-  - `Region <String>`: The region the multiplayer server is located in to get details for.
   - `SessionId <String>`: The title generated guid string session ID of the multiplayer server to get details for. This is to keep track of multiplayer server sessions.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 

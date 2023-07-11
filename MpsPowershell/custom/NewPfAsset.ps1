@@ -68,10 +68,9 @@ function New-PfAsset {
                         break;
                     } catch {
                         $numFailures += 1;
+                        $lastError = $_;
 
                         if ($Env:PF_DEBUG) {
-                            $lastError = $_;
-
                             [Console]::ForegroundColor = [ConsoleColor]::DarkGray;
                             [Console]::Error.WriteLine("$lastError");
                             [Console]::ResetColor();
@@ -80,8 +79,7 @@ function New-PfAsset {
                 }
 
                 if ($numFailures -eq $maxRetries) {
-                    Write-Error "Failed to upload block ${blockNum} after ${numFailures} retries. Last error: $lastError";
-                    return;
+                    throw "Failed to upload block ${blockNum} after ${numFailures} retries. Last error: ${lastError}";
                 }
             }
 
