@@ -26,7 +26,8 @@ New-PfBuildWithProcess -BuildName <String> -GameAssetReferences <IAssetReference
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
  [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview] [-Metadata <IAny>]
  [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>] [-OSPlatform <String>]
- [-UseStreamingForAssetDownloads] [-VMSize <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+ [-VMSize <String>] [-VMStartupScriptConfiguration <IVMStartupScriptParams>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -395,11 +396,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UseStreamingForAssetDownloads
-When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
+### -VMSize
+The VM size to create the build on.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
+Type: System.String
 Parameter Sets: CreateExpanded2
 Aliases:
 
@@ -410,11 +411,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -VMSize
-The VM size to create the build on.
+### -VMStartupScriptConfiguration
+The configuration for the VmStartupScript for the build
+To construct, see NOTES section for VMSTARTUPSCRIPTCONFIGURATION properties and create a hash table.
 
 ```yaml
-Type: System.String
+Type: PlayFab.Multiplayer.Models.IVMStartupScriptParams
 Parameter Sets: CreateExpanded2
 Aliases:
 
@@ -525,8 +527,12 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
     - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
     - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
   - `[OSPlatform <String>]`: The OS platform used for running the game process.
-  - `[UseStreamingForAssetDownloads <Boolean?>]`: When true, assets will be downloaded and uncompressed in memory, without the compressedversion being written first to disc.
   - `[VMSize <String>]`: The VM size to create the build on.
+  - `[VMStartupScriptConfiguration <IVMStartupScriptParams>]`: The configuration for the VmStartupScript for the build
+    - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
+    - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+      - `Name <String>`: The name for the port.
+      - `Protocol <String>`: The protocol for the port.
 
 GAMEASSETREFERENCES <IAssetReferenceParams[]>: The list of game assets related to the build.
   - `FileName <String>`: The asset's file name.
@@ -574,6 +580,14 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `TargetStandby <Single>`: The standby target to maintain for the duration of the schedule.
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[VMSize <String>]`: Regional override for the VM size the build was created on.
+
+VMSTARTUPSCRIPTCONFIGURATION <IVMStartupScriptParams>: The configuration for the VmStartupScript for the build
+  - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
+    - `FileName <String>`: The asset's file name.
+    - `[MountPath <String>]`: The asset's mount path.
+  - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+    - `Name <String>`: The name for the port.
+    - `Protocol <String>`: The protocol for the port.
 
 ## RELATED LINKS
 
