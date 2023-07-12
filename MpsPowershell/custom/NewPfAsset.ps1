@@ -38,14 +38,15 @@ function New-PfAsset {
             
             $numBytesRead = $fileStream.Read($buffer, 0, ${BufferSize});
             while ($numBytesRead -gt 0) {
-                $body = [System.Net.Http.ByteArrayContent]::new($buffer, 0, $numBytesRead);
-
                 $numFailures = 0;
                 $maxRetries = 5;
                 $lastError = $null;
+                $body = $null;
 
                 while ($numFailures -lt $maxRetries) {
                     try {
+                        $body = [System.Net.Http.ByteArrayContent]::new($buffer, 0, $numBytesRead);
+
                         # include numFailures in the blockId so that we never attempt to reupload an existing blockId
                         $blockId = "${blockNum}_${numFailures}".PadLeft(15, "0");
                         $base64BlockId = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($blockId));
@@ -74,6 +75,10 @@ function New-PfAsset {
                             [Console]::ForegroundColor = [ConsoleColor]::DarkGray;
                             [Console]::Error.WriteLine("$lastError");
                             [Console]::ResetColor();
+                        }
+                    } finally {
+                        if ($null -ne $body) {
+                            $body.Dispose();
                         }
                     }
                 }
