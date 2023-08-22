@@ -20,13 +20,14 @@ namespace: PlayFab.Multiplayer
 inlining-threshold: 0
 
 directive:
-  # Remove all non-MPS operations
+  # Remove all non-MPS operations but keep the Matchmaking Admin operations
   - from: swagger-document
     where: $.paths[*]
     debug: true
     transform: >
       for (const verbProperty in $) {
-        if (!$[verbProperty].tags.includes("MultiplayerServer")) {
+        if (!$[verbProperty].tags.includes("MultiplayerServer") &&
+            !$[verbProperty].tags.includes("Matchmaking Admin")) {
           // $lib.log("Removing " + $[verbProperty].operationId);
           delete $[verbProperty];
         }
