@@ -14,7 +14,8 @@ Lists the tags for a custom container image.
 
 ### ListExpanded (Default)
 ```
-Get-PfContainerImageTag [-CustomTags <IAny>] [-ImageName <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfContainerImageTag [-CustomTags <IAny>] [-ImageName <String>] [-PageSize <Single>] [-SkipToken <String>]
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### List
@@ -97,6 +98,36 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -PageSize
+The page size for the request.
+
+```yaml
+Type: System.Single
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipToken
+The skip token for the paged request.
+
+```yaml
+Type: System.String
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Confirm
 Prompts you for confirmation before running the cmdlet.
 
@@ -151,6 +182,8 @@ To create the parameters described below, construct a hash table containing the 
 LISTCONTAINERIMAGETAGSREQUEST <IListContainerImageTagsRequest>: Returns a list of the tags for a particular container image that exists in the container registry for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[ImageName <String>]`: The container images we want to list tags for.
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 
