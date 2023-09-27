@@ -20,8 +20,8 @@ Invoke-PfUploadCertificate -UploadCertificateRequest <IUploadCertificateRequest>
 
 ### UploadExpanded
 ```
-Invoke-PfUploadCertificate -GameCertificate <ICertificate> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
+Invoke-PfUploadCertificate -GameCertificate <ICertificate> [-CustomTags <IAny>] [-ForceUpdate] [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -52,6 +52,22 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IAny
+Parameter Sets: UploadExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ForceUpdate
+Forces the certificate renewal if the certificate already exists.
+Default is false
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: UploadExpanded
 Aliases:
 
@@ -156,6 +172,7 @@ UPLOADCERTIFICATEREQUEST <IUploadCertificateRequest>: Uploads a multiplayer serv
     - `Name <String>`: A name for the certificate. This is used to reference certificates in build configurations.
     - `[Password <String>]`: If required for your PFX certificate, use this field to provide a password that will be used to install the certificate on the container.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+  - `[ForceUpdate <Boolean?>]`: Forces the certificate renewal if the certificate already exists. Default is false
 
 ## RELATED LINKS
 
