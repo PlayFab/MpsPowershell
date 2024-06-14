@@ -1,20 +1,20 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/update-pfbuildalias
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/update-pfbuildalias
 schema: 2.0.0
 ---
 
 # Update-PfBuildAlias
 
 ## SYNOPSIS
-Creates a multiplayer server build alias.
+Update a multiplayer server build alias.
 
 ## SYNTAX
 
 ### UpdateExpanded (Default)
 ```
-Update-PfBuildAlias -AliasId <String> [-AliasName <String>]
+Update-PfBuildAlias [-AliasId <String>] [-AliasName <String>]
  [-BuildSelectionCriteria <IBuildSelectionCriterion[]>] [-CustomTags <IAny>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
@@ -26,7 +26,7 @@ Update-PfBuildAlias -UpdateBuildAliasRequest <IUpdateBuildAliasRequest> [-Confir
 ```
 
 ## DESCRIPTION
-Creates a multiplayer server build alias.
+Update a multiplayer server build alias.
 
 ## EXAMPLES
 
@@ -67,7 +67,7 @@ Type: System.String
 Parameter Sets: UpdateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -91,7 +91,6 @@ Accept wildcard characters: False
 
 ### -BuildSelectionCriteria
 Array of build selection criteria.
-To construct, see NOTES section for BUILDSELECTIONCRITERIA properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IBuildSelectionCriterion[]
@@ -123,7 +122,6 @@ Accept wildcard characters: False
 
 ### -UpdateBuildAliasRequest
 Creates a multiplayer server build alias and returns the created alias.
-To construct, see NOTES section for UPDATEBUILDALIASREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IUpdateBuildAliasRequest
@@ -181,22 +179,22 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-BUILDSELECTIONCRITERIA <IBuildSelectionCriterion[]>: Array of build selection criteria.
+`BUILDSELECTIONCRITERIA <IBuildSelectionCriterion[]>`: Array of build selection criteria.
   - `[BuildWeightDistribution <IAny>]`: Dictionary of build ids and their respective weights for distribution of allocation requests.
 
-UPDATEBUILDALIASREQUEST <IUpdateBuildAliasRequest>: Creates a multiplayer server build alias and returns the created alias.
+`UPDATEBUILDALIASREQUEST <IUpdateBuildAliasRequest>`: Creates a multiplayer server build alias and returns the created alias.
   - `AliasId <String>`: The guid string alias Id of the alias to be updated.
   - `[AliasName <String>]`: The alias name.
-  - `[BuildSelectionCriteria <IBuildSelectionCriterion[]>]`: Array of build selection criteria.
+  - `[BuildSelectionCriteria <List<IBuildSelectionCriterion>>]`: Array of build selection criteria.
     - `[BuildWeightDistribution <IAny>]`: Dictionary of build ids and their respective weights for distribution of allocation requests.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildalias](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildalias)
 

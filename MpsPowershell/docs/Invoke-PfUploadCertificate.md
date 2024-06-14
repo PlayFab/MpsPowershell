@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/invoke-pfuploadcertificate
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/invoke-pfuploadcertificate
 schema: 2.0.0
 ---
 
@@ -12,16 +12,16 @@ Uploads a multiplayer server game certificate.
 
 ## SYNTAX
 
-### Upload (Default)
+### UploadExpanded (Default)
+```
+Invoke-PfUploadCertificate [-CustomTags <IAny>] [-ForceUpdate] [-GameCertificate <ICertificate>] [-Confirm]
+ [-WhatIf] [<CommonParameters>]
+```
+
+### Upload
 ```
 Invoke-PfUploadCertificate -UploadCertificateRequest <IUploadCertificateRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
-```
-
-### UploadExpanded
-```
-Invoke-PfUploadCertificate -GameCertificate <ICertificate> [-CustomTags <IAny>] [-ForceUpdate] [-Confirm]
- [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -80,14 +80,13 @@ Accept wildcard characters: False
 
 ### -GameCertificate
 The game certificate to upload.
-To construct, see NOTES section for GAMECERTIFICATE properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.ICertificate
 Parameter Sets: UploadExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -96,7 +95,6 @@ Accept wildcard characters: False
 
 ### -UploadCertificateRequest
 Uploads a multiplayer server game certificate.
-To construct, see NOTES section for UPLOADCERTIFICATEREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IUploadCertificateRequest
@@ -154,19 +152,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GAMECERTIFICATE <ICertificate>: The game certificate to upload.
+`GAMECERTIFICATE <ICertificate>`: The game certificate to upload.
   - `Base64EncodedValue <String>`: Base64 encoded string contents of the certificate.
   - `Name <String>`: A name for the certificate. This is used to reference certificates in build configurations.
   - `[Password <String>]`: If required for your PFX certificate, use this field to provide a password that will be used to install the certificate on the container.
 
-UPLOADCERTIFICATEREQUEST <IUploadCertificateRequest>: Uploads a multiplayer server game certificate.
+`UPLOADCERTIFICATEREQUEST <IUploadCertificateRequest>`: Uploads a multiplayer server game certificate.
   - `GameCertificate <ICertificate>`: The game certificate to upload.
     - `Base64EncodedValue <String>`: Base64 encoded string contents of the certificate.
     - `Name <String>`: A name for the certificate. This is used to reference certificates in build configurations.
@@ -175,4 +171,6 @@ UPLOADCERTIFICATEREQUEST <IUploadCertificateRequest>: Uploads a multiplayer serv
   - `[ForceUpdate <Boolean?>]`: Forces the certificate renewal if the certificate already exists. Default is false
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/uploadcertificate](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/uploadcertificate)
 

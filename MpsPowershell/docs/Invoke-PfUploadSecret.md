@@ -1,46 +1,54 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/invoke-pfimageuntagcontainer
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/invoke-pfuploadsecret
 schema: 2.0.0
 ---
 
-# Invoke-PfImageUntagContainer
+# Invoke-PfUploadSecret
 
 ## SYNOPSIS
-Untags a container image.
+Uploads a multiplayer server game secret.
 
 ## SYNTAX
 
-### ImageExpanded (Default)
+### UploadExpanded (Default)
 ```
-Invoke-PfImageUntagContainer [-CustomTags <IAny>] [-ImageName <String>] [-Tag <String>] [-Confirm] [-WhatIf]
+Invoke-PfUploadSecret [-CustomTags <IAny>] [-ForceUpdate] [-GameSecret <ISecret>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
-### Image
+### Upload
 ```
-Invoke-PfImageUntagContainer -UntagContainerImageRequest <IUntagContainerImageRequest> [-Confirm] [-WhatIf]
- [<CommonParameters>]
+Invoke-PfUploadSecret -UploadSecretRequest <IUploadSecretRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Untags a container image.
+Uploads a multiplayer server game secret.
 
 ## EXAMPLES
 
-### Example 1: Remove a tag from a container image
+### Example 1: {{ Add title here }}
 ```powershell
-PS C:\> Invoke-PfImageUntagContainer -ImageName exampleContainerImage -Tag 0.1 | ConvertTo-Json -depth 5
-
-{
-  "Code": 200,
-  "Data": {},
-  "Status": "OK"
-}
+{{ Add code here }}
 ```
 
+```output
+{{ Add output here (remove the output block if the example doesn't have an output) }}
+```
 
+{{ Add description here }}
+
+### Example 2: {{ Add title here }}
+```powershell
+{{ Add code here }}
+```
+
+```output
+{{ Add output here (remove the output block if the example doesn't have an output) }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
@@ -50,7 +58,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IAny
-Parameter Sets: ImageExpanded
+Parameter Sets: UploadExpanded
 Aliases:
 
 Required: False
@@ -60,12 +68,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ImageName
-The container image which tag we want to remove.
+### -ForceUpdate
+Forces the secret renewal if the secret already exists.
+Default is false
 
 ```yaml
-Type: System.String
-Parameter Sets: ImageExpanded
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: UploadExpanded
 Aliases:
 
 Required: False
@@ -75,12 +84,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Tag
-The tag we want to remove.
+### -GameSecret
+The game secret to add.
 
 ```yaml
-Type: System.String
-Parameter Sets: ImageExpanded
+Type: PlayFab.Multiplayer.Models.ISecret
+Parameter Sets: UploadExpanded
 Aliases:
 
 Required: False
@@ -90,14 +99,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -UntagContainerImageRequest
-Removes the specified tag from the image.
-After this operation, a 'docker pull' will fail for the specified image and tag combination.
-Morever, ListContainerImageTags will not return the specified tag.
+### -UploadSecretRequest
+Uploads a multiplayer server game secret.
 
 ```yaml
-Type: PlayFab.Multiplayer.Models.IUntagContainerImageRequest
-Parameter Sets: Image
+Type: PlayFab.Multiplayer.Models.IUploadSecretRequest
+Parameter Sets: Upload
 Aliases:
 
 Required: True
@@ -143,7 +150,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### PlayFab.Multiplayer.Models.IUntagContainerImageRequest
+### PlayFab.Multiplayer.Models.IUploadSecretRequest
 
 ## OUTPUTS
 
@@ -156,12 +163,20 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`UNTAGCONTAINERIMAGEREQUEST <IUntagContainerImageRequest>`: Removes the specified tag from the image. After this operation, a 'docker pull' will fail for the specified image and tag combination. Morever, ListContainerImageTags will not return the specified tag.
+`GAMESECRET <ISecret>`: The game secret to add.
+  - `Name <String>`: A name for the secret. This is used to reference secrets in build configurations.
+  - `Value <String>`: Secret value.
+  - `[ExpirationDate <String>]`: Optional secret expiration date.
+
+`UPLOADSECRETREQUEST <IUploadSecretRequest>`: Uploads a multiplayer server game secret.
+  - `GameSecret <ISecret>`: The game secret to add.
+    - `Name <String>`: A name for the secret. This is used to reference secrets in build configurations.
+    - `Value <String>`: Secret value.
+    - `[ExpirationDate <String>]`: Optional secret expiration date.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-  - `[ImageName <String>]`: The container image which tag we want to remove.
-  - `[Tag <String>]`: The tag we want to remove.
+  - `[ForceUpdate <Boolean?>]`: Forces the secret renewal if the secret already exists. Default is false
 
 ## RELATED LINKS
 
-[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/untagcontainerimage](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/untagcontainerimage)
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/uploadsecret](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/uploadsecret)
 

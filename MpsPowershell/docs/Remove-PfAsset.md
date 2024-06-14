@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/remove-pfasset
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/remove-pfasset
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Deletes a multiplayer server game asset for a title.
 
 ### DeleteExpanded (Default)
 ```
-Remove-PfAsset -FileName <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Remove-PfAsset [-CustomTags <IAny>] [-FileName <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Delete
@@ -60,7 +60,6 @@ Accept wildcard characters: False
 
 ### -DeleteAssetRequest
 Deletes a multiplayer server game asset for a title.
-To construct, see NOTES section for DELETEASSETREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IDeleteAssetRequest
@@ -82,7 +81,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -133,16 +132,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-DELETEASSETREQUEST <IDeleteAssetRequest>: Deletes a multiplayer server game asset for a title.
+`DELETEASSETREQUEST <IDeleteAssetRequest>`: Deletes a multiplayer server game asset for a title.
   - `FileName <String>`: The filename of the asset to delete.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteasset](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteasset)
 

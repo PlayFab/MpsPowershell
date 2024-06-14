@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfqosserver
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfqosserver
 schema: 2.0.0
 ---
 
@@ -15,7 +15,8 @@ By default, servers are only returned for regions where a Multiplayer Servers bu
 
 ### ListExpanded (Default)
 ```
-Get-PfQosServer [-CustomTags <IAny>] [-IncludeAllRegions] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfQosServer [-CustomTags <IAny>] [-IncludeAllRegions] [-RoutingPreference <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ### List
@@ -95,7 +96,6 @@ Accept wildcard characters: False
 
 ### -ListQosServersForTitleRequest
 Returns a list of quality of service servers for a title.
-To construct, see NOTES section for LISTQOSSERVERSFORTITLEREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListQosServersForTitleRequest
@@ -106,6 +106,22 @@ Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -RoutingPreference
+Indicates the Routing Preference used by the Qos servers.
+The default Routing Preference is Microsoft
+
+```yaml
+Type: System.String
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -153,16 +169,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-LISTQOSSERVERSFORTITLEREQUEST <IListQosServersForTitleRequest>: Returns a list of quality of service servers for a title.
+`LISTQOSSERVERSFORTITLEREQUEST <IListQosServersForTitleRequest>`: Returns a list of quality of service servers for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[IncludeAllRegions <Boolean?>]`: Indicates that the response should contain Qos servers for all regions, including those where there are no builds deployed for the title.
+  - `[RoutingPreference <String>]`: Indicates the Routing Preference used by the Qos servers. The default Routing Preference is Microsoft
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listqosserversfortitle](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listqosserversfortitle)
 

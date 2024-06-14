@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/remove-pfcontainerimagerepository
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/remove-pfcontainerimagerepository
 schema: 2.0.0
 ---
 
@@ -64,7 +64,6 @@ Accept wildcard characters: False
 Removes the specified container image repository.
 After this operation, a 'docker pull' will fail for all the tags of the specified image.
 Morever, ListContainerImages will not return the specified image.
-To construct, see NOTES section for DELETECONTAINERIMAGEREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IDeleteContainerImageRequest
@@ -137,16 +136,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-DELETECONTAINERIMAGEREQUEST <IDeleteContainerImageRequest>: Removes the specified container image repository. After this operation, a 'docker pull' will fail for all the tags of the specified image. Morever, ListContainerImages will not return the specified image.
+`DELETECONTAINERIMAGEREQUEST <IDeleteContainerImageRequest>`: Removes the specified container image repository. After this operation, a 'docker pull' will fail for all the tags of the specified image. Morever, ListContainerImages will not return the specified image.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[ImageName <String>]`: The container image repository we want to delete.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deletecontainerimagerepository](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deletecontainerimagerepository)
 

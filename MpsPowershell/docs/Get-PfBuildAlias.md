@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfbuildalias
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfbuildalias
 schema: 2.0.0
 ---
 
@@ -12,10 +12,9 @@ Gets a multiplayer server build alias.
 
 ## SYNTAX
 
-### ListExpanded (Default)
+### GetExpanded (Default)
 ```
-Get-PfBuildAlias [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
+Get-PfBuildAlias [-AliasId <String>] [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Get
@@ -23,14 +22,15 @@ Get-PfBuildAlias [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>]
 Get-PfBuildAlias -GetBuildAliasRequest <IGetBuildAliasRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### GetExpanded
-```
-Get-PfBuildAlias -AliasId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
 ### List
 ```
 Get-PfBuildAlias -ListBuildAliasesRequest <IListBuildAliasesRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### ListExpanded
+```
+Get-PfBuildAlias [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -117,7 +117,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -142,7 +142,6 @@ Accept wildcard characters: False
 
 ### -GetBuildAliasRequest
 Returns the details about a multiplayer server build alias.
-To construct, see NOTES section for GETBUILDALIASREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetBuildAliasRequest
@@ -158,7 +157,6 @@ Accept wildcard characters: False
 
 ### -ListBuildAliasesRequest
 Returns a list of summarized details of all multiplayer server builds for a title.
-To construct, see NOTES section for LISTBUILDALIASESREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListBuildAliasesRequest
@@ -250,21 +248,23 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETBUILDALIASREQUEST <IGetBuildAliasRequest>: Returns the details about a multiplayer server build alias.
+`GETBUILDALIASREQUEST <IGetBuildAliasRequest>`: Returns the details about a multiplayer server build alias.
   - `AliasId <String>`: The guid string alias ID of the alias to perform the action on.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
-LISTBUILDALIASESREQUEST <IListBuildAliasesRequest>: Returns a list of summarized details of all multiplayer server builds for a title.
+`LISTBUILDALIASESREQUEST <IListBuildAliasesRequest>`: Returns a list of summarized details of all multiplayer server builds for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[PageSize <Single?>]`: The page size for the request.
   - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getbuildalias](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getbuildalias)
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildaliases](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildaliases)
 

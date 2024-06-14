@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfcontainerimagetag
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfcontainerimagetag
 schema: 2.0.0
 ---
 
@@ -84,7 +84,6 @@ Accept wildcard characters: False
 
 ### -ListContainerImageTagsRequest
 Returns a list of the tags for a particular container image that exists in the container registry for a title.
-To construct, see NOTES section for LISTCONTAINERIMAGETAGSREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListContainerImageTagsRequest
@@ -172,18 +171,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-LISTCONTAINERIMAGETAGSREQUEST <IListContainerImageTagsRequest>: Returns a list of the tags for a particular container image that exists in the container registry for a title.
+`LISTCONTAINERIMAGETAGSREQUEST <IListContainerImageTagsRequest>`: Returns a list of the tags for a particular container image that exists in the container registry for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[ImageName <String>]`: The container images we want to list tags for.
   - `[PageSize <Single?>]`: The page size for the request.
   - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listcontainerimagetags](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listcontainerimagetags)
 

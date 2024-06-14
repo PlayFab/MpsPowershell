@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pftitlemultiplayerserverquotachange
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pftitlemultiplayerserverquotachange
 schema: 2.0.0
 ---
 
@@ -12,9 +12,10 @@ Gets a title's server quota change request.
 
 ## SYNTAX
 
-### ListExpanded (Default)
+### GetExpanded (Default)
 ```
-Get-PfTitleMultiplayerServerQuotaChange [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfTitleMultiplayerServerQuotaChange [-CustomTags <IAny>] [-RequestId <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ### Get
@@ -24,17 +25,16 @@ Get-PfTitleMultiplayerServerQuotaChange
  [-WhatIf] [<CommonParameters>]
 ```
 
-### GetExpanded
-```
-Get-PfTitleMultiplayerServerQuotaChange -RequestId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
-```
-
 ### List
 ```
 Get-PfTitleMultiplayerServerQuotaChange
  -ListTitleMultiplayerServersQuotaChangesRequest <IListTitleMultiplayerServersQuotaChangesRequest> [-Confirm]
  [-WhatIf] [<CommonParameters>]
+```
+
+### ListExpanded
+```
+Get-PfTitleMultiplayerServerQuotaChange [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -80,7 +80,6 @@ Accept wildcard characters: False
 
 ### -GetTitleMultiplayerServersQuotaChangeRequest
 Gets a title's server quota change request.
-To construct, see NOTES section for GETTITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetTitleMultiplayerServersQuotaChangeRequest
@@ -96,7 +95,6 @@ Accept wildcard characters: False
 
 ### -ListTitleMultiplayerServersQuotaChangesRequest
 List all server quota change requests for a title.
-To construct, see NOTES section for LISTTITLEMULTIPLAYERSERVERSQUOTACHANGESREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListTitleMultiplayerServersQuotaChangesRequest
@@ -118,7 +116,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -173,19 +171,21 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETTITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST <IGetTitleMultiplayerServersQuotaChangeRequest>: Gets a title's server quota change request.
+`GETTITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST <IGetTitleMultiplayerServersQuotaChangeRequest>`: Gets a title's server quota change request.
   - `RequestId <String>`: Id of the change request to get.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
-LISTTITLEMULTIPLAYERSERVERSQUOTACHANGESREQUEST <IListTitleMultiplayerServersQuotaChangesRequest>: List all server quota change requests for a title.
+`LISTTITLEMULTIPLAYERSERVERSQUOTACHANGESREQUEST <IListTitleMultiplayerServersQuotaChangesRequest>`: List all server quota change requests for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/gettitlemultiplayerserversquotachange](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/gettitlemultiplayerserversquotachange)
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listtitlemultiplayerserversquotachanges](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listtitlemultiplayerserversquotachanges)
 

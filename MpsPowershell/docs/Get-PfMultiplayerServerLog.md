@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfmultiplayerserverlog
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfmultiplayerserverlog
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Gets multiplayer server logs after a server has terminated.
 
 ### GetExpanded (Default)
 ```
-Get-PfMultiplayerServerLog -ServerId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfMultiplayerServerLog [-CustomTags <IAny>] [-ServerId <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Get
@@ -64,7 +64,6 @@ Accept wildcard characters: False
 ### -GetMultiplayerServerLogsRequest
 Gets multiplayer server logs for a specific server id in a region.
 The logs are available only after a server has terminated.
-To construct, see NOTES section for GETMULTIPLAYERSERVERLOGSREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetMultiplayerServerLogsRequest
@@ -86,7 +85,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -137,16 +136,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETMULTIPLAYERSERVERLOGSREQUEST <IGetMultiplayerServerLogsRequest>: Gets multiplayer server logs for a specific server id in a region. The logs are available only after a server has terminated.
+`GETMULTIPLAYERSERVERLOGSREQUEST <IGetMultiplayerServerLogsRequest>`: Gets multiplayer server logs for a specific server id in a region. The logs are available only after a server has terminated.
   - `ServerId <String>`: The server ID of multiplayer server to get logs for.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayerserverlogs](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayerserverlogs)
 

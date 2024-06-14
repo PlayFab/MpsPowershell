@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfmultiplayersessionlog
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfmultiplayersessionlog
 schema: 2.0.0
 ---
 
@@ -14,7 +14,8 @@ Gets multiplayer server logs after a server has terminated.
 
 ### GetExpanded (Default)
 ```
-Get-PfMultiplayerSessionLog -SessionId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfMultiplayerSessionLog [-CustomTags <IAny>] [-SessionId <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ### Get
@@ -65,7 +66,6 @@ Accept wildcard characters: False
 ### -GetMultiplayerSessionLogsBySessionIdRequest
 Gets multiplayer server logs for a specific server id in a region.
 The logs are available only after a server has terminated.
-To construct, see NOTES section for GETMULTIPLAYERSESSIONLOGSBYSESSIONIDREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetMultiplayerSessionLogsBySessionIdRequest
@@ -87,7 +87,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -138,16 +138,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETMULTIPLAYERSESSIONLOGSBYSESSIONIDREQUEST <IGetMultiplayerSessionLogsBySessionIdRequest>: Gets multiplayer server logs for a specific server id in a region. The logs are available only after a server has terminated.
+`GETMULTIPLAYERSESSIONLOGSBYSESSIONIDREQUEST <IGetMultiplayerSessionLogsBySessionIdRequest>`: Gets multiplayer server logs for a specific server id in a region. The logs are available only after a server has terminated.
   - `SessionId <String>`: The server ID of multiplayer server to get logs for.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayersessionlogsbysessionid](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayersessionlogsbysessionid)
 

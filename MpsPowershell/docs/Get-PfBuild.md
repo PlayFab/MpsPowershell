@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfbuild
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfbuild
 schema: 2.0.0
 ---
 
@@ -12,10 +12,9 @@ Gets a multiplayer server build.
 
 ## SYNTAX
 
-### ListExpanded (Default)
+### GetExpanded (Default)
 ```
-Get-PfBuild [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
+Get-PfBuild [-BuildId <String>] [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Get
@@ -23,14 +22,15 @@ Get-PfBuild [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Co
 Get-PfBuild -GetBuildRequest <IGetBuildRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### GetExpanded
-```
-Get-PfBuild -BuildId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
 ### List
 ```
 Get-PfBuild -ListBuildSummariesRequest <IListBuildSummariesRequest> [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### ListExpanded
+```
+Get-PfBuild [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -233,7 +233,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -258,7 +258,6 @@ Accept wildcard characters: False
 
 ### -GetBuildRequest
 Returns the details about a multiplayer server build.
-To construct, see NOTES section for GETBUILDREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetBuildRequest
@@ -274,7 +273,6 @@ Accept wildcard characters: False
 
 ### -ListBuildSummariesRequest
 Returns a list of summarized details of all multiplayer server builds for a title.
-To construct, see NOTES section for LISTBUILDSUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListBuildSummariesRequest
@@ -366,21 +364,23 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETBUILDREQUEST <IGetBuildRequest>: Returns the details about a multiplayer server build.
+`GETBUILDREQUEST <IGetBuildRequest>`: Returns the details about a multiplayer server build.
   - `BuildId <String>`: The guid string build ID of the build to get.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
-LISTBUILDSUMMARIESREQUEST <IListBuildSummariesRequest>: Returns a list of summarized details of all multiplayer server builds for a title.
+`LISTBUILDSUMMARIESREQUEST <IListBuildSummariesRequest>`: Returns a list of summarized details of all multiplayer server builds for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[PageSize <Single?>]`: The page size for the request.
   - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getbuild](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getbuild)
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildsummariesv2](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildsummariesv2)
 

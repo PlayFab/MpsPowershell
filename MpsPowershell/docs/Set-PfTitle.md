@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/set-pftitle
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/set-pftitle
 schema: 2.0.0
 ---
 
@@ -103,8 +103,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Management.Automation.PSObject
 
 ## NOTES
-
-ALIASES
 
 ## RELATED LINKS
 

@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfremoteloginendpoint
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfremoteloginendpoint
 schema: 2.0.0
 ---
 
@@ -14,8 +14,8 @@ Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
 
 ### GetExpanded (Default)
 ```
-Get-PfRemoteLoginEndpoint -BuildId <String> -Region <String> -VMId <String> [-CustomTags <IAny>] [-Confirm]
- [-WhatIf] [<CommonParameters>]
+Get-PfRemoteLoginEndpoint [-BuildId <String>] [-CustomTags <IAny>] [-Region <String>] [-VMId <String>]
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Get
@@ -55,7 +55,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -80,7 +80,6 @@ Accept wildcard characters: False
 
 ### -GetRemoteLoginEndpointRequest
 Gets a remote login endpoint to a VM that is hosting a multiplayer server build in a specific region.
-To construct, see NOTES section for GETREMOTELOGINENDPOINTREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetRemoteLoginEndpointRequest
@@ -102,7 +101,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -117,7 +116,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -168,18 +167,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETREMOTELOGINENDPOINTREQUEST <IGetRemoteLoginEndpointRequest>: Gets a remote login endpoint to a VM that is hosting a multiplayer server build in a specific region.
+`GETREMOTELOGINENDPOINTREQUEST <IGetRemoteLoginEndpointRequest>`: Gets a remote login endpoint to a VM that is hosting a multiplayer server build in a specific region.
   - `BuildId <String>`: The guid string build ID of the multiplayer server to get remote login information for.
   - `Region <String>`: The region of the multiplayer server to get remote login information for.
   - `VMId <String>`: The virtual machine ID the multiplayer server is located on.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getremoteloginendpoint](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getremoteloginendpoint)
 

@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfvirtualmachinesummary
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfvirtualmachinesummary
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Lists virtual machines for a title.
 
 ### ListExpanded (Default)
 ```
-Get-PfVirtualMachineSummary -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
+Get-PfVirtualMachineSummary [-BuildId <String>] [-CustomTags <IAny>] [-PageSize <Single>] [-Region <String>]
  [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -67,7 +67,7 @@ Type: System.String
 Parameter Sets: ListExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -92,7 +92,6 @@ Accept wildcard characters: False
 
 ### -ListVirtualMachineSummariesRequest
 Returns a list of virtual machines for a title.
-To construct, see NOTES section for LISTVIRTUALMACHINESUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListVirtualMachineSummariesRequest
@@ -129,7 +128,7 @@ Type: System.String
 Parameter Sets: ListExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -195,14 +194,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-LISTVIRTUALMACHINESUMMARIESREQUEST <IListVirtualMachineSummariesRequest>: Returns a list of virtual machines for a title.
+`LISTVIRTUALMACHINESUMMARIESREQUEST <IListVirtualMachineSummariesRequest>`: Returns a list of virtual machines for a title.
   - `BuildId <String>`: The guid string build ID of the virtual machines to list.
   - `Region <String>`: The region of the virtual machines to list.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -210,4 +207,6 @@ LISTVIRTUALMACHINESUMMARIESREQUEST <IListVirtualMachineSummariesRequest>: Return
   - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listvirtualmachinesummaries](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listvirtualmachinesummaries)
 

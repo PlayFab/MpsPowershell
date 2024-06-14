@@ -1,7 +1,7 @@
 ---
 Module Name: PlayFabMultiplayerApi
 Module Guid: 6348811f-9e9e-4e9c-af4b-d59304561887
-Download Help Link: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi
+Download Help Link: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi
 Help Version: 1.0.0.0
 Locale: en-US
 ---
@@ -65,6 +65,9 @@ By default, servers are only returned for regions where a Multiplayer Servers bu
 ### [Get-PfRemoteLoginEndpoint](Get-PfRemoteLoginEndpoint.md)
 Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
 
+### [Get-PfSecretSummary](Get-PfSecretSummary.md)
+Lists multiplayer server game secrets for a title.
+
 ### [Get-PfTitleEnabled](Get-PfTitleEnabled.md)
 Gets the status of whether a title is enabled for the multiplayer server feature.
 
@@ -86,26 +89,29 @@ Rolls over the credentials to the container registry.
 ### [Invoke-PfUploadCertificate](Invoke-PfUploadCertificate.md)
 Uploads a multiplayer server game certificate.
 
+### [Invoke-PfUploadSecret](Invoke-PfUploadSecret.md)
+Uploads a multiplayer server game secret.
+
 ### [New-PfAsset](New-PfAsset.md)
 Uploads an asset.
 
 ### [New-PfBuildAlias](New-PfBuildAlias.md)
-Creates a multiplayer server build alias.
+Create a multiplayer server build alias.
 
 ### [New-PfBuildWithCustomContainer](New-PfBuildWithCustomContainer.md)
-Creates a multiplayer server build with a custom container.
+Create a multiplayer server build with a custom container.
 
 ### [New-PfBuildWithManagedContainer](New-PfBuildWithManagedContainer.md)
-Creates a multiplayer server build with a managed container.
+Create a multiplayer server build with a managed container.
 
 ### [New-PfBuildWithProcess](New-PfBuildWithProcess.md)
-Creates a multiplayer server build with the server running as a process.
+Create a multiplayer server build with the server running as a process.
 
 ### [New-PfRemoteUser](New-PfRemoteUser.md)
-Creates a remote user to log on to a VM for a multiplayer server build.
+Create a remote user to log on to a VM for a multiplayer server build.
 
 ### [New-PfTitleMultiplayerServerQuotaChange](New-PfTitleMultiplayerServerQuotaChange.md)
-Creates a request to change a title's multiplayer server quotas.
+Create a request to change a title's multiplayer server quotas.
 
 ### [Remove-PfAsset](Remove-PfAsset.md)
 Deletes a multiplayer server game asset for a title.
@@ -128,9 +134,15 @@ Deletes a container image repository.
 ### [Remove-PfRemoteUser](Remove-PfRemoteUser.md)
 Deletes a remote user to log on to a VM for a multiplayer server build.
 
+### [Remove-PfSecret](Remove-PfSecret.md)
+Deletes a multiplayer server game secret.
+
 ### [Request-PfMultiplayerServer](Request-PfMultiplayerServer.md)
 Request a multiplayer server session.
 Accepts tokens for title and if game client access is enabled, allows game client to request a server with player entity token.
+
+### [Request-PfPartyService](Request-PfPartyService.md)
+Request a party session.
 
 ### [Set-PfTitle](Set-PfTitle.md)
 Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.
@@ -139,12 +151,12 @@ Requests a Title EntityToken and sets it to an environment variable that is used
 Shuts down a multiplayer server session.
 
 ### [Update-PfBuildAlias](Update-PfBuildAlias.md)
-Creates a multiplayer server build alias.
+Update a multiplayer server build alias.
 
 ### [Update-PfBuildName](Update-PfBuildName.md)
-Updates a multiplayer server build's name.
+Update a multiplayer server build's name.
 
 ### [Update-PfBuildRegion](Update-PfBuildRegion.md)
-Updates a multiplayer server build's region.
+Update a multiplayer server build's region.
 If the region is not yet created, it will be created
 

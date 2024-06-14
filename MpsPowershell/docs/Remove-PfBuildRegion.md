@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/remove-pfbuildregion
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/remove-pfbuildregion
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Removes a multiplayer server build's region.
 
 ### DeleteExpanded (Default)
 ```
-Remove-PfBuildRegion -BuildId <String> -Region <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
+Remove-PfBuildRegion [-BuildId <String>] [-CustomTags <IAny>] [-Region <String>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -52,7 +52,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -77,7 +77,6 @@ Accept wildcard characters: False
 
 ### -DeleteBuildRegionRequest
 Removes a multiplayer server build's region.
-To construct, see NOTES section for DELETEBUILDREGIONREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IDeleteBuildRegionRequest
@@ -99,7 +98,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -150,17 +149,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-DELETEBUILDREGIONREQUEST <IDeleteBuildRegionRequest>: Removes a multiplayer server build's region.
+`DELETEBUILDREGIONREQUEST <IDeleteBuildRegionRequest>`: Removes a multiplayer server build's region.
   - `BuildId <String>`: The guid string ID of the build we want to update regions for.
   - `Region <String>`: The build region to delete.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deletebuildregion](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deletebuildregion)
 

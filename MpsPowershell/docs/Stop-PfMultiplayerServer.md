@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/stop-pfmultiplayerserver
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/stop-pfmultiplayerserver
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Shuts down a multiplayer server session.
 
 ### ShutdownExpanded (Default)
 ```
-Stop-PfMultiplayerServer -SessionId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Stop-PfMultiplayerServer [-CustomTags <IAny>] [-SessionId <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Shutdown
@@ -67,7 +67,7 @@ Type: System.String
 Parameter Sets: ShutdownExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -77,7 +77,6 @@ Accept wildcard characters: False
 ### -ShutdownMultiplayerServerRequest
 Executes the shutdown callback from the GSDK and terminates the multiplayer server session.
 The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
-To construct, see NOTES section for SHUTDOWNMULTIPLAYERSERVERREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IShutdownMultiplayerServerRequest
@@ -135,16 +134,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-SHUTDOWNMULTIPLAYERSERVERREQUEST <IShutdownMultiplayerServerRequest>: Executes the shutdown callback from the GSDK and terminates the multiplayer server session. The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
+`SHUTDOWNMULTIPLAYERSERVERREQUEST <IShutdownMultiplayerServerRequest>`: Executes the shutdown callback from the GSDK and terminates the multiplayer server session. The callback in the GSDK will allow for graceful shutdown with a 15 minute timeoutIf graceful shutdown has not been completed before 15 minutes have elapsed, the multiplayer server session will be forcefully terminated on it's own.
   - `SessionId <String>`: A guid string session ID of the multiplayer server to shut down.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/shutdownmultiplayerserver](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/shutdownmultiplayerserver)
 

@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfmultiplayerserver
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfmultiplayerserver
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Gets multiplayer server session details for a build.
 
 ### GetExpanded (Default)
 ```
-Get-PfMultiplayerServer -SessionId <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfMultiplayerServer [-CustomTags <IAny>] [-SessionId <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Get
@@ -31,7 +31,7 @@ Get-PfMultiplayerServer -ListMultiplayerServersRequest <IListMultiplayerServersR
 
 ### ListExpanded
 ```
-Get-PfMultiplayerServer -BuildId <String> -Region <String> [-CustomTags <IAny>] [-PageSize <Single>]
+Get-PfMultiplayerServer [-BuildId <String>] [-CustomTags <IAny>] [-PageSize <Single>] [-Region <String>]
  [-SkipToken <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -86,7 +86,7 @@ Type: System.String
 Parameter Sets: ListExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -111,7 +111,6 @@ Accept wildcard characters: False
 
 ### -GetMultiplayerServerDetailsRequest
 Gets multiplayer server session details for a build in a specific region.
-To construct, see NOTES section for GETMULTIPLAYERSERVERDETAILSREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGetMultiplayerServerDetailsRequest
@@ -127,7 +126,6 @@ Accept wildcard characters: False
 
 ### -ListMultiplayerServersRequest
 Returns a list of multiplayer servers for a build in a specific region.
-To construct, see NOTES section for LISTMULTIPLAYERSERVERSREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListMultiplayerServersRequest
@@ -164,7 +162,7 @@ Type: System.String
 Parameter Sets: ListExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -180,7 +178,7 @@ Type: System.String
 Parameter Sets: GetExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -250,18 +248,16 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-GETMULTIPLAYERSERVERDETAILSREQUEST <IGetMultiplayerServerDetailsRequest>: Gets multiplayer server session details for a build in a specific region.
+`GETMULTIPLAYERSERVERDETAILSREQUEST <IGetMultiplayerServerDetailsRequest>`: Gets multiplayer server session details for a build in a specific region.
   - `SessionId <String>`: The title generated guid string session ID of the multiplayer server to get details for. This is to keep track of multiplayer server sessions.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
-LISTMULTIPLAYERSERVERSREQUEST <IListMultiplayerServersRequest>: Returns a list of multiplayer servers for a build in a specific region.
+`LISTMULTIPLAYERSERVERSREQUEST <IListMultiplayerServersRequest>`: Returns a list of multiplayer servers for a build in a specific region.
   - `BuildId <String>`: The guid string build ID of the multiplayer servers to list.
   - `Region <String>`: The region the multiplayer servers to list.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -269,4 +265,8 @@ LISTMULTIPLAYERSERVERSREQUEST <IListMultiplayerServersRequest>: Returns a list o
   - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayerserverdetails](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayerserverdetails)
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listmultiplayerservers](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listmultiplayerservers)
 

@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/remove-pfremoteuser
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/remove-pfremoteuser
 schema: 2.0.0
 ---
 
@@ -14,8 +14,8 @@ Deletes a remote user to log on to a VM for a multiplayer server build.
 
 ### DeleteExpanded (Default)
 ```
-Remove-PfRemoteUser -BuildId <String> -Region <String> -Username <String> -VMId <String> [-CustomTags <IAny>]
- [-Confirm] [-WhatIf] [<CommonParameters>]
+Remove-PfRemoteUser [-BuildId <String>] [-CustomTags <IAny>] [-Region <String>] [-Username <String>]
+ [-VMId <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Delete
@@ -52,7 +52,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -78,7 +78,6 @@ Accept wildcard characters: False
 ### -DeleteRemoteUserRequest
 Deletes a remote user to log on to a VM for a multiplayer server build in a specific region.
 Returns user credential information necessary to log on.
-To construct, see NOTES section for DELETEREMOTEUSERREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IDeleteRemoteUserRequest
@@ -100,7 +99,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -115,7 +114,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -130,7 +129,7 @@ Type: System.String
 Parameter Sets: DeleteExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -181,14 +180,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-DELETEREMOTEUSERREQUEST <IDeleteRemoteUserRequest>: Deletes a remote user to log on to a VM for a multiplayer server build in a specific region. Returns user credential information necessary to log on.
+`DELETEREMOTEUSERREQUEST <IDeleteRemoteUserRequest>`: Deletes a remote user to log on to a VM for a multiplayer server build in a specific region. Returns user credential information necessary to log on.
   - `BuildId <String>`: The guid string build ID of the multiplayer server where the remote user is to delete.
   - `Region <String>`: The region of the multiplayer server where the remote user is to delete.
   - `Username <String>`: The username of the remote user to delete.
@@ -196,4 +193,6 @@ DELETEREMOTEUSERREQUEST <IDeleteRemoteUserRequest>: Deletes a remote user to log
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteremoteuser](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteremoteuser)
 

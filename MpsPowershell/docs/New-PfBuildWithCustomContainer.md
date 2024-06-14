@@ -1,38 +1,39 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/new-pfbuildwithcustomcontainer
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/new-pfbuildwithcustomcontainer
 schema: 2.0.0
 ---
 
 # New-PfBuildWithCustomContainer
 
 ## SYNOPSIS
-Creates a multiplayer server build with a custom container.
+Create a multiplayer server build with a custom container.
 
 ## SYNTAX
 
-### Create (Default)
+### CreateExpanded (Default)
+```
+New-PfBuildWithCustomContainer [-AreAssetsReadonly] [-BuildName <String>] [-ContainerFlavor <String>]
+ [-ContainerImageReference <IContainerImageReference>] [-ContainerRunCommand <String>] [-CustomTags <IAny>]
+ [-GameAssetReferences <IAssetReferenceParams[]>]
+ [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
+ [-GameSecretReferences <IGameSecretReferenceParams[]>]
+ [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
+ [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
+ [-MultiplayerServerCountPerVM <Single>] [-Ports <IPort[]>] [-RegionConfigurations <IBuildRegionParams[]>]
+ [-ServerResourceConstraints <IServerResourceConstraintParams>] [-VMSize <String>]
+ [-VMStartupScriptConfiguration <IVMStartupScriptParams>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Create
 ```
 New-PfBuildWithCustomContainer -CreateBuildWithCustomContainerRequest <ICreateBuildWithCustomContainerRequest>
  [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### CreateExpanded
-```
-New-PfBuildWithCustomContainer -BuildName <String> -MultiplayerServerCountPerVM <Single> -Ports <IPort[]>
- -RegionConfigurations <IBuildRegionParams[]> [-AreAssetsReadonly] [-ContainerFlavor <String>]
- [-ContainerImageReference <IContainerImageReference>] [-ContainerRunCommand <String>] [-CustomTags <IAny>]
- [-GameAssetReferences <IAssetReferenceParams[]>]
- [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
- [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
- [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
- [-ServerResourceConstraints <IServerResourceConstraintParams>] [-VMSize <String>]
- [-VMStartupScriptConfiguration <IVMStartupScriptParams>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
 ## DESCRIPTION
-Creates a multiplayer server build with a custom container.
+Create a multiplayer server build with a custom container.
 
 ## EXAMPLES
 
@@ -162,7 +163,7 @@ Type: System.String
 Parameter Sets: CreateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -186,7 +187,6 @@ Accept wildcard characters: False
 
 ### -ContainerImageReference
 The container reference, consisting of the image name and tag.
-To construct, see NOTES section for CONTAINERIMAGEREFERENCE properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IContainerImageReference
@@ -217,7 +217,6 @@ Accept wildcard characters: False
 
 ### -CreateBuildWithCustomContainerRequest
 Creates a multiplayer server build with a custom container and returns information about the build creation request.
-To construct, see NOTES section for CREATEBUILDWITHCUSTOMCONTAINERREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.ICreateBuildWithCustomContainerRequest
@@ -249,7 +248,6 @@ Accept wildcard characters: False
 
 ### -GameAssetReferences
 The list of game assets related to the build.
-To construct, see NOTES section for GAMEASSETREFERENCES properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IAssetReferenceParams[]
@@ -265,7 +263,6 @@ Accept wildcard characters: False
 
 ### -GameCertificateReferences
 The game certificates for the build.
-To construct, see NOTES section for GAMECERTIFICATEREFERENCES properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGameCertificateReferenceParams[]
@@ -279,9 +276,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -GameSecretReferences
+The game secrets for the build.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IGameSecretReferenceParams[]
+Parameter Sets: CreateExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -LinuxInstrumentationConfiguration
 The Linux instrumentation configuration for the build.
-To construct, see NOTES section for LINUXINSTRUMENTATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.ILinuxInstrumentationConfiguration
@@ -314,7 +325,6 @@ Accept wildcard characters: False
 
 ### -MonitoringApplicationConfiguration
 The configuration for the monitoring application on the build
-To construct, see NOTES section for MONITORINGAPPLICATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IMonitoringApplicationConfigurationParams
@@ -336,7 +346,7 @@ Type: System.Single
 Parameter Sets: CreateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -345,14 +355,13 @@ Accept wildcard characters: False
 
 ### -Ports
 The ports to map the build on.
-To construct, see NOTES section for PORTS properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IPort[]
 Parameter Sets: CreateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -361,14 +370,13 @@ Accept wildcard characters: False
 
 ### -RegionConfigurations
 The region configurations for the build.
-To construct, see NOTES section for REGIONCONFIGURATIONS properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IBuildRegionParams[]
 Parameter Sets: CreateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -377,7 +385,6 @@ Accept wildcard characters: False
 
 ### -ServerResourceConstraints
 The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
-To construct, see NOTES section for SERVERRESOURCECONSTRAINTS properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IServerResourceConstraintParams
@@ -408,7 +415,6 @@ Accept wildcard characters: False
 
 ### -VMStartupScriptConfiguration
 The configuration for the VmStartupScript for the build
-To construct, see NOTES section for VMSTARTUPSCRIPTCONFIGURATION properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IVMStartupScriptParams
@@ -466,38 +472,36 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-CONTAINERIMAGEREFERENCE <IContainerImageReference>: The container reference, consisting of the image name and tag.
+`CONTAINERIMAGEREFERENCE <IContainerImageReference>`: The container reference, consisting of the image name and tag.
   - `ImageName <String>`: The container image name.
   - `[Tag <String>]`: The container tag.
 
-CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: Creates a multiplayer server build with a custom container and returns information about the build creation request.
+`CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>`: Creates a multiplayer server build with a custom container and returns information about the build creation request.
   - `BuildName <String>`: The build name.
   - `MultiplayerServerCountPerVM <Single>`: The number of multiplayer servers to host on a single VM.
-  - `Ports <IPort[]>`: The ports to map the build on.
+  - `Ports <List<IPort>>`: The ports to map the build on.
     - `Name <String>`: The name for the port.
     - `Num <Single>`: The number for the port.
     - `Protocol <String>`: The protocol for the port.
-  - `RegionConfigurations <IBuildRegionParams[]>`: The region configurations for the build.
+  - `RegionConfigurations <List<IBuildRegionParams>>`: The region configurations for the build.
     - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
     - `Region <String>`: The build region.
     - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
     - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
       - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
-      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+      - `[DynamicFloorMultiplierThresholds <List<IDynamicStandbyThreshold>>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
     - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
-      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+      - `[ScheduleList <List<ISchedule>>]`: A list of non-overlapping schedules
         - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
         - `IsDisabled <Boolean>`: Disables the schedule.
         - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
@@ -512,17 +516,21 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
     - `[Tag <String>]`: The container tag.
   - `[ContainerRunCommand <String>]`: The container command to run when the multiplayer server has been allocated, including any arguments.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-  - `[GameAssetReferences <IAssetReferenceParams[]>]`: The list of game assets related to the build.
+  - `[GameAssetReferences <List<IAssetReferenceParams>>]`: The list of game assets related to the build.
     - `FileName <String>`: The asset's file name.
     - `[MountPath <String>]`: The asset's mount path.
-  - `[GameCertificateReferences <IGameCertificateReferenceParams[]>]`: The game certificates for the build.
+  - `[GameCertificateReferences <List<IGameCertificateReferenceParams>>]`: The game certificates for the build.
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+  - `[GameSecretReferences <List<IGameSecretReferenceParams>>]`: The game secrets for the build.
+    - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
   - `[LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>]`: The Linux instrumentation configuration for the build.
     - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
   - `[MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]`: The configuration for the monitoring application on the build
     - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
+      - `FileName <String>`: The asset's file name.
+      - `[MountPath <String>]`: The asset's mount path.
     - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
     - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
     - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
@@ -532,22 +540,25 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
   - `[VMSize <String>]`: The VM size to create the build on.
   - `[VMStartupScriptConfiguration <IVMStartupScriptParams>]`: The configuration for the VmStartupScript for the build
     - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
-    - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+    - `[PortRequests <List<IVMStartupScriptPortRequestParams>>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
       - `Name <String>`: The name for the port.
       - `Protocol <String>`: The protocol for the port.
 
-GAMEASSETREFERENCES <IAssetReferenceParams[]>: The list of game assets related to the build.
+`GAMEASSETREFERENCES <IAssetReferenceParams[]>`: The list of game assets related to the build.
   - `FileName <String>`: The asset's file name.
   - `[MountPath <String>]`: The asset's mount path.
 
-GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certificates for the build.
+`GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>`: The game certificates for the build.
   - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
 
-LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>: The Linux instrumentation configuration for the build.
+`GAMESECRETREFERENCES <IGameSecretReferenceParams[]>`: The game secrets for the build.
+  - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
+
+`LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>`: The Linux instrumentation configuration for the build.
   - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
 
-MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>: The configuration for the monitoring application on the build
+`MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>`: The configuration for the monitoring application on the build
   - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
     - `FileName <String>`: The asset's file name.
     - `[MountPath <String>]`: The asset's mount path.
@@ -555,25 +566,25 @@ MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>: 
   - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
   - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
 
-PORTS <IPort[]>: The ports to map the build on.
+`PORTS <IPort[]>`: The ports to map the build on.
   - `Name <String>`: The name for the port.
   - `Num <Single>`: The number for the port.
   - `Protocol <String>`: The protocol for the port.
 
-REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the build.
+`REGIONCONFIGURATIONS <IBuildRegionParams[]>`: The region configurations for the build.
   - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
   - `Region <String>`: The build region.
   - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
   - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
     - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
-    - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+    - `[DynamicFloorMultiplierThresholds <List<IDynamicStandbyThreshold>>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
       - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
       - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
     - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
   - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
   - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
     - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
-    - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+    - `[ScheduleList <List<ISchedule>>]`: A list of non-overlapping schedules
       - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
       - `IsDisabled <Boolean>`: Disables the schedule.
       - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
@@ -582,17 +593,19 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[VMSize <String>]`: Regional override for the VM size the build was created on.
 
-SERVERRESOURCECONSTRAINTS <IServerResourceConstraintParams>: The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
+`SERVERRESOURCECONSTRAINTS <IServerResourceConstraintParams>`: The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
   - `CpuLimit <Single>`: The maximum number of cores that each server is allowed to use.
   - `MemoryLimitGb <Single>`: The maximum number of GiB of memory that each server is allowed to use. WARNING: After exceeding this limit, the server will be killed
 
-VMSTARTUPSCRIPTCONFIGURATION <IVMStartupScriptParams>: The configuration for the VmStartupScript for the build
+`VMSTARTUPSCRIPTCONFIGURATION <IVMStartupScriptParams>`: The configuration for the VmStartupScript for the build
   - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
     - `FileName <String>`: The asset's file name.
     - `[MountPath <String>]`: The asset's mount path.
-  - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+  - `[PortRequests <List<IVMStartupScriptPortRequestParams>>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
     - `Name <String>`: The name for the port.
     - `Protocol <String>`: The protocol for the port.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createbuildwithcustomcontainer](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createbuildwithcustomcontainer)
 

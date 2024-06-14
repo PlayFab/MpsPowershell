@@ -1,37 +1,39 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/new-pfbuildwithprocess
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/new-pfbuildwithprocess
 schema: 2.0.0
 ---
 
 # New-PfBuildWithProcess
 
 ## SYNOPSIS
-Creates a multiplayer server build with the server running as a process.
+Create a multiplayer server build with the server running as a process.
 
 ## SYNTAX
 
-### Create2 (Default)
+### CreateExpanded2 (Default)
+```
+New-PfBuildWithProcess [-AreAssetsReadonly] [-BuildName <String>] [-CustomTags <IAny>]
+ [-GameAssetReferences <IAssetReferenceParams[]>]
+ [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
+ [-GameSecretReferences <IGameSecretReferenceParams[]>] [-GameWorkingDirectory <String>]
+ [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview]
+ [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
+ [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
+ [-MultiplayerServerCountPerVM <Single>] [-OSPlatform <String>] [-Ports <IPort[]>]
+ [-RegionConfigurations <IBuildRegionParams[]>] [-StartMultiplayerServerCommand <String>] [-VMSize <String>]
+ [-VMStartupScriptConfiguration <IVMStartupScriptParams>] [-Confirm] [-WhatIf] [<CommonParameters>]
+```
+
+### Create2
 ```
 New-PfBuildWithProcess -CreateBuildWithProcessBasedServerRequest <ICreateBuildWithProcessBasedServerRequest>
  [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### CreateExpanded2
-```
-New-PfBuildWithProcess -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
- -MultiplayerServerCountPerVM <Single> -Ports <IPort[]> -RegionConfigurations <IBuildRegionParams[]>
- -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-CustomTags <IAny>]
- [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
- [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview] [-Metadata <IAny>]
- [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>] [-OSPlatform <String>]
- [-VMSize <String>] [-VMStartupScriptConfiguration <IVMStartupScriptParams>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
-```
-
 ## DESCRIPTION
-Creates a multiplayer server build with the server running as a process.
+Create a multiplayer server build with the server running as a process.
 
 ## EXAMPLES
 
@@ -166,7 +168,7 @@ Type: System.String
 Parameter Sets: CreateExpanded2
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -175,7 +177,6 @@ Accept wildcard characters: False
 
 ### -CreateBuildWithProcessBasedServerRequest
 Creates a multiplayer server build with the game server running as a process and returns information about the build creation request.
-To construct, see NOTES section for CREATEBUILDWITHPROCESSBASEDSERVERREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.ICreateBuildWithProcessBasedServerRequest
@@ -207,14 +208,13 @@ Accept wildcard characters: False
 
 ### -GameAssetReferences
 The list of game assets related to the build.
-To construct, see NOTES section for GAMEASSETREFERENCES properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IAssetReferenceParams[]
 Parameter Sets: CreateExpanded2
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -223,10 +223,24 @@ Accept wildcard characters: False
 
 ### -GameCertificateReferences
 The game certificates for the build.
-To construct, see NOTES section for GAMECERTIFICATEREFERENCES properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGameCertificateReferenceParams[]
+Parameter Sets: CreateExpanded2
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GameSecretReferences
+The game secrets for the build.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IGameSecretReferenceParams[]
 Parameter Sets: CreateExpanded2
 Aliases:
 
@@ -254,8 +268,8 @@ Accept wildcard characters: False
 ```
 
 ### -InstrumentationConfiguration
-The instrumentation configuration for the build.
-To construct, see NOTES section for INSTRUMENTATIONCONFIGURATION properties and create a hash table.
+The instrumentation configuration for the Build.
+Used only if it is a Windows Build.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IInstrumentationConfiguration
@@ -285,6 +299,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -LinuxInstrumentationConfiguration
+The Linux instrumentation configuration for the Build.
+Used only if it is a Linux Build.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.ILinuxInstrumentationConfiguration
+Parameter Sets: CreateExpanded2
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Metadata
 Metadata to tag the build.
 The keys are case insensitive.
@@ -304,7 +334,6 @@ Accept wildcard characters: False
 
 ### -MonitoringApplicationConfiguration
 The configuration for the monitoring application on the build
-To construct, see NOTES section for MONITORINGAPPLICATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IMonitoringApplicationConfigurationParams
@@ -326,7 +355,7 @@ Type: System.Single
 Parameter Sets: CreateExpanded2
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -350,14 +379,13 @@ Accept wildcard characters: False
 
 ### -Ports
 The ports to map the build on.
-To construct, see NOTES section for PORTS properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IPort[]
 Parameter Sets: CreateExpanded2
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -366,14 +394,13 @@ Accept wildcard characters: False
 
 ### -RegionConfigurations
 The region configurations for the build.
-To construct, see NOTES section for REGIONCONFIGURATIONS properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IBuildRegionParams[]
 Parameter Sets: CreateExpanded2
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -389,7 +416,7 @@ Type: System.String
 Parameter Sets: CreateExpanded2
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -413,7 +440,6 @@ Accept wildcard characters: False
 
 ### -VMStartupScriptConfiguration
 The configuration for the VmStartupScript for the build
-To construct, see NOTES section for VMSTARTUPSCRIPTCONFIGURATION properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IVMStartupScriptParams
@@ -471,37 +497,35 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequest>: Creates a multiplayer server build with the game server running as a process and returns information about the build creation request.
+`CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequest>`: Creates a multiplayer server build with the game server running as a process and returns information about the build creation request.
   - `BuildName <String>`: The build name.
-  - `GameAssetReferences <IAssetReferenceParams[]>`: The list of game assets related to the build.
+  - `GameAssetReferences <List<IAssetReferenceParams>>`: The list of game assets related to the build.
     - `FileName <String>`: The asset's file name.
     - `[MountPath <String>]`: The asset's mount path.
   - `MultiplayerServerCountPerVM <Single>`: The number of multiplayer servers to host on a single VM.
-  - `Ports <IPort[]>`: The ports to map the build on.
+  - `Ports <List<IPort>>`: The ports to map the build on.
     - `Name <String>`: The name for the port.
     - `Num <Single>`: The number for the port.
     - `Protocol <String>`: The protocol for the port.
-  - `RegionConfigurations <IBuildRegionParams[]>`: The region configurations for the build.
+  - `RegionConfigurations <List<IBuildRegionParams>>`: The region configurations for the build.
     - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
     - `Region <String>`: The build region.
     - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
     - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
       - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
-      - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+      - `[DynamicFloorMultiplierThresholds <List<IDynamicStandbyThreshold>>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
         - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
         - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
       - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
     - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
     - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
       - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
-      - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+      - `[ScheduleList <List<ISchedule>>]`: A list of non-overlapping schedules
         - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
         - `IsDisabled <Boolean>`: Disables the schedule.
         - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
@@ -512,17 +536,23 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
   - `StartMultiplayerServerCommand <String>`: The command to run when the multiplayer server is started, including any arguments. The path to any executable should be relative to the root asset folder when unzipped.
   - `[AreAssetsReadonly <Boolean?>]`: When true, assets will not be copied for each server inside the VM. All serverswill run from the same set of assets, or will have the same assets mounted in the container.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-  - `[GameCertificateReferences <IGameCertificateReferenceParams[]>]`: The game certificates for the build.
+  - `[GameCertificateReferences <List<IGameCertificateReferenceParams>>]`: The game certificates for the build.
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+  - `[GameSecretReferences <List<IGameSecretReferenceParams>>]`: The game secrets for the build.
+    - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
   - `[GameWorkingDirectory <String>]`: The working directory for the game process. If this is not provided, the working directory will be set based on the mount path of the game server executable.
-  - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
+  - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the Build. Used only if it is a Windows Build.
     - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
-    - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+    - `[ProcessesToMonitor <List<String>>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
   - `[IsOSPreview <Boolean?>]`: Indicates whether this build will be created using the OS Preview versionPreview OS is recommended for dev builds to detect any breaking changes before they are released to retail. Retail builds should set this value to false.
+  - `[LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>]`: The Linux instrumentation configuration for the Build. Used only if it is a Linux Build.
+    - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
   - `[MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]`: The configuration for the monitoring application on the build
     - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
+      - `FileName <String>`: The asset's file name.
+      - `[MountPath <String>]`: The asset's mount path.
     - `ExecutionScriptName <String>`: Execution script name, this will be the main executable for the monitoring application.
     - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
     - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
@@ -530,23 +560,29 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
   - `[VMSize <String>]`: The VM size to create the build on.
   - `[VMStartupScriptConfiguration <IVMStartupScriptParams>]`: The configuration for the VmStartupScript for the build
     - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
-    - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+    - `[PortRequests <List<IVMStartupScriptPortRequestParams>>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
       - `Name <String>`: The name for the port.
       - `Protocol <String>`: The protocol for the port.
 
-GAMEASSETREFERENCES <IAssetReferenceParams[]>: The list of game assets related to the build.
+`GAMEASSETREFERENCES <IAssetReferenceParams[]>`: The list of game assets related to the build.
   - `FileName <String>`: The asset's file name.
   - `[MountPath <String>]`: The asset's mount path.
 
-GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certificates for the build.
+`GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>`: The game certificates for the build.
   - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
 
-INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>: The instrumentation configuration for the build.
-  - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
-  - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+`GAMESECRETREFERENCES <IGameSecretReferenceParams[]>`: The game secrets for the build.
+  - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
 
-MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>: The configuration for the monitoring application on the build
+`INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>`: The instrumentation configuration for the Build. Used only if it is a Windows Build.
+  - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
+  - `[ProcessesToMonitor <List<String>>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+
+`LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>`: The Linux instrumentation configuration for the Build. Used only if it is a Linux Build.
+  - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
+
+`MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>`: The configuration for the monitoring application on the build
   - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
     - `FileName <String>`: The asset's file name.
     - `[MountPath <String>]`: The asset's mount path.
@@ -554,25 +590,25 @@ MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>: 
   - `[InstallationScriptName <String>]`: Installation script name, this will be run before the ExecutionScript.
   - `[OnStartRuntimeInMinutes <Single?>]`: Timespan the monitoring application will be kept alive when running from the start of the VM
 
-PORTS <IPort[]>: The ports to map the build on.
+`PORTS <IPort[]>`: The ports to map the build on.
   - `Name <String>`: The name for the port.
   - `Num <Single>`: The number for the port.
   - `Protocol <String>`: The protocol for the port.
 
-REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the build.
+`REGIONCONFIGURATIONS <IBuildRegionParams[]>`: The region configurations for the build.
   - `MaxServers <Single>`: The maximum number of multiplayer servers for the region.
   - `Region <String>`: The build region.
   - `StandbyServers <Single>`: The number of standby multiplayer servers for the region.
   - `[DynamicStandbySettings <IDynamicStandbySettings>]`: Optional settings to control dynamic adjustment of standby target. If not specified, dynamic standby is disabled
     - `IsEnabled <Boolean>`: When true, dynamic standby will be enabled
-    - `[DynamicFloorMultiplierThresholds <IDynamicStandbyThreshold[]>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
+    - `[DynamicFloorMultiplierThresholds <List<IDynamicStandbyThreshold>>]`: List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%, and 4X at 5%
       - `Multiplier <Single>`: When the trigger threshold is reached, multiply by this value
       - `TriggerThresholdPercentage <Single>`: The multiplier will be applied when the actual standby divided by target standby floor is less than this value
     - `[RampDownSeconds <Single?>]`: The time it takes to reduce target standing by to configured floor value after an increase. Defaults to 30 minutes
   - `[MultiplayerServerCountPerVM <Single?>]`: Regional override for the number of multiplayer servers to host on a single VM of the build.
   - `[ScheduledStandbySettings <IScheduledStandbySettings>]`: Optional settings to set the standby target to specified values during the supplied schedules
     - `IsEnabled <Boolean>`: When true, scheduled standby will be enabled
-    - `[ScheduleList <ISchedule[]>]`: A list of non-overlapping schedules
+    - `[ScheduleList <List<ISchedule>>]`: A list of non-overlapping schedules
       - `EndTime <String>`: The date and time in UTC at which the schedule ends. If IsRecurringWeekly is true, this schedule will keep renewing for future weeks until disabled or removed.
       - `IsDisabled <Boolean>`: Disables the schedule.
       - `IsRecurringWeekly <Boolean>`: If true, the StartTime and EndTime will get renewed every week.
@@ -581,13 +617,15 @@ REGIONCONFIGURATIONS <IBuildRegionParams[]>: The region configurations for the b
       - `[Description <String>]`: A short description about this schedule. For example, "Game launch on July 15th".
   - `[VMSize <String>]`: Regional override for the VM size the build was created on.
 
-VMSTARTUPSCRIPTCONFIGURATION <IVMStartupScriptParams>: The configuration for the VmStartupScript for the build
+`VMSTARTUPSCRIPTCONFIGURATION <IVMStartupScriptParams>`: The configuration for the VmStartupScript for the build
   - `VMStartupScriptAssetReference <IAssetReferenceParams>`: Asset which contains the VmStartupScript script and any other required files.
     - `FileName <String>`: The asset's file name.
     - `[MountPath <String>]`: The asset's mount path.
-  - `[PortRequests <IVMStartupScriptPortRequestParams[]>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+  - `[PortRequests <List<IVMStartupScriptPortRequestParams>>]`: Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
     - `Name <String>`: The name for the port.
     - `Protocol <String>`: The protocol for the port.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createbuildwithprocessbasedserver](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createbuildwithprocessbasedserver)
 

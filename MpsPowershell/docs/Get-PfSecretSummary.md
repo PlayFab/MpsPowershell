@@ -1,46 +1,55 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/invoke-pfimageuntagcontainer
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfsecretsummary
 schema: 2.0.0
 ---
 
-# Invoke-PfImageUntagContainer
+# Get-PfSecretSummary
 
 ## SYNOPSIS
-Untags a container image.
+Lists multiplayer server game secrets for a title.
 
 ## SYNTAX
 
-### ImageExpanded (Default)
+### ListExpanded (Default)
 ```
-Invoke-PfImageUntagContainer [-CustomTags <IAny>] [-ImageName <String>] [-Tag <String>] [-Confirm] [-WhatIf]
+Get-PfSecretSummary [-CustomTags <IAny>] [-PageSize <Single>] [-SkipToken <String>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
-### Image
+### List
 ```
-Invoke-PfImageUntagContainer -UntagContainerImageRequest <IUntagContainerImageRequest> [-Confirm] [-WhatIf]
+Get-PfSecretSummary -ListSecretSummariesRequest <IListSecretSummariesRequest> [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Untags a container image.
+Lists multiplayer server game secrets for a title.
 
 ## EXAMPLES
 
-### Example 1: Remove a tag from a container image
+### Example 1: {{ Add title here }}
 ```powershell
-PS C:\> Invoke-PfImageUntagContainer -ImageName exampleContainerImage -Tag 0.1 | ConvertTo-Json -depth 5
-
-{
-  "Code": 200,
-  "Data": {},
-  "Status": "OK"
-}
+{{ Add code here }}
 ```
 
+```output
+{{ Add output here (remove the output block if the example doesn't have an output) }}
+```
 
+{{ Add description here }}
+
+### Example 2: {{ Add title here }}
+```powershell
+{{ Add code here }}
+```
+
+```output
+{{ Add output here (remove the output block if the example doesn't have an output) }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
@@ -50,7 +59,7 @@ build number, external trace identifiers, etc.).
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IAny
-Parameter Sets: ImageExpanded
+Parameter Sets: ListExpanded
 Aliases:
 
 Required: False
@@ -60,50 +69,48 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ImageName
-The container image which tag we want to remove.
+### -ListSecretSummariesRequest
+Returns a list of multiplayer server game secrets for a title.
 
 ```yaml
-Type: System.String
-Parameter Sets: ImageExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Tag
-The tag we want to remove.
-
-```yaml
-Type: System.String
-Parameter Sets: ImageExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -UntagContainerImageRequest
-Removes the specified tag from the image.
-After this operation, a 'docker pull' will fail for the specified image and tag combination.
-Morever, ListContainerImageTags will not return the specified tag.
-
-```yaml
-Type: PlayFab.Multiplayer.Models.IUntagContainerImageRequest
-Parameter Sets: Image
+Type: PlayFab.Multiplayer.Models.IListSecretSummariesRequest
+Parameter Sets: List
 Aliases:
 
 Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -PageSize
+The page size for the request.
+
+```yaml
+Type: System.Single
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipToken
+The skip token for the paged request.
+
+```yaml
+Type: System.String
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -143,11 +150,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### PlayFab.Multiplayer.Models.IUntagContainerImageRequest
+### PlayFab.Multiplayer.Models.IListSecretSummariesRequest
 
 ## OUTPUTS
 
-### PlayFab.Multiplayer.Models.IComponentsSiuvakResponsesEmptyresponseContentApplicationJsonSchema
+### PlayFab.Multiplayer.Models.IComponents9Zn6UResponsesListsecretsummariesresponseContentApplicationJsonSchema
 
 ## NOTES
 
@@ -156,12 +163,12 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`UNTAGCONTAINERIMAGEREQUEST <IUntagContainerImageRequest>`: Removes the specified tag from the image. After this operation, a 'docker pull' will fail for the specified image and tag combination. Morever, ListContainerImageTags will not return the specified tag.
+`LISTSECRETSUMMARIESREQUEST <IListSecretSummariesRequest>`: Returns a list of multiplayer server game secrets for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-  - `[ImageName <String>]`: The container image which tag we want to remove.
-  - `[Tag <String>]`: The tag we want to remove.
+  - `[PageSize <Single?>]`: The page size for the request.
+  - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
 
-[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/untagcontainerimage](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/untagcontainerimage)
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listsecretsummaries](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listsecretsummaries)
 

@@ -1,7 +1,7 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/get-pfassetsummary
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/get-pfassetsummary
 schema: 2.0.0
 ---
 
@@ -75,7 +75,6 @@ Accept wildcard characters: False
 
 ### -ListAssetSummariesRequest
 Returns a list of multiplayer server game asset summaries for a title.
-To construct, see NOTES section for LISTASSETSUMMARIESREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IListAssetSummariesRequest
@@ -163,17 +162,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-LISTASSETSUMMARIESREQUEST <IListAssetSummariesRequest>: Returns a list of multiplayer server game asset summaries for a title.
+`LISTASSETSUMMARIESREQUEST <IListAssetSummariesRequest>`: Returns a list of multiplayer server game asset summaries for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[PageSize <Single?>]`: The page size for the request.
   - `[SkipToken <String>]`: The skip token for the paged request.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listassetsummaries](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listassetsummaries)
 

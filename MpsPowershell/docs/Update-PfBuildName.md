@@ -1,20 +1,20 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/update-pfbuildname
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/update-pfbuildname
 schema: 2.0.0
 ---
 
 # Update-PfBuildName
 
 ## SYNOPSIS
-Updates a multiplayer server build's name.
+Update a multiplayer server build's name.
 
 ## SYNTAX
 
 ### UpdateExpanded (Default)
 ```
-Update-PfBuildName -BuildId <String> -BuildName <String> [-CustomTags <IAny>] [-Confirm] [-WhatIf]
+Update-PfBuildName [-BuildId <String>] [-BuildName <String>] [-CustomTags <IAny>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -24,7 +24,7 @@ Update-PfBuildName -UpdateBuildNameRequest <IUpdateBuildNameRequest> [-Confirm] 
 ```
 
 ## DESCRIPTION
-Updates a multiplayer server build's name.
+Update a multiplayer server build's name.
 
 ## EXAMPLES
 
@@ -51,7 +51,7 @@ Type: System.String
 Parameter Sets: UpdateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -66,7 +66,7 @@ Type: System.String
 Parameter Sets: UpdateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -91,7 +91,6 @@ Accept wildcard characters: False
 
 ### -UpdateBuildNameRequest
 Updates a multiplayer server build's name.
-To construct, see NOTES section for UPDATEBUILDNAMEREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IUpdateBuildNameRequest
@@ -149,17 +148,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-UPDATEBUILDNAMEREQUEST <IUpdateBuildNameRequest>: Updates a multiplayer server build's name.
+`UPDATEBUILDNAMEREQUEST <IUpdateBuildNameRequest>`: Updates a multiplayer server build's name.
   - `BuildId <String>`: The guid string ID of the build we want to update the name of.
   - `BuildName <String>`: The build name.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildname](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildname)
 

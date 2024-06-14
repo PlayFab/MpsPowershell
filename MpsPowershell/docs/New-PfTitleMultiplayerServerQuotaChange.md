@@ -1,33 +1,33 @@
 ---
 external help file:
 Module Name: PlayFabMultiplayerApi
-online version: https://docs.microsoft.com/en-us/powershell/module/playfabmultiplayerapi/new-pftitlemultiplayerserverquotachange
+online version: https://learn.microsoft.com/powershell/module/playfabmultiplayerapi/new-pftitlemultiplayerserverquotachange
 schema: 2.0.0
 ---
 
 # New-PfTitleMultiplayerServerQuotaChange
 
 ## SYNOPSIS
-Creates a request to change a title's multiplayer server quotas.
+Create a request to change a title's multiplayer server quotas.
 
 ## SYNTAX
 
-### Create (Default)
+### CreateExpanded (Default)
+```
+New-PfTitleMultiplayerServerQuotaChange [-ChangeDescription <String>] [-Changes <ICoreCapacityChange[]>]
+ [-ContactEmail <String>] [-CustomTags <IAny>] [-Notes <String>] [-StartDate <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
+```
+
+### Create
 ```
 New-PfTitleMultiplayerServerQuotaChange
  -CreateTitleMultiplayerServersQuotaChangeRequest <ICreateTitleMultiplayerServersQuotaChangeRequest>
  [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### CreateExpanded
-```
-New-PfTitleMultiplayerServerQuotaChange -Changes <ICoreCapacityChange[]> [-ChangeDescription <String>]
- [-ContactEmail <String>] [-CustomTags <IAny>] [-Notes <String>] [-StartDate <String>] [-Confirm] [-WhatIf]
- [<CommonParameters>]
-```
-
 ## DESCRIPTION
-Creates a request to change a title's multiplayer server quotas.
+Create a request to change a title's multiplayer server quotas.
 
 ## EXAMPLES
 
@@ -68,14 +68,13 @@ Accept wildcard characters: False
 
 ### -Changes
 Changes to make to the titles cores quota.
-To construct, see NOTES section for CHANGES properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.ICoreCapacityChange[]
 Parameter Sets: CreateExpanded
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -100,7 +99,6 @@ Accept wildcard characters: False
 
 ### -CreateTitleMultiplayerServersQuotaChangeRequest
 Creates a request to change a title's multiplayer server quotas.
-To construct, see NOTES section for CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST properties and create a hash table.
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.ICreateTitleMultiplayerServersQuotaChangeRequest
@@ -205,20 +203,18 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-ALIASES
-
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-CHANGES <ICoreCapacityChange[]>: Changes to make to the titles cores quota.
+`CHANGES <ICoreCapacityChange[]>`: Changes to make to the titles cores quota.
   - `NewCoreLimit <Single>`: New quota core limit for the given vm family/region.
   - `Region <String>`: Region to change.
   - `VMFamily <String>`: Virtual machine family to change.
 
-CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST <ICreateTitleMultiplayerServersQuotaChangeRequest>: Creates a request to change a title's multiplayer server quotas.
-  - `Changes <ICoreCapacityChange[]>`: Changes to make to the titles cores quota.
+`CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST <ICreateTitleMultiplayerServersQuotaChangeRequest>`: Creates a request to change a title's multiplayer server quotas.
+  - `Changes <List<ICoreCapacityChange>>`: Changes to make to the titles cores quota.
     - `NewCoreLimit <Single>`: New quota core limit for the given vm family/region.
     - `Region <String>`: Region to change.
     - `VMFamily <String>`: Virtual machine family to change.
@@ -229,4 +225,6 @@ CREATETITLEMULTIPLAYERSERVERSQUOTACHANGEREQUEST <ICreateTitleMultiplayerServersQ
   - `[StartDate <String>]`: When these changes would need to be in effect. Only required when a request is not approved.
 
 ## RELATED LINKS
+
+[https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createtitlemultiplayerserversquotachange](https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createtitlemultiplayerserversquotachange)
 
