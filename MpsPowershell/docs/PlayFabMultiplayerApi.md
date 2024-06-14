@@ -65,6 +65,9 @@ By default, servers are only returned for regions where a Multiplayer Servers bu
 ### [Get-PfRemoteLoginEndpoint](Get-PfRemoteLoginEndpoint.md)
 Gets a remote login endpoint to a VM that is hosting a multiplayer server build.
 
+### [Get-PfSecretSummary](Get-PfSecretSummary.md)
+Lists multiplayer server game secrets for a title.
+
 ### [Get-PfTitleEnabled](Get-PfTitleEnabled.md)
 Gets the status of whether a title is enabled for the multiplayer server feature.
 
@@ -85,6 +88,9 @@ Rolls over the credentials to the container registry.
 
 ### [Invoke-PfUploadCertificate](Invoke-PfUploadCertificate.md)
 Uploads a multiplayer server game certificate.
+
+### [Invoke-PfUploadSecret](Invoke-PfUploadSecret.md)
+Uploads a multiplayer server game secret.
 
 ### [New-PfAsset](New-PfAsset.md)
 Uploads an asset.
@@ -128,9 +134,15 @@ Deletes a container image repository.
 ### [Remove-PfRemoteUser](Remove-PfRemoteUser.md)
 Deletes a remote user to log on to a VM for a multiplayer server build.
 
+### [Remove-PfSecret](Remove-PfSecret.md)
+Deletes a multiplayer server game secret.
+
 ### [Request-PfMultiplayerServer](Request-PfMultiplayerServer.md)
 Request a multiplayer server session.
 Accepts tokens for title and if game client access is enabled, allows game client to request a server with player entity token.
+
+### [Request-PfPartyService](Request-PfPartyService.md)
+Request a party session.
 
 ### [Set-PfTitle](Set-PfTitle.md)
 Requests a Title EntityToken and sets it to an environment variable that is used in future MPS requests.

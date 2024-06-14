@@ -22,6 +22,7 @@ PS C:\> New-PfBuildWithProcess -BuildName ExampleBuild -StartMultiplayerServerCo
       }
     ],
     "GameCertificateReferences": [],
+    "GameSecretReferences": [],
     "GameWorkingDirectory": null,
     "InstrumentationConfiguration": {
       "IsEnabled": null,

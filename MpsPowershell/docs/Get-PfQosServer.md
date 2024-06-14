@@ -15,7 +15,8 @@ By default, servers are only returned for regions where a Multiplayer Servers bu
 
 ### ListExpanded (Default)
 ```
-Get-PfQosServer [-CustomTags <IAny>] [-IncludeAllRegions] [-Confirm] [-WhatIf] [<CommonParameters>]
+Get-PfQosServer [-CustomTags <IAny>] [-IncludeAllRegions] [-RoutingPreference <String>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ### List
@@ -109,6 +110,22 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### -RoutingPreference
+Indicates the Routing Preference used by the Qos servers.
+The default Routing Preference is Microsoft
+
+```yaml
+Type: System.String
+Parameter Sets: ListExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Confirm
 Prompts you for confirmation before running the cmdlet.
 
@@ -163,6 +180,7 @@ To create the parameters described below, construct a hash table containing the 
 LISTQOSSERVERSFORTITLEREQUEST <IListQosServersForTitleRequest>: Returns a list of quality of service servers for a title.
   - `[CustomTags <IAny>]`: The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
   - `[IncludeAllRegions <Boolean?>]`: Indicates that the response should contain Qos servers for all regions, including those where there are no builds deployed for the title.
+  - `[RoutingPreference <String>]`: Indicates the Routing Preference used by the Qos servers. The default Routing Preference is Microsoft
 
 ## RELATED LINKS
 

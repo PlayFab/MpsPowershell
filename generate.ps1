@@ -23,4 +23,4 @@ ${tempFile} = "$env:TEMP\$(${Input-File} | Split-Path -Leaf)"
 (Get-Content -Path ${Input-File}) -replace "x-ms-", "x-" | Set-Content -Path $tempFile
 ${Input-File} = ${tempFile}
 
-autorest $PsScriptRoot\autorestConfig.md --module-version=${Module-Version} --input-file=${Input-File} --output-folder=${Output-Folder}
+autorest $PsScriptRoot\autorestConfig.md --module-version=${Module-Version} --input-file=${Input-File} --output-folder=${Output-Folder} --use:@autorest/powershell@3.0.486

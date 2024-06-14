@@ -25,6 +25,7 @@ New-PfBuildWithCustomContainer -BuildName <String> -MultiplayerServerCountPerVM 
  [-ContainerImageReference <IContainerImageReference>] [-ContainerRunCommand <String>] [-CustomTags <IAny>]
  [-GameAssetReferences <IAssetReferenceParams[]>]
  [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
+ [-GameSecretReferences <IGameSecretReferenceParams[]>]
  [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
  [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
  [-ServerResourceConstraints <IServerResourceConstraintParams>] [-VMSize <String>]
@@ -60,6 +61,7 @@ PS C:\> New-PfBuildWithCustomContainer -BuildName ExampleBuild -ContainerFlavor 
     },
     "GameAssetReferences": [],
     "GameCertificateReferences": [],
+    "GameSecretReferences": [],
     "LinuxInstrumentationConfiguration": {
       "IsEnabled": false
     },
@@ -269,6 +271,22 @@ To construct, see NOTES section for GAMECERTIFICATEREFERENCES properties and cre
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGameCertificateReferenceParams[]
+Parameter Sets: CreateExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GameSecretReferences
+The game secrets for the build.
+To construct, see NOTES section for GAMESECRETREFERENCES properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IGameSecretReferenceParams[]
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -518,6 +536,8 @@ CREATEBUILDWITHCUSTOMCONTAINERREQUEST <ICreateBuildWithCustomContainerRequest>: 
   - `[GameCertificateReferences <IGameCertificateReferenceParams[]>]`: The game certificates for the build.
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+  - `[GameSecretReferences <IGameSecretReferenceParams[]>]`: The game secrets for the build.
+    - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
   - `[LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>]`: The Linux instrumentation configuration for the build.
     - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
@@ -543,6 +563,9 @@ GAMEASSETREFERENCES <IAssetReferenceParams[]>: The list of game assets related t
 GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certificates for the build.
   - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+
+GAMESECRETREFERENCES <IGameSecretReferenceParams[]>: The game secrets for the build.
+  - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
 
 LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>: The Linux instrumentation configuration for the build.
   - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
