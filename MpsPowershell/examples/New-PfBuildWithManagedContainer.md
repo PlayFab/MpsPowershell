@@ -22,6 +22,7 @@ PS C:\> New-PfBuildWithManagedContainer -BuildName ExampleBuild -StartMultiplaye
       }
     ],
     "GameCertificateReferences": [],
+    "GameSecretReferences": [],
     "GameWorkingDirectory": null,
     "InstrumentationConfiguration": {
       "IsEnabled": null,

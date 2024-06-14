@@ -22,6 +22,7 @@ PS C:\> New-PfBuildWithCustomContainer -BuildName ExampleBuild -ContainerFlavor 
     },
     "GameAssetReferences": [],
     "GameCertificateReferences": [],
+    "GameSecretReferences": [],
     "LinuxInstrumentationConfiguration": {
       "IsEnabled": false
     },
