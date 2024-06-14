@@ -23,8 +23,10 @@ New-PfBuildWithProcess -CreateBuildWithProcessBasedServerRequest <ICreateBuildWi
 New-PfBuildWithProcess -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  -MultiplayerServerCountPerVM <Single> -Ports <IPort[]> -RegionConfigurations <IBuildRegionParams[]>
  -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-CustomTags <IAny>]
- [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
- [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview] [-Metadata <IAny>]
+ [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
+ [-GameSecretReferences <IGameSecretReferenceParams[]>] [-GameWorkingDirectory <String>]
+ [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-IsOSPreview]
+ [-LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>] [-Metadata <IAny>]
  [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>] [-OSPlatform <String>]
  [-VMSize <String>] [-VMStartupScriptConfiguration <IVMStartupScriptParams>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
@@ -59,6 +61,7 @@ PS C:\> New-PfBuildWithProcess -BuildName ExampleBuild -StartMultiplayerServerCo
       }
     ],
     "GameCertificateReferences": [],
+    "GameSecretReferences": [],
     "GameWorkingDirectory": null,
     "InstrumentationConfiguration": {
       "IsEnabled": null,
@@ -237,6 +240,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -GameSecretReferences
+The game secrets for the build.
+To construct, see NOTES section for GAMESECRETREFERENCES properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IGameSecretReferenceParams[]
+Parameter Sets: CreateExpanded2
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -GameWorkingDirectory
 The working directory for the game process.
 If this is not provided, the working directory will be set based on the mount path of the game server executable.
@@ -254,7 +273,8 @@ Accept wildcard characters: False
 ```
 
 ### -InstrumentationConfiguration
-The instrumentation configuration for the build.
+The instrumentation configuration for the Build.
+Used only if it is a Windows Build.
 To construct, see NOTES section for INSTRUMENTATIONCONFIGURATION properties and create a hash table.
 
 ```yaml
@@ -275,6 +295,23 @@ Retail builds should set this value to false.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
+Parameter Sets: CreateExpanded2
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LinuxInstrumentationConfiguration
+The Linux instrumentation configuration for the Build.
+Used only if it is a Linux Build.
+To construct, see NOTES section for LINUXINSTRUMENTATIONCONFIGURATION properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.ILinuxInstrumentationConfiguration
 Parameter Sets: CreateExpanded2
 Aliases:
 
@@ -515,11 +552,15 @@ CREATEBUILDWITHPROCESSBASEDSERVERREQUEST <ICreateBuildWithProcessBasedServerRequ
   - `[GameCertificateReferences <IGameCertificateReferenceParams[]>]`: The game certificates for the build.
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+  - `[GameSecretReferences <IGameSecretReferenceParams[]>]`: The game secrets for the build.
+    - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
   - `[GameWorkingDirectory <String>]`: The working directory for the game process. If this is not provided, the working directory will be set based on the mount path of the game server executable.
-  - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
+  - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the Build. Used only if it is a Windows Build.
     - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
     - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
   - `[IsOSPreview <Boolean?>]`: Indicates whether this build will be created using the OS Preview versionPreview OS is recommended for dev builds to detect any breaking changes before they are released to retail. Retail builds should set this value to false.
+  - `[LinuxInstrumentationConfiguration <ILinuxInstrumentationConfiguration>]`: The Linux instrumentation configuration for the Build. Used only if it is a Linux Build.
+    - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
   - `[Metadata <IAny>]`: Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
   - `[MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]`: The configuration for the monitoring application on the build
     - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.
@@ -542,9 +583,15 @@ GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certific
   - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
 
-INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>: The instrumentation configuration for the build.
+GAMESECRETREFERENCES <IGameSecretReferenceParams[]>: The game secrets for the build.
+  - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
+
+INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>: The instrumentation configuration for the Build. Used only if it is a Windows Build.
   - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
   - `[ProcessesToMonitor <String[]>]`: This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ] 
+
+LINUXINSTRUMENTATIONCONFIGURATION <ILinuxInstrumentationConfiguration>: The Linux instrumentation configuration for the Build. Used only if it is a Linux Build.
+  - `IsEnabled <Boolean>`: Designates whether Linux instrumentation configuration will be enabled for this Build
 
 MONITORINGAPPLICATIONCONFIGURATION <IMonitoringApplicationConfigurationParams>: The configuration for the monitoring application on the build
   - `AssetReference <IAssetReferenceParams>`: Asset which contains the monitoring application files and scripts.

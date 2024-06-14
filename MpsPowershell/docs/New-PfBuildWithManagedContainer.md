@@ -24,7 +24,8 @@ New-PfBuildWithManagedContainer
 New-PfBuildWithManagedContainer -BuildName <String> -GameAssetReferences <IAssetReferenceParams[]>
  -MultiplayerServerCountPerVM <Single> -Ports <IPort[]> -RegionConfigurations <IBuildRegionParams[]>
  -StartMultiplayerServerCommand <String> [-AreAssetsReadonly] [-ContainerFlavor <String>] [-CustomTags <IAny>]
- [-GameCertificateReferences <IGameCertificateReferenceParams[]>] [-GameWorkingDirectory <String>]
+ [-GameCertificateReferences <IGameCertificateReferenceParams[]>]
+ [-GameSecretReferences <IGameSecretReferenceParams[]>] [-GameWorkingDirectory <String>]
  [-InstrumentationConfiguration <IInstrumentationConfiguration>] [-Metadata <IAny>]
  [-MonitoringApplicationConfiguration <IMonitoringApplicationConfigurationParams>]
  [-ServerResourceConstraints <IServerResourceConstraintParams>] [-VMSize <String>]
@@ -61,6 +62,7 @@ PS C:\> New-PfBuildWithManagedContainer -BuildName ExampleBuild -StartMultiplaye
       }
     ],
     "GameCertificateReferences": [],
+    "GameSecretReferences": [],
     "GameWorkingDirectory": null,
     "InstrumentationConfiguration": {
       "IsEnabled": null,
@@ -242,6 +244,22 @@ To construct, see NOTES section for GAMECERTIFICATEREFERENCES properties and cre
 
 ```yaml
 Type: PlayFab.Multiplayer.Models.IGameCertificateReferenceParams[]
+Parameter Sets: CreateExpanded1
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -GameSecretReferences
+The game secrets for the build.
+To construct, see NOTES section for GAMESECRETREFERENCES properties and create a hash table.
+
+```yaml
+Type: PlayFab.Multiplayer.Models.IGameSecretReferenceParams[]
 Parameter Sets: CreateExpanded1
 Aliases:
 
@@ -532,6 +550,8 @@ CREATEBUILDWITHMANAGEDCONTAINERREQUEST <ICreateBuildWithManagedContainerRequest>
   - `[GameCertificateReferences <IGameCertificateReferenceParams[]>]`: The game certificates for the build.
     - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
     - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+  - `[GameSecretReferences <IGameSecretReferenceParams[]>]`: The game secrets for the build.
+    - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
   - `[GameWorkingDirectory <String>]`: The directory containing the game executable. This would be the start path of the game assets that contain the main game server executable. If not provided, a best effort will be made to extract it from the start game command.
   - `[InstrumentationConfiguration <IInstrumentationConfiguration>]`: The instrumentation configuration for the build.
     - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
@@ -563,6 +583,9 @@ GAMEASSETREFERENCES <IAssetReferenceParams[]>: The list of game assets related t
 GAMECERTIFICATEREFERENCES <IGameCertificateReferenceParams[]>: The game certificates for the build.
   - `GsdkAlias <String>`: An alias for the game certificate. The game server will reference this alias via GSDK config to retrieve the game certificate. This alias is used as an identifier in game server code to allow a new certificate with different Name field to be uploaded without the need to change any game server code to reference the new Name.
   - `Name <String>`: The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this title.
+
+GAMESECRETREFERENCES <IGameSecretReferenceParams[]>: The game secrets for the build.
+  - `Name <String>`: The name of the game secret. This name should match the name of a secret that was previously added to this title.
 
 INSTRUMENTATIONCONFIGURATION <IInstrumentationConfiguration>: The instrumentation configuration for the build.
   - `[IsEnabled <Boolean?>]`: Designates whether windows instrumentation configuration will be enabled for this Build
