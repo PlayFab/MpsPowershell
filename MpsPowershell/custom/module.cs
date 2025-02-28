@@ -55,7 +55,8 @@ namespace PlayFab.Multiplayer
                 Console.Error.WriteLine($"{request.Method} {request.RequestUri}");
                 Console.Error.WriteLine();
                 foreach (KeyValuePair<string, IEnumerable<string>> header in request.Headers) {
-                    Console.Error.WriteLine($"{header.Key}: {string.Join(",", header.Value)}");
+                    string headerValue = shouldOutputDebug ? string.Join(",", header.Value) : "****";
+                    Console.Error.WriteLine($"{header.Key}: {headerValue}");
                 }
                 Console.Error.WriteLine();
                 Console.Error.WriteLine(requestContent);
@@ -63,7 +64,8 @@ namespace PlayFab.Multiplayer
                 Console.Error.WriteLine();
                 Console.Error.WriteLine();
                 foreach (KeyValuePair<string, IEnumerable<string>> header in response.Headers) {
-                    Console.Error.WriteLine($"{header.Key}: {string.Join(",", header.Value)}");
+                    string headerValue = shouldOutputDebug ? string.Join(",", header.Value) : "****";
+                    Console.Error.WriteLine($"{header.Key}: {headerValue}");
                 }
                 Console.Error.WriteLine();
                 Console.Error.WriteLine(await response.Content.ReadAsStringAsync());

@@ -184,7 +184,7 @@ To create the parameters described below, construct a hash table containing the 
 
 
 NETWORKCONFIGURATION <IPartyNetworkConfiguration>: The network configuration for this request.
-  - `MaxDevices <Single>`: The maximum number of devices allowed to connect to the network. Must be between 1 and 32, inclusive.
+  - `MaxDevices <Single>`: The maximum number of devices allowed to connect to the network. Must be between 1 and 128, inclusive.
   - `MaxDevicesPerUser <Single>`: The maximum number of devices allowed per user. Must be greater than 0.
   - `MaxEndpointsPerDevice <Single>`: The maximum number of endpoints allowed per device. Must be between 0 and 32, inclusive.
   - `MaxUsers <Single>`: The maximum number of unique users allowed in the network. Must be greater than 0.
@@ -199,7 +199,7 @@ NETWORKCONFIGURATION <IPartyNetworkConfiguration>: The network configuration for
 
 REQUESTPARTYSERVICEREQUEST <IRequestPartyServiceRequest>: Requests a party session from a particular set of builds if build alias params is provided, in any of the given preferred regions.
   - `NetworkConfiguration <IPartyNetworkConfiguration>`: The network configuration for this request.
-    - `MaxDevices <Single>`: The maximum number of devices allowed to connect to the network. Must be between 1 and 32, inclusive.
+    - `MaxDevices <Single>`: The maximum number of devices allowed to connect to the network. Must be between 1 and 128, inclusive.
     - `MaxDevicesPerUser <Single>`: The maximum number of devices allowed per user. Must be greater than 0.
     - `MaxEndpointsPerDevice <Single>`: The maximum number of endpoints allowed per device. Must be between 0 and 32, inclusive.
     - `MaxUsers <Single>`: The maximum number of unique users allowed in the network. Must be greater than 0.
